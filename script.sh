@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# chmod +x <fileName>
 
 echo "Installing some basic system utilities."
 
