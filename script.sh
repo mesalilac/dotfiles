@@ -46,7 +46,10 @@ sudo apt install -yy code
 echo -e "\e[92m\e[1mInstalling\e[0m \e[1mnode, npm\e[0m."
 sudo apt install -yy nodejs
 sudo apt install -yy npm
-
+sudo npm cache clean -f
+sudo npm install -g n
+sudo n stable
+sudo apt-get install -yy --reinstall nodejs-legacy
 
 echo -e "\e[92m\e[1mInstalling\e[0m \e[1mpython3\e[0m."
 sudo apt-get install -yy python3
