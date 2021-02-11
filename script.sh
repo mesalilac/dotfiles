@@ -13,7 +13,7 @@ sudo add-apt-repository multiverse
 sudo add-apt-repository restricted
 sudo apt install -yy ubuntu-restricted-extras
 
-sudo apt-get install -yy htop
+sudo apt install -yy htop xdotool 
 
 echo -e "\e[92m\e[1mInstalling\e[0m \e[1mGoogle Chrome\e[0m."
 
