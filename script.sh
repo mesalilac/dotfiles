@@ -13,7 +13,7 @@ sudo add-apt-repository multiverse
 sudo add-apt-repository restricted
 sudo apt install -yy ubuntu-restricted-extras
 
-sudo apt install -yy htop xdotool 
+sudo apt install -yy htop xdotool curl
 
 echo -e "\e[92m\e[1mInstalling\e[0m \e[1mGoogle Chrome\e[0m."
 
@@ -23,7 +23,13 @@ sudo apt install -yy ./google-chrome-stable_current_amd64.deb
 echo -e "\e[92m\e[1mInstalling\e[0m \e[1mSimpleScreenRecorder\e[0m and \e[1mSpotify\e[0m."
 
 sudo apt-get update -qq
-sudo apt-get install -yy simplescreenrecorder spotify-client
+sudo apt-get install -yy simplescreenrecorder
+
+sudo sh -c 'echo "deb http://repository.spotify.com stable non-free" >> /etc/apt/sources.list.d/spotify.list'
+curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add -
+sudo apt update
+sudo apt install -yy spotify-client
+
 
 echo -e "\e[92m\e[1mInstalling\e[0m \e[1mdiscord\e[0m"
 
