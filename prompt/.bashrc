@@ -17,7 +17,7 @@ lightCyan='\033[1;96m'
 lightWhite='\033[1;97m'
 
 prompt () {
-    PS1="[$lightRed\u$reset@\h $lightMagenta\W$reset]\n"
+    PS1="[$lightRed\u$reset@$lightYellow\h $lightMagenta\W$reset]\n"
     PS1+="$lightGreen\$$reset "
 }
 
