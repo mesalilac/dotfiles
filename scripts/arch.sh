@@ -79,6 +79,13 @@ do
             yes | sudo pacman -S wget
             installing "curl"
             yes | sudo pacman -S curl
+	    installing "xbindkeys"
+	    yes | sudo pacman -S xbindkeys
+	    configure "xbindkeys"
+	    echo '"setxkbmap us"' >> ~/.xbindkeysrc
+	    echo -e "\tAlt+Shift+1" >> ~/.xbindkeysrc
+	    echo '"setxkbmap ara"' >> ~/.xbindkeysrc
+	    echo -e "\tAlt+Shift+2" >> ~/.xbindkeysrc
             ;;
         "install kitty")
             cd ~
