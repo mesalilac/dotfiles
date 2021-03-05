@@ -90,7 +90,7 @@ do
         "install kitty")
             cd ~
             installing "kitty"
-            # yes | sudo pacman -S kitty && echo -e "\n"
+            yes | sudo pacman -S kitty && echo -e "\n"
             configure "kitty"; echo -e "\n"
 
 
