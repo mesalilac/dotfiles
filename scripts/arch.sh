@@ -82,8 +82,6 @@ do
 	    installing "xbindkeys"
 	    yes | sudo pacman -S xbindkeys
 	    configure "xbindkeys"
-        echo '"scrot"' >> ~/.xbindkeysrc
-        echo -e "\tAlt+Shift+End" >> ~/.xbindkeysrc
 	    echo '"setxkbmap us"' >> ~/.xbindkeysrc
 	    echo -e "\tAlt+Shift+1" >> ~/.xbindkeysrc
 	    echo '"setxkbmap ara"' >> ~/.xbindkeysrc
