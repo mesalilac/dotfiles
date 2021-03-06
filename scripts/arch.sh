@@ -10,11 +10,31 @@ configure () {
 
 
 PS3='Please enter your choice: '
-options=("install all packages" "install kitty" "install st" "Quit")
+options=("install dwm" "install all packages" "install kitty" "install st" "Quit")
 
 select opt in "${options[@]}"
 do
     case $opt in
+        "install dwm")
+            installing "dwm"
+            mkdir -p ~/wm
+            cd ~/wm &&
+            git clone https://github.com/Senpai-10/dwm.git &&
+            cd dwm
+            sudo make install &&
+            cd ..
+            installing "dmenu"
+            git clone https://github.com/Senpai-10/dmenu.git &&
+            cd dmenu
+            sudo make install &&
+            cd ..
+            installing "slstatus"
+            git clone https://github.com/Senpai-10/slstatus.git &&
+            cd slstatus
+            sudo make install &&
+            cd ..
+            ;;
+
         "install all packages")
             cd ~
             installing "zip"
@@ -79,13 +99,13 @@ do
             yes | sudo pacman -S wget
             installing "curl"
             yes | sudo pacman -S curl
-	    installing "xbindkeys"
-	    yes | sudo pacman -S xbindkeys
-	    configure "xbindkeys"
-	    echo '"setxkbmap us"' >> ~/.xbindkeysrc
-	    echo -e "\tAlt+Shift+1" >> ~/.xbindkeysrc
-	    echo '"setxkbmap ara"' >> ~/.xbindkeysrc
-	    echo -e "\tAlt+Shift+2" >> ~/.xbindkeysrc
+            installing "xbindkeys"
+            yes | sudo pacman -S xbindkeys
+            configure "xbindkeys"
+            echo '"setxkbmap us"' >> ~/.xbindkeysrc
+            echo -e "\tAlt+Shift+1" >> ~/.xbindkeysrc
+            echo '"setxkbmap ara"' >> ~/.xbindkeysrc
+            echo -e "\tAlt+Shift+2" >> ~/.xbindkeysrc
             ;;
         "install kitty")
             cd ~
