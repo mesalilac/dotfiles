@@ -43,6 +43,10 @@ main () {
     then
         clear
         cd ~
+        installing "lf"
+        yay -S lf
+        installing "w3m"
+        yay -S w3m
         installing "zip"
         yes | sudo pacman -S zip
         installing "unzip"
