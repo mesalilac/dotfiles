@@ -25,6 +25,7 @@ prompt () {
 alias ls='ls --color=auto'
 alias cnf='clear && neofetch'
 alias icat="kitty +kitten icat"
+alias ..="cd .."
 
 # set bash history size
 HISTSIZE=10000
