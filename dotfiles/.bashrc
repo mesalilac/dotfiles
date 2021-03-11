@@ -24,7 +24,7 @@ prompt () {
 # aliases 
 alias ls='ls --color=auto'
 alias cnf='clear && neofetch'
-#alias rkl="sudo python3 ~/Keyboard_layout.py"
+alias icat="kitty +kitten icat"
 
 # set bash history size
 HISTSIZE=10000
