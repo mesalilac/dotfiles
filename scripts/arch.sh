@@ -44,8 +44,8 @@ main () {
         clear
         cd ~
         installing "pavucontrol"
-	    yes | sudo pacman -S pavucontrol
-	    installing "nitrogen"
+	yes | sudo pacman -S pavucontrol
+	installing "nitrogen"
         yes | sudo pacman -S nitrogen
         installing "pcmanfm"
         yes | sudo pacman -S pcmanfm
@@ -117,21 +117,21 @@ main () {
         installing "xbindkeys"
         yes | sudo pacman -S xbindkeys
         
-	    installing "dot files"
-	    sudo rm ~/.xbindkeysrc
-	    curl https://raw.githubusercontent.com/Senpai-10/my-linux/main/dotfiles/.xbindkeysrc -o ~/.xbindkeysrc
+	installing "dot files"
+	[ -e ~/.xbindkeysrc ] && rm ~/.xbindkeysrc
+	curl https://raw.githubusercontent.com/Senpai-10/my-linux/main/dotfiles/.xbindkeysrc -o ~/.xbindkeysrc
 
-	    sudo rm ~/.bashrc
-	    curl https://raw.githubusercontent.com/Senpai-10/my-linux/main/dotfiles/.bashrc -o ~/.bashrc
+	[ -e ~/.bashrc ] && rm ~/.bashrc
+	curl https://raw.githubusercontent.com/Senpai-10/my-linux/main/dotfiles/.bashrc -o ~/.bashrc
 
-	    sudo rm ~/.nvimrc
-	    curl https://raw.githubusercontent.com/Senpai-10/my-linux/main/dotfiles/.nvimrc -o ~/.nvimrc
+	[ -e ~/.nvimrc ] && rm ~/.nvimrc
+	curl https://raw.githubusercontent.com/Senpai-10/my-linux/main/dotfiles/.nvimrc -o ~/.nvimrc
 
 
-	    sudo rm ~/.xinitrc
+	[ -e ~/.xinitrc ] && rm ~/.xinitrc
         curl https://raw.githubusercontent.com/Senpai-10/my-linux/main/dotfiles/.xinitrc -o ~/.xinitrc
 
-	    menu=$(echo "back" | smenu -c -W $'\n' -N -M -m "Installation finished")
+	menu=$(echo "back" | smenu -c -W $'\n' -N -M -m "Installation finished")
 
         if [[ $menu == "back" ]]
         then
