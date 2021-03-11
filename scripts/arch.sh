@@ -43,12 +43,12 @@ main () {
     then
         clear
         cd ~
+        installing "nitrogen"
+        yes | sudo pacman -S nitrogen
         installing "pcmanfm"
         yes | sudo pacman -S pcmanfm
         installing "udisks"
         yes | sudo pacman -S udisks2
-        installing "lf"
-        yay -S lf
         installing "w3m"
         yay -S w3m
         installing "zip"
