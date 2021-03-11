@@ -43,6 +43,10 @@ main () {
     then
         clear
         cd ~
+        installing "pcmanfm"
+        yes | sudo pacman -S pcmanfm
+        installing "udisks"
+        yes | sudo pacman -S udisks2
         installing "lf"
         yay -S lf
         installing "w3m"
