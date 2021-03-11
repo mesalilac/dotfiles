@@ -43,7 +43,9 @@ main () {
     then
         clear
         cd ~
-        installing "nitrogen"
+        installing "pavucontrol"
+	    yes | sudo pacman -S pavucontrol
+	    installing "nitrogen"
         yes | sudo pacman -S nitrogen
         installing "pcmanfm"
         yes | sudo pacman -S pcmanfm
@@ -79,7 +81,7 @@ main () {
 
         if [[ $menu == "Firefox" ]]
         then
-            yes | sudo pacman -S firefox
+            sudo pacman -S firefox
         fi
 
         installing "htop"
@@ -88,12 +90,12 @@ main () {
         yes | sudo pacman -S imagemagick
         installing "nodejs"
         yes | sudo pacman -S nodejs
+        installing "npm"
+        yes | sudo pacman -S npm
         installing "noto fonts emoji"
         yes | sudo pacman -S noto-fonts-emoji
         yay -S noto-fonts-sc
 
-        installing "npm"
-        yes | sudo pacman -S npm
         installing "pulseaudio"
         yes | sudo pacman -S pulseaudio
         installing "python3"
@@ -114,14 +116,22 @@ main () {
         yes | sudo pacman -S curl
         installing "xbindkeys"
         yes | sudo pacman -S xbindkeys
-        configure "xbindkeys"
-        echo '"setxkbmap us"' >> ~/.xbindkeysrc
-        echo -e "\tAlt+Shift+1" >> ~/.xbindkeysrc
-        echo '"setxkbmap ara"' >> ~/.xbindkeysrc
-        echo -e "\tAlt+Shift+2" >> ~/.xbindkeysrc
+        
+	    installing "dot files"
+	    sudo rm ~/.xbindkeysrc
+	    curl https://raw.githubusercontent.com/Senpai-10/my-linux/main/dotfiles/.xbindkeysrc -o ~/.xbindkeysrc
+
+	    sudo rm ~/.bashrc
+	    curl https://raw.githubusercontent.com/Senpai-10/my-linux/main/dotfiles/.bashrc -o ~/.bashrc
+
+	    sudo rm ~/.nvimrc
+	    curl https://raw.githubusercontent.com/Senpai-10/my-linux/main/dotfiles/.nvimrc -o ~/.nvimrc
 
 
-        menu=$(echo "back" | smenu -c -W $'\n' -N -M -m "Installation finished")
+	    sudo rm ~/.xinitrc
+        curl https://raw.githubusercontent.com/Senpai-10/my-linux/main/dotfiles/.xinitrc -o ~/.xinitrc
+
+	    menu=$(echo "back" | smenu -c -W $'\n' -N -M -m "Installation finished")
 
         if [[ $menu == "back" ]]
         then
@@ -275,4 +285,3 @@ main () {
 }
 
 main
-
