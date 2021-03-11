@@ -51,6 +51,8 @@ main () {
         yes | sudo pacman -S pcmanfm
         installing "udisks"
         yes | sudo pacman -S udisks2
+	installing "ntfs-3g"
+	yes | sudo pacman -S ntfs-3g
         installing "w3m"
         yay -S w3m
         installing "zip"
