@@ -131,7 +131,7 @@ main () {
 
 
         [ -e ~/.xinitrc ] && rm ~/.xinitrc
-            curl https://raw.githubusercontent.com/Senpai-10/my-linux/main/dotfiles/.xinitrc -o ~/.xinitrc
+        curl https://raw.githubusercontent.com/Senpai-10/my-linux/main/dotfiles/.xinitrc -o ~/.xinitrc
 
         menu=$(echo "back" | smenu -c -W $'\n' -N -M -m "Installation finished")
 
