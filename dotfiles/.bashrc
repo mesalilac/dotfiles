@@ -4,6 +4,7 @@
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
+[[ -f ~/.env ]] && . ~/.env
 
 # colors
 reset='\033[0m'
