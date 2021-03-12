@@ -1,8 +1,11 @@
 "check=$(echo -e "yes\nno" | dmenu -p "are you sure you want to shutdown your computer?"); [ $check == "yes" ] && shutdown now"
    Mod4+x
 
-"cd ~ && scrot"
+"cd ~/Screenshots && scrot"
     Alt+Shift+6
+
+"cd ~/Screenshots && scrot -s"
+    Alt+Shift+7
 
 "setxkbmap us"
    Alt+Shift+1
