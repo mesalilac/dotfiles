@@ -143,6 +143,8 @@ main () {
         mkdir -p ~/Videos
         mkdir -p ~/Screenshots
 
+        [ -f ~/.env ] || touch ~/.env
+
         menu=$(echo "back" | smenu -c -W $'\n' -N -M -m "Installation finished")
 
         if [[ $menu == "back" ]]
