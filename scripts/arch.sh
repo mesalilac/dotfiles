@@ -43,6 +43,8 @@ main () {
     then
         clear
         cd ~
+        installing "vlc"
+        yes | sudo pacamn -S vlc
         installing "pavucontrol"
         yes | sudo pacman -S pavucontrol
         installing "nitrogen"
@@ -132,6 +134,14 @@ main () {
 
         [ -e ~/.xinitrc ] && rm ~/.xinitrc
         curl https://raw.githubusercontent.com/Senpai-10/my-linux/main/dotfiles/.xinitrc -o ~/.xinitrc
+
+        echo "- \033[1;94msetup user folders\033[0m"
+        mkdir -p ~/Documents
+        mkdir -p ~/Pictures
+        mkdir -p ~/Downloads
+        mkdir -p ~/Music
+        mkdir -p ~/Videos
+        mkdir -p ~/Screenshots
 
         menu=$(echo "back" | smenu -c -W $'\n' -N -M -m "Installation finished")
 
@@ -268,6 +278,14 @@ main () {
             menu=$(echo "1\n.9\n.8\n.7\n.6\n.5\n.4\n.3\n.2\n.1" | smenu -c -W $'\n' -n10 -N -M -m "background_opacity")
 
             echo "background_opacity $menu" >> ~/.config/kitty/kitty.conf
+        
+            menu=$(echo "back" | smenu -c -W $'\n' -N -M -m "Installation finished")
+
+            if [[ $menu == "back" ]]
+            then
+                clear
+                main
+            fi
         fi
 
         if [[ $menu == "back" ]]
@@ -283,7 +301,6 @@ main () {
         clear
         exit
     fi
-
 }
 
 main
