@@ -55,6 +55,8 @@ main () {
         yes | sudo pacman -S zip
         installing "unzip"
         yes | sudo pacman -S unzip
+        installing "wget"
+        yes | sudo pacman -S wget
 
         installing "fonts"
         installing "ttf-dejavu"
@@ -67,6 +69,8 @@ main () {
         yes | sudo pacman -S noto-fonts-emoji
         installing "noto-fonts-sc"
         yay -S noto-fonts-sc
+        yay -S ttf-ms-fonts
+        
         cd Downloads
         wget https://support.steampowered.com/downloads/1974-YFKL-4947/SteamFonts.zip
         unzip SteamFonts.zip -d SteamFonts/ && rm SteamFonts.zip
@@ -74,6 +78,9 @@ main () {
         sudo mv SteamFonts/* /usr/local/share/fonts
         rm -rf SteamFonts/
         cd ~
+
+        
+
 
         installing "vlc"
         yes | sudo pacamn -S vlc
@@ -138,8 +145,6 @@ main () {
         yes | sudo pacman -S scrot
         installing "which"
         yes | sudo pacman -S which
-        installing "wget"
-        yes | sudo pacman -S wget
         installing "curl"
         yes | sudo pacman -S curl
         installing "xbindkeys"
