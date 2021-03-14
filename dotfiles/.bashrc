@@ -29,7 +29,7 @@ alias icat="kitty +kitten icat"
 alias ..="cd .."
 
 # set bash history size
-HISTSIZE=10000
+HISTSIZE=HISTSIZE
 
 prompt
 neofetch
