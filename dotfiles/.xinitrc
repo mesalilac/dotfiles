@@ -30,5 +30,3 @@ xbindkeys &
 picom -f &
 nitrogen --restore &
 
-exec slstatus &
-exec dwm
