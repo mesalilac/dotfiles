@@ -43,6 +43,19 @@ main () {
     then
         clear
         cd ~
+        installing "fonts"
+        installing "ttf-dejavu"
+        yes | sudo pacman -S ttf-dejavu
+        installing "ttf-liberation"
+        yes | sudo pacman -S ttf-liberation
+
+        installing "ttf font awesome"
+        yes | sudo pacman -S ttf-font-awesome
+        installing "noto fonts emoji"
+        yes | sudo pacman -S noto-fonts-emoji
+        installing "noto-fonts-sc"
+        yay -S noto-fonts-sc
+
         installing "vlc"
         yes | sudo pacamn -S vlc
         installing "pavucontrol"
@@ -96,9 +109,7 @@ main () {
         yes | sudo pacman -S nodejs
         installing "npm"
         yes | sudo pacman -S npm
-        installing "noto fonts emoji"
-        yes | sudo pacman -S noto-fonts-emoji
-        yay -S noto-fonts-sc
+        
 
         installing "pulseaudio"
         yes | sudo pacman -S pulseaudio
@@ -110,8 +121,6 @@ main () {
         yes | sudo pacman -S rxvt-unicode
         installing "scrot"
         yes | sudo pacman -S scrot
-        installing "ttf font awesome"
-        yes | sudo pacman -S ttf-font-awesome
         installing "which"
         yes | sudo pacman -S which
         installing "wget"
@@ -135,6 +144,8 @@ main () {
         [ -e ~/.xinitrc ] && rm ~/.xinitrc
         curl https://raw.githubusercontent.com/Senpai-10/my-linux/main/dotfiles/.xinitrc -o ~/.xinitrc
 
+        [ -f ~/.env ] || touch ~/.env
+
         echo "- \033[1;94msetup user folders\033[0m"
         mkdir -p ~/Documents
         mkdir -p ~/Pictures
@@ -143,15 +154,9 @@ main () {
         mkdir -p ~/Videos
         mkdir -p ~/Screenshots
 
-        [ -f ~/.env ] || touch ~/.env
 
         menu=$(echo "back" | smenu -c -W $'\n' -N -M -m "Installation finished")
-
-        if [[ $menu == "back" ]]
-        then
-            clear
-            main
-        fi
+        [[ $menu == "back" ]] && clear; main
 
     fi
 
@@ -159,7 +164,7 @@ main () {
     then
         clear
         
-        menu=$(echo "dwm\nback" | smenu -c -W $'\n' -N -M -m "$option_2")
+        menu=$(echo "dwm\nopenbox\nback" | smenu -c -W $'\n' -N -M -m "$option_2")
 
         if [[ $menu == "dwm" ]]
         then
@@ -183,23 +188,23 @@ main () {
             cd slstatus
             sudo make install &&
             cd ..
+            
+            echo "exec slstatus &" >> ~/.xinitrc
+            echo "exec dwm" >> ~/.xinitrc
 
-            clear
             menu=$(echo "back" | smenu -c -W $'\n' -N -M -m "Installation finished")
-
-            if [[ $menu == "back" ]]
-            then
-                clear
-                main
-            fi
+            [[ $menu == "back" ]] && clear; main
 
         fi
 
-        if [[ $menu == "back" ]]
+        if [[ $menu == "openbox" ]]
         then
-            clear
-            main
+            yes | sudo pacman -S openbox
+            echo "openbox" >> ~/.xinitrc
         fi
+
+        [[ $menu == "back" ]] && clear; main
+
     fi
 
     if [[ $menu == $option_3 ]]
