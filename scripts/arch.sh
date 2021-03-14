@@ -43,18 +43,37 @@ main () {
     then
         clear
         cd ~
+        echo "- \033[1;94msetup user folders\033[0m"
+        mkdir -p ~/Documents
+        mkdir -p ~/Pictures
+        mkdir -p ~/Downloads
+        mkdir -p ~/Music
+        mkdir -p ~/Videos
+        mkdir -p ~/Screenshots
+
+        installing "zip"
+        yes | sudo pacman -S zip
+        installing "unzip"
+        yes | sudo pacman -S unzip
+
         installing "fonts"
         installing "ttf-dejavu"
         yes | sudo pacman -S ttf-dejavu
         installing "ttf-liberation"
         yes | sudo pacman -S ttf-liberation
-
         installing "ttf font awesome"
         yes | sudo pacman -S ttf-font-awesome
         installing "noto fonts emoji"
         yes | sudo pacman -S noto-fonts-emoji
         installing "noto-fonts-sc"
         yay -S noto-fonts-sc
+        cd Downloads
+        wget https://support.steampowered.com/downloads/1974-YFKL-4947/SteamFonts.zip
+        unzip SteamFonts.zip -d SteamFonts/ && rm SteamFonts.zip
+        mkdir -p /usr/local/share/fonts
+        sudo mv SteamFonts/* /usr/local/share/fonts
+        rm -rf SteamFonts/
+        cd ~
 
         installing "vlc"
         yes | sudo pacamn -S vlc
@@ -70,10 +89,6 @@ main () {
         yes | sudo pacman -S ntfs-3g
         installing "w3m"
         yay -S w3m
-        installing "zip"
-        yes | sudo pacman -S zip
-        installing "unzip"
-        yes | sudo pacman -S unzip
         installing "neofetch"
         yes | sudo pacman -S neofetch
         installing "neovim"
@@ -146,13 +161,7 @@ main () {
 
         [ -f ~/.env ] || touch ~/.env
 
-        echo "- \033[1;94msetup user folders\033[0m"
-        mkdir -p ~/Documents
-        mkdir -p ~/Pictures
-        mkdir -p ~/Downloads
-        mkdir -p ~/Music
-        mkdir -p ~/Videos
-        mkdir -p ~/Screenshots
+        
 
 
         menu=$(echo "back" | smenu -c -W $'\n' -N -M -m "Installation finished")
