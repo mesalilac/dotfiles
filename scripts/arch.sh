@@ -201,6 +201,9 @@ main () {
         then
             yes | sudo pacman -S openbox
             echo "openbox" >> ~/.xinitrc
+
+            menu=$(echo "back" | smenu -c -W $'\n' -N -M -m "Installation finished")
+            [[ $menu == "back" ]] && clear; main
         fi
 
         [[ $menu == "back" ]] && clear; main
