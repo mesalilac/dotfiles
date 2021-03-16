@@ -81,15 +81,16 @@ main () {
 
         
 
-
+        installing "nemo"
+        yes | sudo pacman -S nemo
         installing "vlc"
         yes | sudo pacamn -S vlc
         installing "pavucontrol"
         yes | sudo pacman -S pavucontrol
         installing "nitrogen"
         yes | sudo pacman -S nitrogen
-        installing "pcmanfm"
-        yes | sudo pacman -S pcmanfm
+        #installing "pcmanfm"
+        #yes | sudo pacman -S pcmanfm
         installing "udisks"
         yes | sudo pacman -S udisks2
         installing "ntfs-3g"
