@@ -100,15 +100,9 @@ packages () {
         
     menu=$(echo "GoogleChrome\nFirefox" | smenu -c -W $'\n' -N -M -m "browser")
 
-    if [[ $menu == "GoogleChrome" ]]
-    then
-        yay -S google-chrome
-    fi
+    [[ $menu == "GoogleChrome" ]] && yay -S google-chrome
 
-    if [[ $menu == "Firefox" ]]
-    then
-        sudo pacman -S firefox
-    fi
+    [[ $menu == "Firefox" ]] && sudo pacman -S firefox
 
     installing "htop"
     yes | sudo pacman -S htop
@@ -159,6 +153,110 @@ packages () {
     [[ $menu == "back" ]] && clear; main
 }
 
+window_manager () {
+    menu=$(echo "dwm\nback" | smenu -c -W $'\n' -N -M -m "$option_2")
+
+    if [[ $menu == "dwm" ]]
+    then
+        clear
+        installing "dwm"
+        mkdir -p ~/wm
+        cd ~/wm &&
+        git clone https://github.com/Senpai-10/dwm.git &&
+        cd dwm
+        sudo make install &&
+        cd ..
+
+        installing "dmenu"
+        git clone https://github.com/Senpai-10/dmenu.git &&
+        cd dmenu
+        sudo make install &&
+        cd ..
+            
+        installing "slstatus"
+        git clone https://github.com/Senpai-10/slstatus.git &&
+        cd slstatus
+        sudo make install &&
+        cd ..
+            
+        echo "exec slstatus &" >> ~/.xinitrc
+        echo "exec dwm" >> ~/.xinitrc
+    fi
+
+    menu=$(echo "back" | smenu -c -W $'\n' -N -M -m "Installation finished")
+    [[ $menu == "back" ]] && clear; main
+}
+
+
+terminal () {
+    menu=$(echo "st\nkitty\nback" | smenu -c -W $'\n' -N -M -m $option_3)
+
+    if [[ $menu == "st" ]]
+    then
+        clear
+        menu=$(echo "Luke st\nsuckless st\nback" | smenu -c -W $'\n' -N -M -m "st build")
+
+        if [[ $menu == "Luke st" ]]
+        then
+            installing "Luke's fork of st"
+            cd ~
+            git clone https://github.com/LukeSmithxyz/st
+            cd st
+            sudo make install
+            cd ~
+        fi
+
+        if [[ $menu == "suckless st" ]]
+        then
+            installing "suckless st"
+            cd ~
+            git clone https://git.suckless.org/st
+            cd st
+            sudo make install
+            cd ~
+        fi
+
+        menu=$(echo "back" | smenu -c -W $'\n' -N -M -m "Installation finished")
+        [[ $menu == "back" ]] && clear; main
+    fi
+
+    if [[ $menu == "kitty" ]]
+    then
+        installing "kitty"
+        yes | sudo pacman -S kitty && echo -e "\n"
+        configure "kitty"; echo -e "\n"
+        clear
+
+        menu=$(echo "Theme (1)\ndefault" | smenu -c -W $'\n' -N -M -m "kitty Theme")
+
+        if [[ $menu == "Theme (1)" ]]
+        then
+            mkdir -p ~/.config/kitty/themes
+            curl https://raw.githubusercontent.com/Senpai-10/$repo/main/themes/1/1.conf \
+            -o ~/.config/kitty/themes/1.conf
+
+            echo "include ~/.config/kitty/themes/1.conf" >> ~/.config/kitty/kitty.conf
+        fi
+
+        clear
+        menu=$(echo "y\nn" | smenu -c -W $'\n' -N -M -m "sync_to_monitor")
+
+        [[ $menu == "y" ]] && echo "sync_to_monitor yes" >> ~/.config/kitty/kitty.conf
+        
+        clear
+
+        menu=$(echo "1\n.9\n.8\n.7\n.6\n.5\n.4\n.3\n.2\n.1" | smenu -c -W $'\n' -n10 -N -M -m "background_opacity")
+
+        echo "background_opacity $menu" >> ~/.config/kitty/kitty.conf
+        
+        menu=$(echo "back" | smenu -c -W $'\n' -N -M -m "Installation finished")
+        [[ $menu == "back" ]] && clear; main
+    fi
+
+    [[ $menu == "back" ]] && clear; main
+}
+
+
 main () {
 
     option_1="Packages"
@@ -166,165 +264,18 @@ main () {
     option_3="Terminal"
     option_4="Quit"
 
-    options="
-    $option_1\n$option_2\n$option_3\n$option_4
-    "
+    options="$option_1\n$option_2\n$option_3\n$option_4"
 
     menu=$(echo $options | smenu -c -W $'\n' -N -M -m "install")
 
     [[ $menu == $option_1 ]] && clear && packages
-    
-    if [[ $menu == $option_2 ]]
-    then
-        clear
-        
-        menu=$(echo "dwm\nopenbox\nback" | smenu -c -W $'\n' -N -M -m "$option_2")
 
-        if [[ $menu == "dwm" ]]
-        then
-            clear
-            installing "dwm"
-            mkdir -p ~/wm
-            cd ~/wm &&
-            git clone https://github.com/Senpai-10/dwm.git &&
-            cd dwm
-            sudo make install &&
-            cd ..
+    [[ $menu == $option_2 ]] && clear && window_manager
 
-            installing "dmenu"
-            git clone https://github.com/Senpai-10/dmenu.git &&
-            cd dmenu
-            sudo make install &&
-            cd ..
-            
-            installing "slstatus"
-            git clone https://github.com/Senpai-10/slstatus.git &&
-            cd slstatus
-            sudo make install &&
-            cd ..
-            
-            echo "exec slstatus &" >> ~/.xinitrc
-            echo "exec dwm" >> ~/.xinitrc
+    [[ $menu == $option_3 ]] && clear && terminal
 
-            menu=$(echo "back" | smenu -c -W $'\n' -N -M -m "Installation finished")
-            [[ $menu == "back" ]] && clear; main
+    [[ $menu == $option_4 ]] && clear && exit
 
-        fi
-
-        if [[ $menu == "openbox" ]]
-        then
-            yes | sudo pacman -S openbox
-            echo "openbox" >> ~/.xinitrc
-
-            menu=$(echo "back" | smenu -c -W $'\n' -N -M -m "Installation finished")
-            [[ $menu == "back" ]] && clear; main
-        fi
-
-        [[ $menu == "back" ]] && clear; main
-
-    fi
-
-    if [[ $menu == $option_3 ]]
-    then
-        clear
-
-        menu=$(echo "st\nkitty\nback" | smenu -c -W $'\n' -N -M -m $option_3)
-
-        if [[ $menu == "st" ]]
-        then
-            clear
-            menu=$(echo "Luke st\nsuckless st\nback" | smenu -c -W $'\n' -N -M -m "st build")
-
-            if [[ $menu == "Luke st" ]]
-            then
-                installing "Luke's fork of st"
-                cd ~
-                git clone https://github.com/LukeSmithxyz/st
-                cd st
-                sudo make install
-                cd ~
-
-                clear
-                menu=$(echo "back" | smenu -c -W $'\n' -N -M -m "Installation finished")
-
-                if [[ $menu == "back" ]]
-                then
-                    clear
-                    main
-                fi
-
-            fi
-
-            if [[ $menu == "suckless st" ]]
-            then
-                cd ~
-                git clone https://git.suckless.org/st
-                cd st
-                sudo make install
-                cd ~
-            fi
-
-            if [[ $menu == "back" ]]
-            then
-                clear
-                main
-            fi
-        fi
-
-        if [[ $menu == "kitty" ]]
-        then
-            installing "kitty"
-            yes | sudo pacman -S kitty && echo -e "\n"
-            configure "kitty"; echo -e "\n"
-            clear
-
-            menu=$(echo "Theme (1)\ndefault" | smenu -c -W $'\n' -N -M -m "kitty Theme")
-
-            if [[ $menu == "Theme (1)" ]]
-            then
-                mkdir -p ~/.config/kitty/themes
-                curl https://raw.githubusercontent.com/Senpai-10/$repo/main/themes/1/1.conf \
-                -o ~/.config/kitty/themes/1.conf
-
-                echo "include ~/.config/kitty/themes/1.conf" >> ~/.config/kitty/kitty.conf
-            fi
-
-            clear
-            menu=$(echo "y\nn" | smenu -c -W $'\n' -N -M -m "sync_to_monitor")
-
-            if [[ $menu == "y" ]]
-            then
-                echo "sync_to_monitor yes" >> ~/.config/kitty/kitty.conf
-            fi
-
-            clear
-
-            menu=$(echo "1\n.9\n.8\n.7\n.6\n.5\n.4\n.3\n.2\n.1" | smenu -c -W $'\n' -n10 -N -M -m "background_opacity")
-
-            echo "background_opacity $menu" >> ~/.config/kitty/kitty.conf
-        
-            menu=$(echo "back" | smenu -c -W $'\n' -N -M -m "Installation finished")
-
-            if [[ $menu == "back" ]]
-            then
-                clear
-                main
-            fi
-        fi
-
-        if [[ $menu == "back" ]]
-        then
-            clear
-            main
-        fi
-
-    fi
-
-    if [[ $menu == $option_4 ]]
-    then
-        clear
-        exit
-    fi
 }
 
 main
