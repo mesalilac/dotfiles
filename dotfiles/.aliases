@@ -1,0 +1,8 @@
+alias ls='ls --color=auto'
+alias la="ls -A"
+alias ll="ls -lh"
+alias lla="ls -Alh"
+
+alias cnf='clear && neofetch'
+alias icat="kitty +kitten icat"
+alias ..="cd .."
