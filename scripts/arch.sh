@@ -1,5 +1,7 @@
 #! /bin/bash
 
+repo="my-linux"
+
 installing () {
     echo -e "- \e[92m\e[1mInstalling $1\e[0m"
 }
@@ -152,22 +154,22 @@ main () {
         yes | sudo pacman -S xbindkeys
         
         installing "dot files"
-        [ -e ~/.xbindkeysrc ] && rm ~/.xbindkeysrc
-        curl https://raw.githubusercontent.com/Senpai-10/my-linux/main/dotfiles/.xbindkeysrc -o ~/.xbindkeysrc
+        [[ -e ~/.xbindkeysrc ]] && rm ~/.xbindkeysrc
+        curl https://raw.githubusercontent.com/Senpai-10/$repo/main/dotfiles/.xbindkeysrc -o ~/.xbindkeysrc
 
-        [ -e ~/.bashrc ] && rm ~/.bashrc
-        curl https://raw.githubusercontent.com/Senpai-10/my-linux/main/dotfiles/.bashrc -o ~/.bashrc
+        [[ -e ~/.nvimrc ]] && rm ~/.nvimrc
+        curl https://raw.githubusercontent.com/Senpai-10/$repo/main/dotfiles/.nvimrc -o ~/.nvimrc
 
-        [ -e ~/.nvimrc ] && rm ~/.nvimrc
-        curl https://raw.githubusercontent.com/Senpai-10/my-linux/main/dotfiles/.nvimrc -o ~/.nvimrc
+        [[ -e ~/.xinitrc ]] && rm ~/.xinitrc
+        curl https://raw.githubusercontent.com/Senpai-10/$repo/main/dotfiles/.xinitrc -o ~/.xinitrc
+
+        [[ -e ~/.bashrc ]] && rm ~/.bashrc
+        curl https://raw.githubusercontent.com/Senpai-10/$repo/main/dotfiles/.bashrc -o ~/.bashrc
 
 
-        [ -e ~/.xinitrc ] && rm ~/.xinitrc
-        curl https://raw.githubusercontent.com/Senpai-10/my-linux/main/dotfiles/.xinitrc -o ~/.xinitrc
+        [[ -f ~/.env ]] || touch ~/.env
 
-        [ -f ~/.env ] || touch ~/.env
-
-        
+        curl https://raw.githubusercontent.com/Senpai-10/$repo/main/dotfiles/.aliases -o ~/.aliases
 
 
         menu=$(echo "back" | smenu -c -W $'\n' -N -M -m "Installation finished")
@@ -284,7 +286,7 @@ main () {
             if [[ $menu == "Theme (1)" ]]
             then
                 mkdir -p ~/.config/kitty/themes
-                curl https://raw.githubusercontent.com/Senpai-10/my-linux/main/themes/1/1.conf \
+                curl https://raw.githubusercontent.com/Senpai-10/$repo/main/themes/1/1.conf \
                 -o ~/.config/kitty/themes/1.conf
 
                 echo "include ~/.config/kitty/themes/1.conf" >> ~/.config/kitty/kitty.conf
