@@ -227,7 +227,7 @@ terminal () {
         configure "kitty"; echo -e "\n"
         clear
 
-        menu=$(echo "Theme (1)\ndefault" | smenu -c -W $'\n' -N -M -m "kitty Theme")
+        menu=$(echo "Theme (1)\nTheme (2)\ndefault" | smenu -c -W $'\n' -N -M -m "kitty Theme")
 
         if [[ $menu == "Theme (1)" ]]
         then
@@ -236,6 +236,15 @@ terminal () {
             -o ~/.config/kitty/themes/1.conf
 
             echo "include ~/.config/kitty/themes/1.conf" >> ~/.config/kitty/kitty.conf
+        fi
+
+        if [[ $menu == "Theme (2)" ]]
+        then
+            mkdir -p ~/.config/kitty/themes
+            curl https://raw.githubusercontent.com/Senpai-10/$repo/main/themes/2/2.conf \
+            -o ~/.config/kitty/themes/2.conf
+
+            echo "include ~/.config/kitty/themes/2.conf" >> ~/.config/kitty/kitty.conf
         fi
 
         clear
