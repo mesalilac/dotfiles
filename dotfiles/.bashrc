@@ -2,11 +2,12 @@
 # ~/.bashrc
 #
 
-# If not running interactively, don't do anything
+
 [[ $- != *i* ]] && return
 [[ -f ~/.env ]] && . ~/.env
+[[ -f ~/.aliases ]] && . ~/.aliases
 
-# colors
+
 reset='\033[0m'
 lightBlack='\033[1;90m'
 lightRed='\033[1;91m'
@@ -22,13 +23,7 @@ prompt () {
     PS1+="$lightGreen\$$reset "
 }
 
-# aliases 
-alias ls='ls --color=auto'
-alias cnf='clear && neofetch'
-alias icat="kitty +kitten icat"
-alias ..="cd .."
 
-# set bash history size
 HISTSIZE=HISTSIZE
 
 prompt
