@@ -28,6 +28,137 @@ fi
 
 clear
 
+packages () {
+    cd ~
+    echo -e "- \033[1;94msetup user folders\033[0m"
+    mkdir -p ~/Documents
+    mkdir -p ~/Pictures
+    mkdir -p ~/Downloads
+    mkdir -p ~/Music
+    mkdir -p ~/Videos
+    mkdir -p ~/Screenshots
+
+    installing "zip"
+    yes | sudo pacman -S zip
+    installing "unzip"
+    yes | sudo pacman -S unzip
+    installing "wget"
+    yes | sudo pacman -S wget
+
+    installing "fonts"
+    installing "ttf-dejavu"
+    yes | sudo pacman -S ttf-dejavu
+    installing "ttf-liberation"
+    yes | sudo pacman -S ttf-liberation
+    installing "ttf font awesome"
+    yes | sudo pacman -S ttf-font-awesome
+    installing "noto fonts emoji"
+    yes | sudo pacman -S noto-fonts-emoji
+    installing "noto-fonts-sc"
+    yay -S noto-fonts-sc
+    yay -S ttf-ms-fonts
+        
+    cd Downloads
+    wget https://support.steampowered.com/downloads/1974-YFKL-4947/SteamFonts.zip
+    unzip SteamFonts.zip -d SteamFonts/ && rm SteamFonts.zip
+    mkdir -p /usr/local/share/fonts
+    sudo mv SteamFonts/* /usr/local/share/fonts
+    rm -rf SteamFonts/
+    cd ~
+        
+
+    installing "nemo"
+    yes | sudo pacman -S nemo
+    installing "vlc"
+    yes | sudo pacamn -S vlc
+    installing "pavucontrol"
+    yes | sudo pacman -S pavucontrol
+    installing "nitrogen"
+    yes | sudo pacman -S nitrogen
+    #installing "pcmanfm"
+    #yes | sudo pacman -S pcmanfm
+    installing "udisks"
+    yes | sudo pacman -S udisks2
+    installing "ntfs-3g"
+    yes | sudo pacman -S ntfs-3g
+    installing "w3m"
+    yay -S w3m
+    installing "neofetch"
+    yes | sudo pacman -S neofetch
+    installing "neovim"
+    yes | sudo pacman -S neovim
+    installing "alsa-utils"
+    yes | sudo pacman -S alsa-utils
+    installing "vscode"
+    yes | sudo pacman -S code
+    installing "discord"
+    yes | sudo pacman -S discord
+    installing "feh"
+    yes | sudo pacman -S feh
+    installing "git"
+    yes | sudo pacman -S git
+        
+    menu=$(echo "GoogleChrome\nFirefox" | smenu -c -W $'\n' -N -M -m "browser")
+
+    if [[ $menu == "GoogleChrome" ]]
+    then
+        yay -S google-chrome
+    fi
+
+    if [[ $menu == "Firefox" ]]
+    then
+        sudo pacman -S firefox
+    fi
+
+    installing "htop"
+    yes | sudo pacman -S htop
+    installing "imagemagick"
+    yes | sudo pacman -S imagemagick
+    installing "nodejs"
+    yes | sudo pacman -S nodejs
+    installing "npm"
+    yes | sudo pacman -S npm
+        
+
+    installing "pulseaudio"
+    yes | sudo pacman -S pulseaudio
+    installing "python3"
+    yes | sudo pacman -S python3
+    installing "python pip"
+    yes | sudo pacman -S python-pip
+    installing "rxvt unicode"
+    yes | sudo pacman -S rxvt-unicode
+    installing "scrot"
+    yes | sudo pacman -S scrot
+    installing "which"
+    yes | sudo pacman -S which
+    installing "curl"
+    yes | sudo pacman -S curl
+    installing "xbindkeys"
+    yes | sudo pacman -S xbindkeys
+        
+    installing "dot files"
+    [[ -e ~/.xbindkeysrc ]] && rm ~/.xbindkeysrc
+    curl https://raw.githubusercontent.com/Senpai-10/$repo/main/dotfiles/.xbindkeysrc -o ~/.xbindkeysrc
+
+    [[ -e ~/.nvimrc ]] && rm ~/.nvimrc
+    curl https://raw.githubusercontent.com/Senpai-10/$repo/main/dotfiles/.nvimrc -o ~/.nvimrc
+
+    [[ -e ~/.xinitrc ]] && rm ~/.xinitrc
+    curl https://raw.githubusercontent.com/Senpai-10/$repo/main/dotfiles/.xinitrc -o ~/.xinitrc
+
+    [[ -e ~/.bashrc ]] && rm ~/.bashrc
+    curl https://raw.githubusercontent.com/Senpai-10/$repo/main/dotfiles/.bashrc -o ~/.bashrc
+
+
+    [[ -f ~/.env ]] || touch ~/.env
+
+    curl https://raw.githubusercontent.com/Senpai-10/$repo/main/dotfiles/.aliases -o ~/.aliases
+
+    menu=$(echo "back" | smenu -c -W $'\n' -N -M -m "Installation finished")
+    [[ $menu == "back" ]] && clear; main
+}
+
 main () {
 
     option_1="Packages"
@@ -41,142 +172,8 @@ main () {
 
     menu=$(echo $options | smenu -c -W $'\n' -N -M -m "install")
 
-    if [[ $menu == $option_1 ]]
-    then
-        clear
-        cd ~
-        echo "- \033[1;94msetup user folders\033[0m"
-        mkdir -p ~/Documents
-        mkdir -p ~/Pictures
-        mkdir -p ~/Downloads
-        mkdir -p ~/Music
-        mkdir -p ~/Videos
-        mkdir -p ~/Screenshots
-
-        installing "zip"
-        yes | sudo pacman -S zip
-        installing "unzip"
-        yes | sudo pacman -S unzip
-        installing "wget"
-        yes | sudo pacman -S wget
-
-        installing "fonts"
-        installing "ttf-dejavu"
-        yes | sudo pacman -S ttf-dejavu
-        installing "ttf-liberation"
-        yes | sudo pacman -S ttf-liberation
-        installing "ttf font awesome"
-        yes | sudo pacman -S ttf-font-awesome
-        installing "noto fonts emoji"
-        yes | sudo pacman -S noto-fonts-emoji
-        installing "noto-fonts-sc"
-        yay -S noto-fonts-sc
-        yay -S ttf-ms-fonts
-        
-        cd Downloads
-        wget https://support.steampowered.com/downloads/1974-YFKL-4947/SteamFonts.zip
-        unzip SteamFonts.zip -d SteamFonts/ && rm SteamFonts.zip
-        mkdir -p /usr/local/share/fonts
-        sudo mv SteamFonts/* /usr/local/share/fonts
-        rm -rf SteamFonts/
-        cd ~
-
-        
-
-        installing "nemo"
-        yes | sudo pacman -S nemo
-        installing "vlc"
-        yes | sudo pacamn -S vlc
-        installing "pavucontrol"
-        yes | sudo pacman -S pavucontrol
-        installing "nitrogen"
-        yes | sudo pacman -S nitrogen
-        #installing "pcmanfm"
-        #yes | sudo pacman -S pcmanfm
-        installing "udisks"
-        yes | sudo pacman -S udisks2
-        installing "ntfs-3g"
-        yes | sudo pacman -S ntfs-3g
-        installing "w3m"
-        yay -S w3m
-        installing "neofetch"
-        yes | sudo pacman -S neofetch
-        installing "neovim"
-        yes | sudo pacman -S neovim
-        installing "alsa-utils"
-        yes | sudo pacman -S alsa-utils
-        installing "vscode"
-        yes | sudo pacman -S code
-        installing "discord"
-        yes | sudo pacman -S discord
-        installing "feh"
-        yes | sudo pacman -S feh
-        installing "git"
-        yes | sudo pacman -S git
-        
-        menu=$(echo "GoogleChrome\nFirefox" | smenu -c -W $'\n' -N -M -m "browser")
-
-        if [[ $menu == "GoogleChrome" ]]
-        then
-            yay -S google-chrome
-        fi
-
-        if [[ $menu == "Firefox" ]]
-        then
-            sudo pacman -S firefox
-        fi
-
-        installing "htop"
-        yes | sudo pacman -S htop
-        installing "imagemagick"
-        yes | sudo pacman -S imagemagick
-        installing "nodejs"
-        yes | sudo pacman -S nodejs
-        installing "npm"
-        yes | sudo pacman -S npm
-        
-
-        installing "pulseaudio"
-        yes | sudo pacman -S pulseaudio
-        installing "python3"
-        yes | sudo pacman -S python3
-        installing "python pip"
-        yes | sudo pacman -S python-pip
-        installing "rxvt unicode"
-        yes | sudo pacman -S rxvt-unicode
-        installing "scrot"
-        yes | sudo pacman -S scrot
-        installing "which"
-        yes | sudo pacman -S which
-        installing "curl"
-        yes | sudo pacman -S curl
-        installing "xbindkeys"
-        yes | sudo pacman -S xbindkeys
-        
-        installing "dot files"
-        [[ -e ~/.xbindkeysrc ]] && rm ~/.xbindkeysrc
-        curl https://raw.githubusercontent.com/Senpai-10/$repo/main/dotfiles/.xbindkeysrc -o ~/.xbindkeysrc
-
-        [[ -e ~/.nvimrc ]] && rm ~/.nvimrc
-        curl https://raw.githubusercontent.com/Senpai-10/$repo/main/dotfiles/.nvimrc -o ~/.nvimrc
-
-        [[ -e ~/.xinitrc ]] && rm ~/.xinitrc
-        curl https://raw.githubusercontent.com/Senpai-10/$repo/main/dotfiles/.xinitrc -o ~/.xinitrc
-
-        [[ -e ~/.bashrc ]] && rm ~/.bashrc
-        curl https://raw.githubusercontent.com/Senpai-10/$repo/main/dotfiles/.bashrc -o ~/.bashrc
-
-
-        [[ -f ~/.env ]] || touch ~/.env
-
-        curl https://raw.githubusercontent.com/Senpai-10/$repo/main/dotfiles/.aliases -o ~/.aliases
-
-
-        menu=$(echo "back" | smenu -c -W $'\n' -N -M -m "Installation finished")
-        [[ $menu == "back" ]] && clear; main
-
-    fi
-
+    [[ $menu == $option_1 ]] && clear && packages
+    
     if [[ $menu == $option_2 ]]
     then
         clear
