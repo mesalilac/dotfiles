@@ -1,6 +1,4 @@
-local screen = require "functions.screen"
-local menu = require "functions.menu"
-local packages = require "functions.packages"
+
 
 os.execute([[
     if pacman -Qe "yay" > /dev/null ; then
@@ -19,18 +17,27 @@ os.execute([[
     fi
 ]])
 
-screen.clear()
+function main()
+    local screen = require "functions.screen"
+    local menu = require "functions.menu"
+    local packages = require "functions.packages"
 
-menu = menu.prompt{optoins=[[
+    screen.clear()
+
+    menu = menu.prompt{optoins=[[
 packages               
 window manager
 terminal
 update
 quit
-]]
-                ,title="window manager"}
+]], title="install"}
 
-if menu == "packages" then packages.install() end
+    if menu == "packages" then screen.clear(); packages.install() end
 
-if menu == "update" then screen.clear(); os.execute("sudo pacman -Syu") end
-if menu == "quit" then os.execute("exit") end
+    if menu == "update" then screen.clear(); os.execute("sudo pacman -Syu") end
+    if menu == "quit" then screen.clear(); os.execute("exit") end
+
+end
+
+
+main()
