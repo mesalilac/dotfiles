@@ -64,7 +64,16 @@ function packages.install()
         cd ~
     ]])
 
+    -- browser
+    browser = menu.prompt{optoins=[[
+Google chrome
+Firefox
+    ]], title="browser"}
 
+    if browser == "Google chrome" then install.yay("google-chrome") end
+    if browser == "Firefox" then install.pacman("firefox") end
+
+    
 
 end
 
