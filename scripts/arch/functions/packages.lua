@@ -85,7 +85,7 @@ Firefox
         sudo cp init.vim ~/.config/nvim/
         sudo cp .xbindkeysrc ~/
         sudo cp .xinitrc ~/
-        ]])
+    ]])
 
 end
 
