@@ -45,6 +45,7 @@ function packages.install()
     install.pacman("curl")
     install.pacman("highlight")
     install.pacman("youtube-dl")
+    install.yay("figma-linux")
     install.pacman("xbindkeys")
 
     -- fonts
@@ -79,7 +80,8 @@ Firefox
         cd dotfiles
         sudo cp .aliases ~/
         sudo cp .bashrc ~/
-        sudo cp .nvimrc ~/
+        sudo  mkdir -p ~/.config/nvim/
+        sudo cp init.vim ~/.config/nvim/
         sudo cp .xbindkeysrc ~/
         sudo cp .xinitrc ~/
         ]])
