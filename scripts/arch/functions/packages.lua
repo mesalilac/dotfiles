@@ -68,12 +68,21 @@ function packages.install()
     browser = menu.prompt{optoins=[[
 Google chrome
 Firefox
-    ]], title="browser"}
+]], title="browser"}
 
     if browser == "Google chrome" then install.yay("google-chrome") end
     if browser == "Firefox" then install.pacman("firefox") end
 
-    
+    -- Dot files
+    os.execute([[
+        cd ../.. 
+        cd dotfiles
+        sudo cp .aliases ~/
+        sudo cp .bashrc ~/
+        sudo cp .nvimrc ~/
+        sudo cp .xbindkeysrc ~/
+        sudo cp .xinitrc ~/
+        ]])
 
 end
 
