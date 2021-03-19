@@ -8,12 +8,4 @@ function menu.prompt(arg)
     return result
 end
 
-function menu.back()
-    local handle = io.popen(string.format("echo -e \"back\" | smenu -c -W $'\n' -N -M -m \"Installation finished\""))
-
-    local result = handle:read("*a")
-    handle:close()
-    return result
-end
-
 return menu
