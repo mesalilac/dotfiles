@@ -45,8 +45,9 @@ function packages.install()
     install.pacman("curl")
     install.pacman("highlight")
     install.pacman("youtube-dl")
-    install.yay("figma-linux")
+    install.pacman("tree")
     install.pacman("xbindkeys")
+    install.yay("figma-linux")
 
     -- fonts
     install.pacman("ttf-dejavu")
@@ -67,7 +68,7 @@ function packages.install()
 
     -- browser
     browser = menu.prompt{optoins=[[
-Google chrome
+Google chrome       
 Firefox
 ]], title="browser"}
 
