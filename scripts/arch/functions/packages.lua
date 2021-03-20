@@ -23,6 +23,7 @@ function packages.install()
     install.pacman("cmus")
     os.execute("echo \"colorscheme green\" >> ~/.config/cmus/autosave")
 
+    install.pacman("easytag")
     install.pacman("nemo")
     install.pacman("vlc")
     install.pacman("pavucontrol")
