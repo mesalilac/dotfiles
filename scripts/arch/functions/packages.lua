@@ -73,7 +73,7 @@ function packages.install()
 
     -- browser
     browser = menu.prompt{optoins=[[
-Google chrome       
+Google chrome               
 Firefox
 ]], title="browser"}
 
