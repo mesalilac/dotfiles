@@ -23,6 +23,7 @@ function main()
 
     local packages = require "functions.packages"
     local window_manager = require "functions.window_manager"
+    local terminal = require "functions.terminal"
 
     screen.clear()
 
@@ -36,6 +37,7 @@ quit
 
     if menu == "packages" then screen.clear(); packages.install() end
     if menu == "window manager" then screen.clear(); window_manager.install() end
+    if menu == "terminal" then screen.clear(); terminal.install() end
 
     if menu == "update" then screen.clear(); os.execute("sudo pacman -Syu") end
     if menu == "quit" then screen.clear(); os.execute("exit") end
