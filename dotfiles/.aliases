@@ -8,8 +8,8 @@ alias ll="ls -lh"
 alias lla="ls -Alh"
 alias nv="nvim"
 alias snv="sudo nvim"
-alias yt="youtube-dl --add-metadata -ic"
-alias yta="youtube-dl --add-metadata -xic"
+alias yt="youtube-dl -o \"%(title)s.%(ext)s\" --add-metadata -ic"
+alias yta="youtube-dl -o \"%(title)s.%(ext)s\" --add-metadata -xic"
 
 
 alias cnf='clear && neofetch'
