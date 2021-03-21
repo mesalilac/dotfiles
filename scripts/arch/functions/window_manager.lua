@@ -4,8 +4,7 @@ local window_manager = {}
 
 function window_manager.install()
     WindowManager = menu.prompt{optoins=[[
-dwm      
-
+dwm               
 ]], title="window manager"}
 
     if WindowManager == "dwm" then
