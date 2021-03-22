@@ -6,8 +6,8 @@
 
 
 [[ $- != *i* ]] && return
-[[ -f ~/.env ]] && . ~/.env
-[[ -f ~/.aliases ]] && . ~/.aliases
+[[ -f ~/.bash_env ]] && . ~/.bash_env
+[[ -f ~/.bash_aliases ]] && . ~/.bash_aliases
 
 
 reset='\033[0m'
