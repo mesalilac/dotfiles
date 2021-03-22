@@ -6,3 +6,6 @@
 #                           /_____/                 
 
 
+export EDITOR="nvim"
+export TERMINAL=""
+export BROWSER="google-chrome-stable"
