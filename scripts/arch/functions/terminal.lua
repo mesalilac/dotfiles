@@ -1,4 +1,6 @@
 local menu = require "functions.menu"
+local install = require "functions.install"
+local screen = require "functions.screen"
 
 local terminal = {}
 
@@ -10,7 +12,7 @@ kitty
 
     if Terminal == "st" then
         local st_build = menu.prompt{optoins=[[
-Luke st
+Luke st               
 suckless st
         ]], title="st build"}
 
@@ -34,7 +36,61 @@ suckless st
     end
 
     if Terminal == "kitty" then
-        print()
+        install.pacman("kitty")
+
+        screen.clear()
+
+        function CopyTheme(theme_number)
+            os.execute(string.format([[
+                mkdir -p ~/.config/kitty/themes
+
+                theme_number=%s
+
+                cd ../../themes/$theme_number
+                cp $theme_number.conf ~/.config/kitty/themes
+
+                echo -e "include themes/$theme_number.conf" >> ~/.config/kitty/kitty.conf
+                
+            ]], theme_number))
+        end
+
+        theme = menu.prompt{optoins=[[
+1               
+2
+default
+]], title="kitty theme"}
+
+        if theme == "1" then CopyTheme(1) end
+        if theme == "2" then CopyTheme(2) end
+
+        screen.clear()
+
+        sync_to_monitor = menu.prompt{optoins=[[
+yes               
+no
+]], title="sync_to_monitor"}
+
+        if sync_to_monitor == "yes" then os.execute("echo 'sync_to_monitor yes' >> ~/.config/kitty/kitty.conf") end
+
+        screen.clear()
+
+        background_opacity = menu.prompt{optoins=[[
+1               
+.9
+.8
+.7
+.6
+.5
+.4
+.3
+.2
+.1
+]], title="background_opacity"}
+
+        os.execute(string.format([[
+            echo "background_opacity %s" >> ~/.config/kitty/kitty.conf
+        ]], background_opacity))
+
     end
 end
 
