@@ -81,7 +81,7 @@ Firefox
     if browser == "Google chrome" then install.yay("google-chrome") end
     if browser == "Firefox" then install.pacman("firefox") end
 
-    -- Dot files
+    -- copy dot files
     os.execute([[
         cd ../.. 
         cd dotfiles
@@ -91,6 +91,12 @@ Firefox
         sudo cp init.vim ~/.config/nvim/
         sudo cp .xbindkeysrc ~/
         sudo cp .xinitrc ~/
+    ]])
+
+    -- copy cmus themes
+    os.execute([[
+        cd ../../themes/cmus
+        sudo cp * /usr/share/cmus/
     ]])
 
 end
