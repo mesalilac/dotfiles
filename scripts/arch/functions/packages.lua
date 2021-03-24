@@ -24,6 +24,7 @@ function packages.install()
     os.execute("echo \"colorscheme green\" >> ~/.config/cmus/autosave")
 
     install.yay("cava")
+    install.pacman("bat")
     install.pacman("easytag")
     install.pacman("nemo")
     install.pacman("vlc")
