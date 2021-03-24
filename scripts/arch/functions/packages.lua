@@ -21,9 +21,6 @@ function packages.install()
     install.pacman("wget")
     install.pacman("bashtop")
     install.pacman("cmus")
-    os.execute("echo \"colorscheme green\" >> ~/.config/cmus/autosave")
-
-    install.yay("cava")
     install.pacman("bat")
     install.pacman("easytag")
     install.pacman("nemo")
@@ -54,7 +51,9 @@ function packages.install()
     install.pacman("youtube-dl")
     install.pacman("tree")
     install.pacman("xbindkeys")
+    install.pacman("imwheel")
     install.yay("figma-linux")
+    install.yay("cava")
 
     -- fonts
     install.pacman("ttf-dejavu")
@@ -92,12 +91,16 @@ Firefox
         sudo cp init.vim ~/.config/nvim/
         sudo cp .xbindkeysrc ~/
         sudo cp .xinitrc ~/
+        sudo cp .imwheelrc ~/
+
+        echo \"imwheel &\" >> ~/.xinitrc
+        
     ]])
 
     -- copy cmus themes
     os.execute([[
         cd ../../themes/cmus
-        sudo cp * /usr/share/cmus/
+        sudo cp *.theme /usr/share/cmus/
     ]])
 
 end
