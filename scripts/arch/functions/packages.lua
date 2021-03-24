@@ -93,7 +93,7 @@ Firefox
         sudo cp .xinitrc ~/
         sudo cp .imwheelrc ~/
 
-        echo \"imwheel &\" >> ~/.xinitrc
+        echo \"imwheel -b 45\" >> ~/.xinitrc
         
     ]])
 
