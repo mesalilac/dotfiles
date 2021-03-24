@@ -1,3 +1,9 @@
+"amixer set Master playback 5+"
+    Mod4+Up
+
+"amixer set Master playback 5-"
+    Mod4+Down
+
 "nemo"
     Mod4+e
 
