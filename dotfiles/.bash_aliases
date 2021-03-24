@@ -18,8 +18,7 @@ alias nv="nvim"
 alias snv="sudo nvim"
 alias yt="youtube-dl -o \"%(title)s.%(ext)s\" --add-metadata -ic"
 alias yta="youtube-dl -o \"%(title)s.%(ext)s\" --add-metadata -xic"
-
-
+alias rm="rm -I"
 alias cnf='clear && neofetch'
 alias icat="kitty +kitten icat"
 alias ..="cd .."
