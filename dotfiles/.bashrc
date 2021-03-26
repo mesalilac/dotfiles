@@ -22,4 +22,3 @@ lightWhite='\033[1;97m'
 [[ -f ~/.bash_functions ]] && . ~/.bash_functions
 
 HISTSIZE=HISTSIZE
-neofetch
