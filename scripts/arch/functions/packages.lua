@@ -89,8 +89,11 @@ Firefox
     os.execute([[
         cd ../.. 
         cd dotfiles
-        sudo cp .aliases ~/
+        
+        sudo cp .bash_aliases ~/
         sudo cp .bashrc ~/
+        sudo cp .bash_env ~/
+
         sudo  mkdir -p ~/.config/nvim/
         sudo cp init.vim ~/.config/nvim/
         sudo cp .xbindkeysrc ~/
