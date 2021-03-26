@@ -87,21 +87,14 @@ Firefox
 
     -- copy dot files
     os.execute([[
-        cd ../.. 
+        cd ../..
         cd dotfiles
+        sudo mkdir -p ~/.config/nvim/
         
-        sudo cp .bash_aliases ~/
-        sudo cp .bashrc ~/
-        sudo cp .bash_env ~/
-
-        sudo  mkdir -p ~/.config/nvim/
-        sudo cp init.vim ~/.config/nvim/
-        sudo cp .xbindkeysrc ~/
-        sudo cp .xinitrc ~/
-        sudo cp .imwheelrc ~/
+        sudo cp .* ~/
+        sudo cp nvim/init.vim ~/.config/nvim/
 
         sudo echo \"imwheel -b 45\" >> ~/.xinitrc
-        
     ]])
 
     -- copy cmus themes
