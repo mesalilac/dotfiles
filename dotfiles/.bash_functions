@@ -5,6 +5,11 @@
 #   (_)_.___/\__,_/____/_/ /_/____/_/  \__,_/_/ /_/\___/\__/_/\____/_/ /_/____/  
 #                           /_____/                                              
 
+welcome () {
+    Date=$(date)
+    echo -e "Welcome back,$lightBlue $Date $reset\n"
+    neofetch
+}
 
 countdown () {
     [[ $1 == *"h" ]] && Time="${1:: -1}*60*60"
@@ -29,3 +34,4 @@ stopwatch () {
 }
 
 
+welcome
