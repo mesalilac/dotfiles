@@ -7,4 +7,6 @@ install:
 
 
 uninstall: 
-	...
+	sudo rm /usr/bin/countdown
+	sudo rm /usr/bin/stopwatch
+
