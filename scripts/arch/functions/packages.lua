@@ -22,6 +22,7 @@ function packages.install()
     install.pacman("bashtop")
     install.pacman("cmus")
     install.pacman("bat")
+    install.pacman("picom")
     install.pacman("easytag")
     install.pacman("nemo")
     install.pacman("ffmpegthumbnailer")
@@ -66,10 +67,10 @@ function packages.install()
     install.yay("noto-fonts-sc")
     install.yay("ttf-ms-fonts")
     os.execute([[
-        cd Downloads
+        cd ~/Downloads
         wget https://support.steampowered.com/downloads/1974-YFKL-4947/SteamFonts.zip
         unzip SteamFonts.zip -d SteamFonts/ && rm SteamFonts.zip
-        mkdir -p /usr/local/share/fonts
+        sudo mkdir -p /usr/local/share/fonts
         sudo mv SteamFonts/* /usr/local/share/fonts
         rm -rf SteamFonts/
         cd ~
@@ -96,7 +97,7 @@ Firefox
         sudo cp .xinitrc ~/
         sudo cp .imwheelrc ~/
 
-        echo \"imwheel -b 45\" >> ~/.xinitrc
+        sudo echo \"imwheel -b 45\" >> ~/.xinitrc
         
     ]])
 
