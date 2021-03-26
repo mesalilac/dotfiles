@@ -1,4 +1,5 @@
 [[ $1 == *"h" ]] && Time="${1:: -1}*60*60"
+[[ $1 != *"h" ]] && Time=$1
 
 date1=$((`date +%s` + $Time))
 while [ "$date1" -ge `date +%s` ]; do
