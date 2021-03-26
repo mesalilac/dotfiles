@@ -6,12 +6,13 @@
 #                           /_____/_/                        /_/           
 
 
-
-
-
 prompt_1 () {
     PS1="[$lightRed\u$reset@$lightYellow\h $lightMagenta\W$reset] "
     PS1+="$lightGreen\$$reset "
 }
+
+# prompt_2 () {
+    
+# }
 
 prompt_1
