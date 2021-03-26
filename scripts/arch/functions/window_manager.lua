@@ -28,8 +28,8 @@ dwm
             sudo make install 
             cd ..
 
-            echo "exec slstatus &" >> ~/.xinitrc
-            echo "exec dwm" >> ~/.xinitrc
+            sudo echo "exec slstatus &" >> ~/.xinitrc
+            sudo echo "exec dwm" >> ~/.xinitrc
         ]])
     end
 
