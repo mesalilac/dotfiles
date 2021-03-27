@@ -11,6 +11,10 @@ welcome () {
     neofetch
 }
 
+cmk () {
+    mkdir -p $1 && cd $1
+}
+
 countdown () {
     [[ $1 == *"h" ]] && Time="${1:: -1}*60*60"
     [[ $1 != *"h" ]] && Time=$1
