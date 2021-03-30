@@ -17,7 +17,7 @@ cmk () {
 
 vid () {
     clear
-    video=$(ls | smenu -c -W $'\n' -N -M -n25)
+    video=$(ls | fzf) 
 
     if [[ -d $video ]] 
     then
