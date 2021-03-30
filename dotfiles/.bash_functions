@@ -15,6 +15,18 @@ cmk () {
     mkdir -p $1 && cd $1
 }
 
+vid () {
+    clear
+    video=$(ls | smenu -c -W $'\n' -N -M -n25)
+
+    if [[ -d $video ]] 
+    then
+        cd $video && vid
+    else
+        mpv "$video" --really-quiet
+    fi
+}
+
 countdown () {
     [[ $1 == *"h" ]] && Time="${1:: -1}*60*60"
     [[ $1 != *"h" ]] && Time=$1
