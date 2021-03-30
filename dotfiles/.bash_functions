@@ -23,8 +23,13 @@ vid () {
     then
         cd $video && vid
     else
-        mpv "$video" --really-quiet
+        mpv "$video" --really-quiet --keep-open=yes
+        cd ~/
     fi
+}
+
+ref () {
+    . ~/.bashrc
 }
 
 countdown () {
