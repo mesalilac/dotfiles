@@ -56,6 +56,7 @@ function packages.install()
     install.pacman("tree")
     install.pacman("xbindkeys")
     install.pacman("imwheel")
+    install.pacman("bc")
     install.yay("colorpicker")
     install.yay("figma-linux")
     install.yay("cava")
@@ -104,6 +105,11 @@ Firefox
         sudo cp *.theme /usr/share/cmus/
     ]])
 
+    -- set gtk theme
+    os.execute([[
+        echo \"[Settings]\" >> ~/.config/gtk-3.0/settings.ini
+        echo \"gtk-application-prefer-dark-theme=1\" >> ~/.config/gtk-3.0/settings.ini
+    ]])
 end
 
 return packages
