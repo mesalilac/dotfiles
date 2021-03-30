@@ -56,6 +56,7 @@ function packages.install()
     install.pacman("tree")
     install.pacman("xbindkeys")
     install.pacman("imwheel")
+    install.yay("colorpicker")
     install.yay("figma-linux")
     install.yay("cava")
 
