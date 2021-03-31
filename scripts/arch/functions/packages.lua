@@ -97,6 +97,8 @@ Firefox
         sudo cp nvim/init.vim ~/.config/nvim/
         sudo cp -r mpv_scripts ~/.config/mpv/scripts
         sudo cp picom.conf ~/.config/
+        
+        echo \"osc=no\" >> ~/.config/mpv/mpv.conf
         sudo echo \"imwheel -b 45\" >> ~/.xinitrc
     ]])
 
