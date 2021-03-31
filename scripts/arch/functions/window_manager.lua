@@ -1,4 +1,5 @@
 local menu = require "functions.menu"
+local install = require "functions.install"
 local window_manager = {}
 
 
@@ -30,6 +31,27 @@ dwm
 
             sudo echo "exec slstatus &" >> ~/.xinitrc
             sudo echo "exec dwm" >> ~/.xinitrc
+        ]])
+    end
+
+    compositor = menu.prompt{optoins=[[
+compton               
+picom
+]], title="compositor"}
+
+    if compositor == "compton" then
+        install.yay("compton-tryon-git")
+        os.execute([[
+            sudo cp -r ../../dotfiles/compton ~/.config/
+            sudo echo \"compton --config ~/.config/compton/compton.conf &\" >> ~/.xinitrc
+        ]])
+    end
+
+    if compositor == "picom" then
+        install.pacman("picom")
+        os.execute([[
+            sudo cp ../../dotfiles/picom.conf ~/.config/
+            sudo echo \"picom -f &\" >> ~/.xinitrc
         ]])
     end
 
