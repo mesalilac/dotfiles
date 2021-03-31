@@ -15,6 +15,10 @@ cmk () {
     mkdir -p $1 && cd $1
 }
 
+gen () {
+    date +%s | sha256sum | base64 | head -c $1 ; echo
+}
+
 vid () {
     clear
     video=$(ls | fzf) 
