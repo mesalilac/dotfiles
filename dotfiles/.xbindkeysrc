@@ -1,5 +1,8 @@
+"google-chrome-stable"
+   Mod4+g
+
 "nemo"
-    Mod4+e
+   Mod4+e
 
 "check=$(echo -e "yes\nno" | dmenu -p "are you sure you want to shutdown your computer?"); [ $check == "yes" ] && shutdown now"
    Mod4+x
