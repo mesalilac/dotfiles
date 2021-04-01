@@ -51,7 +51,7 @@ picom
         install.pacman("picom")
         os.execute([[
             sudo cp ../../dotfiles/picom.conf ~/.config/
-            sudo echo \"picom -f &\" >> ~/.xinitrc
+            sudo echo \"picom --experimental-backends --backend glx\" >> ~/.xinitrc
         ]])
     end
 
