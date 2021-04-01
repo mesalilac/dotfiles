@@ -28,7 +28,7 @@ vid () {
         cd $video && vid
     else
         mpv "$video" --really-quiet --keep-open=yes
-        cd ~/
+        vid
     fi
 }
 
