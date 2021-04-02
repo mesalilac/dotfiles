@@ -7,5 +7,6 @@
 
 
 export EDITOR="nvim"
-export TERMINAL=""
+export TERMINAL="kitty"
+export FILEMANAGER="nemo"
 export BROWSER="google-chrome-stable"
