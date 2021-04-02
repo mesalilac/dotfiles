@@ -19,9 +19,13 @@ gen () {
     date +%s | sha256sum | base64 | head -c $1 ; echo
 }
 
+fnv () { 
+    $EDITOR `fzf --layout=reverse` 
+}
+
 vid () {
     clear
-    video=$(ls | fzf) 
+    video=$(ls | fzf --layout=reverse) 
 
     if [[ -d $video ]] 
     then
