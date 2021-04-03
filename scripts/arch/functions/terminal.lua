@@ -72,6 +72,9 @@ no
 
         if sync_to_monitor == "yes" then os.execute("echo 'sync_to_monitor yes' >> ~/.config/kitty/kitty.conf") end
 
+        os.execute([[
+            gsettings set org.cinnamon.desktop.default-applications.terminal exec kitty
+        ]])
     end
 end
 
