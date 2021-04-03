@@ -22,3 +22,7 @@ lightWhite='\033[1;97m'
 [[ -f ~/.bash_functions ]] && . ~/.bash_functions
 
 HISTSIZE=HISTSIZE
+eval "$(dircolors -p | \
+    sed 's/ 4[0-9];/ 01;/; s/;4[0-9];/;01;/g; s/;4[0-9] /;01 /' | \
+    dircolors /dev/stdin)"
+
