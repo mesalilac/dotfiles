@@ -25,3 +25,5 @@ xrandr --output LVDS-1 --off
 
 xbindkeys &
 nitrogen --restore &
+imwheel -b 45
+
