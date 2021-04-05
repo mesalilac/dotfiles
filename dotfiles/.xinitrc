@@ -25,6 +25,7 @@ xrandr --output LVDS-1 --off
 
 #compton --config ~/.config/compton/compton.conf &
 picom --experimental-backends --backend glx &
+deadd-notification-center &
 xbindkeys &
 nitrogen --restore &
 imwheel -b 45
