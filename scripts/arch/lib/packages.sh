@@ -58,19 +58,21 @@ pac "noto-fonts-emoji"
 ya "noto-fonts-sc"
 ya "ttf-ms-fonts"
 
-cd ~/Downloads
 wget https://support.steampowered.com/downloads/1974-YFKL-4947/SteamFonts.zip
 unzip SteamFonts.zip -d SteamFonts/ && rm SteamFonts.zip
 sudo mkdir -p /usr/local/share/fonts
 sudo mv SteamFonts/* /usr/local/share/fonts
 rm -rf SteamFonts/
-cd ~
 
 browser=$(echo -e "Google chrome
 Firefox" | fzf --layout=reverse)
 
 [[ $browser == "Google chrome" ]] && ya "google-chrome"
 [[ $browser == "Firefox" ]] && pac "firefox"
+
+wget https://github.com/phuhl/linux_notification_center/releases/download/1.7.2/deadd-notification-center
+sudo chmod +x deadd-notification-center
+sudo mv deadd-notification-center /usr/bin/
 
 # copy dot files
 cd ../..
