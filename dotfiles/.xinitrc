@@ -23,7 +23,11 @@ fi
 xrandr --output HDMI-1 --primary
 xrandr --output LVDS-1 --off
 
+#compton --config ~/.config/compton/compton.conf &
+picom --experimental-backends --backend glx &
 xbindkeys &
 nitrogen --restore &
 imwheel -b 45
 
+exec slstatus &
+exec dwm
