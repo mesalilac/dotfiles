@@ -7,15 +7,15 @@
 "check=$(echo -e "yes\nno" | dmenu -p "are you sure you want to shutdown your computer?"); [ $check == "yes" ] && shutdown now"
    Mod4+x
 
-"cd ~/Screenshots && scrot"
-   Alt+Shift+6
+"cd ~/Screenshots && scrot && sleep 0.5 ; notify-send 'Screenshot saved' 'full screen'"
+   Alt+Shift+s
 
-"cd ~/Screenshots && scrot -s"
-   Alt+Shift+7
+"cd ~/Screenshots && scrot -s && sleep 0.5 ; notify-send 'Screenshot saved' 'part of the screen'"
+   Alt+Shift+p
 
-"setxkbmap us"
+"setxkbmap us && sleep 0.1 ; notify-send 'keyboard layout' 'english'"
    Alt+Shift+1
 
-"setxkbmap ara"
+"setxkbmap ara && sleep 0.1 ; notify-send 'keyboard layout' 'arabic'"
    Alt+Shift+2
 
