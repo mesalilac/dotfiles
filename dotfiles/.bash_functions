@@ -50,6 +50,7 @@ countdown () {
         echo -ne "$days day(s) and $(date -u --date @$(($date1 - `date +%s`)) +%H:%M:%S)\r"; 
         sleep 0.1
     done
+    notify-send 'Countdown' 'done!'
     echo -e "\nDone"
 }
 
