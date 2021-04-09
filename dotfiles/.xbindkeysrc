@@ -7,6 +7,12 @@
 "check=$(echo -e "yes\nno" | dmenu -p "are you sure you want to shutdown your computer?"); [ $check == "yes" ] && shutdown now"
    Mod4+x
 
+"amixer -D pulse sset Master 10%+"
+    Mod4+Up
+
+"amixer -D pulse sset Master 10%-"
+    Mod4+Down
+
 "cd ~/Screenshots && scrot && sleep 0.5 ; notify-send 'Screenshot saved' 'full screen'"
    Alt+Shift+s
 
