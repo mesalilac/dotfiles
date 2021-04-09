@@ -15,4 +15,8 @@ prompt_2 () {
     PS1="\[$lightGreen\W$reset\] $lightBlue𝝺$reset "
 }
 
-prompt_2
+prompt_3 () {
+    PS1="$lightRed\u$reset $lightMagenta\W$reset $lightBlue➤$reset "
+}
+
+prompt_3
