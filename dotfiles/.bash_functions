@@ -36,6 +36,11 @@ vid () {
     fi
 }
 
+pk () {
+    process=$(ps -e | awk '{print $4}' | fzf --layout=reverse)
+    pkill $process
+}
+
 ref () {
     . ~/.bashrc
 }
