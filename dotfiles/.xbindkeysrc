@@ -7,10 +7,10 @@
 "check=$(echo -e "yes\nno" | dmenu -p "are you sure you want to shutdown your computer?"); [ $check == "yes" ] && shutdown now"
    Mod4+x
 
-"amixer -D pulse sset Master 10%+"
+"amixer -D pulse sset Master 10%+ ; pkill -RTMIN+2 dwmblocks"
     Mod4+Up
 
-"amixer -D pulse sset Master 10%-"
+"amixer -D pulse sset Master 10%- ; pkill -RTMIN+2 dwmblocks"
     Mod4+Down
 
 "cd ~/Screenshots && scrot && sleep 0.5 ; notify-send 'Screenshot saved' 'full screen'"
@@ -19,9 +19,9 @@
 "cd ~/Screenshots && scrot -s && sleep 0.5 ; notify-send 'Screenshot saved' 'part of the screen'"
    Alt+Shift+p
 
-"setxkbmap us && sleep 0.1 ; notify-send 'keyboard layout' 'english'"
+"setxkbmap us && sleep 0.1 ; notify-send 'keyboard layout' 'english' ; pkill -RTMIN+1 dwmblocks"
    Alt+Shift+1
 
-"setxkbmap ara && sleep 0.1 ; notify-send 'keyboard layout' 'arabic'"
+"setxkbmap ara && sleep 0.1 ; notify-send 'keyboard layout' 'arabic' ; pkill -RTMIN+1 dwmblocks"
    Alt+Shift+2
 
