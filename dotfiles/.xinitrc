@@ -30,5 +30,5 @@ xbindkeys &
 nitrogen --restore &
 imwheel -b 45
 
-exec slstatus &
+exec dwmblocks &
 exec dwm
