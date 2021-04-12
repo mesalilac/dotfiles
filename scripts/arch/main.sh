@@ -20,6 +20,8 @@ fi
 
 clear
 
+load "config.sh"
+
 main_menu=$(echo -e "packages
 window manager
 terminal
