@@ -50,7 +50,7 @@ ref () {
     . ~/.bashrc
 }
 
-printfunc() {
+printfa() {
     echo -e "\nfunctions""$lightCyan\n"
     declare -F | awk {'print $3'}
     echo
