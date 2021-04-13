@@ -6,18 +6,31 @@ mkdir -p ~/Music
 mkdir -p ~/Videos
 mkdir -p ~/Screenshots
 
+[[ -z $file_manager ]] && 
+echo "no file manager in config.sh" >> ~/log ||
+pac $file_manager
+
+[[ -z $music_player ]] && 
+echo "no music player in config.sh" >> ~/log ||
+pac $music_player
+
+[[ -z $video_player ]] && 
+echo "no video player in config.sh" >> ~/log ||
+pac $video_player
+
+[[ -z $file_manager ]] && 
+echo "no file manager in config.sh" >> ~/log
+[[ $browser == "Google chrome" ]] && ya "google-chrome"
+[[ $browser == "Firefox" ]] && pac "firefox"
 
 pac "zip"
 pac "unzip"
 pac "wget"
 pac "bashtop"
-pac "cmus"
 pac "picom"
 pac "easytag"
-pac "nemo"
 pac "ffmpegthumbnailer"
 pac "ffmpegthumbs"
-pac "mpv"
 pac "pavucontrol"
 pac "nitrogen"
 pac "udisks2"
@@ -63,12 +76,6 @@ unzip SteamFonts.zip -d SteamFonts/ && rm SteamFonts.zip
 sudo mkdir -p /usr/local/share/fonts
 sudo mv SteamFonts/* /usr/local/share/fonts
 rm -rf SteamFonts/
-
-browser=$(echo -e "Google chrome
-Firefox" | fzf --layout=reverse)
-
-[[ $browser == "Google chrome" ]] && ya "google-chrome"
-[[ $browser == "Firefox" ]] && pac "firefox"
 
 wget https://github.com/phuhl/linux_notification_center/releases/download/1.7.2/deadd-notification-center
 sudo chmod +x deadd-notification-center
