@@ -1,5 +1,5 @@
-terminal=$(echo -e "st
-kitty" | fzf --layout=reverse)
+[[ -z $terminal ]] && echo "Error: see ~/log " &&
+echo "no terminal in config.sh" >> ~/log
 
 if [[ $terminal == "st" ]]
 then
