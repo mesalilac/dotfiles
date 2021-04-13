@@ -1,15 +1,15 @@
 load () {
-    [[ -f "lib/$1" ]] && . "lib/$1" || echo "can't load $1"
+    [[ -f "$1" ]] && . "$1" || echo "can't load $1"
 }
 
 pac () {
     echo -e "\n\033[1;32minstalling\033[0m $1\n"
-    sudo pacman -S $1 --noconfirm
+    sudo pacman -S $1 --noconfirm || echo "can't install $1 using pacman" >> ~/log
 }
 
 ya () {
     echo -e "\n\033[1;32minstalling\033[0m $1\n"
-    yay -S $1
+    yay -S $1 || echo "can't install $1 using yay" >> ~/log
 }
 
 if pacman -Qe "fzf" > /dev/null ; then
@@ -28,7 +28,7 @@ terminal
 update
 quit" | fzf --layout=reverse)
 
-[[ $main_menu == "packages" ]] && load "packages.sh"
-[[ $main_menu == "window manager" ]] && load "window_manager.sh"
-[[ $main_menu == "terminal" ]] && load "terminal.sh"
+[[ $main_menu == "packages" ]] && load "lib/packages.sh"
+[[ $main_menu == "window manager" ]] && load "lib/window_manager.sh"
+[[ $main_menu == "terminal" ]] && load "lib/terminal.sh"
 [[ $main_menu == "update" ]] && sudo pacman -Syu
