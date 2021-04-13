@@ -7,6 +7,9 @@
 "check=$(echo -e "yes\nno" | dmenu -p "are you sure you want to shutdown your computer?"); [ $check == "yes" ] && shutdown now"
    Mod4+x
 
+"kitty bashtop"
+    Mod4+n
+
 "amixer -D pulse sset Master 10%+ ; pkill -RTMIN+2 dwmblocks"
     Mod4+Up
 
