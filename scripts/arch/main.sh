@@ -21,7 +21,6 @@ fi
 if pacman -Qe "yay" > /dev/null ; then
         echo
     else
-        cd ~/
         git clone https://aur.archlinux.org/yay.git
         cd yay
         makepkg -si
