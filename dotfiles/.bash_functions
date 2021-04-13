@@ -19,6 +19,11 @@ gen () {
     date +%s | sha256sum | base64 | head -c $1 ; echo
 }
 
+rh () {
+    command=$(history | awk '{$1="";print substr($0,2)}' | fzf --layout=reverse)
+    $command
+}
+
 fnv () { 
     $EDITOR `fzf --layout=reverse` 
 }
