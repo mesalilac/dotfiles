@@ -10,9 +10,9 @@ mkdir -p ~/Screenshots
 echo "no file manager in config.sh" >> ~/log ||
 pac $file_manager
 
-[[ -z $music_player ]] && 
-echo "no music player in config.sh" >> ~/log ||
-pac $music_player
+[[ -z $music_playercli ]] && 
+echo "no music player cli in config.sh" >> ~/log ||
+pac $music_playercli
 
 [[ -z $video_player ]] && 
 echo "no video player in config.sh" >> ~/log ||
@@ -81,6 +81,10 @@ wget https://github.com/phuhl/linux_notification_center/releases/download/1.7.2/
 sudo chmod +x deadd-notification-center
 sudo mv deadd-notification-center /usr/bin/
 
+wget https://github.com/Superjo149/auryo/releases/download/v2.5.4/Auryo-2.5.4.AppImage
+chmod +x Auryo-2.5.4.AppImage
+mv Auryo-2.5.4.AppImage ~/
+
 # copy dot files
 cd ../..
 cd dotfiles
@@ -90,6 +94,7 @@ mkdir -p ~/.config/nvim &&
 cp nvim/init.vim ~/.config/nvim/ ||
 echo "can't copy init.vim" >> ~/log
 
+sudo cp auryo /usr/local/bin/ 
 cp .* ~/
 
 #cp -r compton ~/.config/
