@@ -1,5 +1,3 @@
-window_manager=$(echo -e "dwm" | fzf --layout=reverse)
-
 if [[ $window_manager == "dwm" ]] 
 then
     mkdir -p ~/wm &&
