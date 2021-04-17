@@ -84,12 +84,13 @@ sudo mv deadd-notification-center /usr/bin/
 
 wget https://github.com/Superjo149/auryo/releases/download/v2.5.4/Auryo-2.5.4.AppImage
 chmod +x Auryo-2.5.4.AppImage
-mv Auryo-2.5.4.AppImage ~/
+mv Auryo-2.5.4.AppImage ~/AppImages/
 
 # copy dot files
 cd ../..
 cd dotfiles
 
+mkdir -p ~/AppImages
 mkdir -p ~/.config && 
 mkdir -p ~/.config/nvim &&
 cp nvim/init.vim ~/.config/nvim/ ||
@@ -97,6 +98,7 @@ echo "can't copy init.vim" >> ~/log
 
 sudo cp auryo /usr/local/bin/ 
 cp .* ~/
+cp -r .profile ~/
 
 #cp -r compton ~/.config/
 cp picom.conf ~/.config
