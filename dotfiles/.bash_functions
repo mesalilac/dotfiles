@@ -28,6 +28,11 @@ fnv () {
     $EDITOR `fzf --layout=reverse` 
 }
 
+untar () {
+    tar -xf $1
+    rm $1
+}
+
 vid () {
     clear
     video=$(ls | fzf --layout=reverse) 
