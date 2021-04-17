@@ -16,10 +16,10 @@ lightCyan='\033[1;96m'
 lightWhite='\033[1;97m'
 
 [[ $- != *i* ]] && return
-[[ -f ~/.bash_env ]] && . ~/.bash_env
-[[ -f ~/.bash_aliases ]] && . ~/.bash_aliases
-[[ -f ~/.bash_prompt ]] && . ~/.bash_prompt
-[[ -f ~/.bash_functions ]] && . ~/.bash_functions
+[[ -f ~/.profile/bash/.bash_env ]] && . ~/.profile/bash/.bash_env
+[[ -f ~/.profile/bash/.bash_aliases ]] && . ~/.profile/bash/.bash_aliases
+[[ -f ~/.profile/bash/.bash_prompt ]] && . ~/.profile/bash/.bash_prompt
+[[ -f ~/.profile/bash/.bash_functions ]] && . ~/.profile/bash/.bash_functions
 
 HISTSIZE=HISTSIZE
 eval "$(dircolors -p | \
