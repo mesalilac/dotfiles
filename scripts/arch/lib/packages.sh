@@ -23,6 +23,7 @@ echo "no file manager in config.sh" >> ~/log
 [[ $browser == "Google chrome" ]] && ya "google-chrome"
 [[ $browser == "Firefox" ]] && pac "firefox"
 
+pac "zsh"
 pac "zip"
 pac "unzip"
 pac "wget"
