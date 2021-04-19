@@ -59,6 +59,7 @@ pac "xbindkeys"
 pac "imwheel"
 pac "bc"
 pac "lxappearance"
+pac "jgmenu"
 
 ya "colorpicker"
 ya "figma-linux"
