@@ -77,6 +77,7 @@ pac "noto-fonts-emoji"
 pac "ttf-jetbrains-mono"
 ya "noto-fonts-sc"
 ya "ttf-ms-fonts"
+ya "fontpreview-ueberzug-git"
 
 wget https://support.steampowered.com/downloads/1974-YFKL-4947/SteamFonts.zip
 unzip SteamFonts.zip -d SteamFonts/ && rm SteamFonts.zip
@@ -87,45 +88,4 @@ rm -rf SteamFonts/
 wget https://github.com/Superjo149/auryo/releases/download/v2.5.4/Auryo-2.5.4.AppImage
 chmod +x Auryo-2.5.4.AppImage
 mv Auryo-2.5.4.AppImage ~/AppImages/
-
-# copy dot files
-cd ../..
-cd dotfiles
-
-mkdir -p ~/AppImages
-mkdir -p ~/.config && 
-mkdir -p ~/.config/nvim &&
-cp nvim/init.vim ~/.config/nvim/ ||
-echo "can't copy init.vim" >> ~/log
-
-sudo cp auryo /usr/local/bin/ 
-cp .* ~/
-cp -r .profile ~/
-
-#cp -r compton ~/.config/
-cp picom.conf ~/.config
-
-mkdir -p ~/.config/mpv &&
-mkdir -p ~/.config/mpv/scripts &&
-cp mpv_scripts/* ~/.config/mpv/scripts/ ||
-echo "can't copy mpv scripts" >> ~/log
-
-touch ~/.config/mpv/mpv.conf && 
-echo osc=no >> ~/.config/mpv/mpv.conf
-
-cd ..
-cd themes
-
-# copy cmus themes
-mkdir -p /usr/share/cmus/ &&
-cp cmus/*.theme /usr/share/cmus/
-
-# set system themes
-mkdir -p ~/.themes &&
-cp -r gtk/* ~/.themes/ ||
-echo "can't copy themes" >> ~/log
-
-mkdir -p ~/.icons &&
-cp -r icons/* ~/.icons ||
-echo "can't copy icons" >> ~/log
 
