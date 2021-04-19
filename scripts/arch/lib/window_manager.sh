@@ -13,8 +13,8 @@ then
     sudo make install &&
     cd .. &&
 
-    git clone https://github.com/Senpai-10/slstatus.git &&
-    cd slstatus &&
+    git clone https://github.com/Senpai-10/dwmblocks.git &&
+    cd dwmblocks &&
     sudo make install &&
     cd .. &&
 fi
