@@ -10,6 +10,9 @@
 "kitty bashtop"
     Mod4+n
 
+"[[ $(top -b -n1 | grep jgmenu) ]] && pkill jgmenu; jgmenu || jgmenu"
+   Mod4+g
+
 "amixer -D pulse sset Master 10%+ ; pkill -RTMIN+2 dwmblocks"
     Mod4+Up
 
