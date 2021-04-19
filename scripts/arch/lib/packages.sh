@@ -60,6 +60,9 @@ pac "imwheel"
 pac "bc"
 pac "lxappearance"
 pac "jgmenu"
+# for more!
+# https://jgmenu.github.io/screenshots.html
+jgmenu_run init --theme=archlabs_1803
 
 ya "colorpicker"
 ya "figma-linux"
