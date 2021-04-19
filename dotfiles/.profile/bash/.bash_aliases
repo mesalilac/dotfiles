@@ -10,11 +10,13 @@ alias ls='ls --color=auto --group-directories-first'
 alias grep="grep --color=auto"
 alias ccat="highlight --out-format=ansi"
 
-
+alias gs="git status"
+alias gd="git add"
+alias gc="git commit -m"
+alias gp="git push"
 alias la="ls -A"
 alias ll="ls -lh"
 alias lla="ls -Alh"
-alias untar="tar -xf "
 alias nv="nvim"
 alias snv="sudo nvim"
 alias yt="youtube-dl -o \"%(title)s.%(ext)s\" --add-metadata -ic"
