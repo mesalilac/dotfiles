@@ -107,7 +107,7 @@ cp mpv_scripts/* ~/.config/mpv/scripts/ ||
 echo "can't copy mpv scripts" >> ~/log
 
 touch ~/.config/mpv/mpv.conf && 
-echo \"osc=no\" >> ~/.config/mpv/mpv.conf
+echo osc=no >> ~/.config/mpv/mpv.conf
 
 cd ..
 cd themes
