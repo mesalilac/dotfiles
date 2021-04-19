@@ -63,12 +63,14 @@ pac "lxappearance"
 ya "colorpicker"
 ya "figma-linux"
 ya "cava"
+ya "deadd-notification-center-bin"
 
 # fonts
 pac "ttf-dejavu"
 pac "ttf-liberation"
 pac "ttf-font-awesome"
 pac "noto-fonts-emoji"
+pac "ttf-jetbrains-mono"
 ya "noto-fonts-sc"
 ya "ttf-ms-fonts"
 
@@ -77,10 +79,6 @@ unzip SteamFonts.zip -d SteamFonts/ && rm SteamFonts.zip
 sudo mkdir -p /usr/local/share/fonts
 sudo mv SteamFonts/* /usr/local/share/fonts
 rm -rf SteamFonts/
-
-wget https://github.com/phuhl/linux_notification_center/releases/download/1.7.2/deadd-notification-center
-sudo chmod +x deadd-notification-center
-sudo mv deadd-notification-center /usr/bin/
 
 wget https://github.com/Superjo149/auryo/releases/download/v2.5.4/Auryo-2.5.4.AppImage
 chmod +x Auryo-2.5.4.AppImage
