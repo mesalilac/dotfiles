@@ -33,10 +33,12 @@ load "config.sh"
 main_menu=$(echo -e "packages
 window manager
 terminal
+copy dotfiles
 update
 quit" | fzf --layout=reverse)
 
 [[ $main_menu == "packages" ]] && load "lib/packages.sh"
 [[ $main_menu == "window manager" ]] && load "lib/window_manager.sh"
 [[ $main_menu == "terminal" ]] && load "lib/terminal.sh"
+[[ $main_menu == "copy dotfiles" ]] && load "lib/cp_dotfiles.sh"
 [[ $main_menu == "update" ]] && sudo pacman -Syu
