@@ -101,6 +101,3 @@ wget https://github.com/Superjo149/auryo/releases/download/v2.5.4/Auryo-2.5.4.Ap
 chmod +x Auryo-2.5.4.AppImage
 mv Auryo-2.5.4.AppImage ~/AppImages/
 
-cd ~/
-git clone --depth=1 https://github.com/adi1090x/polybar-themes.git
-
