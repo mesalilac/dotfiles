@@ -30,5 +30,6 @@ xbindkeys &
 nitrogen --restore &
 imwheel -b 45
 
-exec dwmblocks &
-exec dwm
+#exec openbox-session
+#exec dwmblocks &
+#exec dwm
