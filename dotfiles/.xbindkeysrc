@@ -10,6 +10,12 @@
 "kitty bashtop"
     Mod4+n
 
+"rofi -show run -theme ~/.themes/rofi/launcher.rasi"
+    Mod4+p
+
+"rofi -show window -theme ~/.themes/rofi/launcher.rasi"
+    Mod4+Shift+p
+
 "[[ $(top -b -n1 | grep jgmenu) ]] && pkill jgmenu; jgmenu || jgmenu"
    Mod4+g
 
