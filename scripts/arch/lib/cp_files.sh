@@ -1,4 +1,3 @@
-mkdir -p ~/AppImages
 mkdir -p ~/.config && 
 mkdir -p ~/.config/nvim &&
 mkdir -p ~/.config/mpv &&
