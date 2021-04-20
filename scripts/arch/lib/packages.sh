@@ -5,6 +5,7 @@ mkdir -p ~/Downloads
 mkdir -p ~/Music
 mkdir -p ~/Videos
 mkdir -p ~/Screenshots
+mkdir -p ~/AppImages
 
 [[ -z $file_manager ]] && 
 echo "no file manager in config.sh" >> ~/log ||
@@ -59,6 +60,7 @@ pac "xbindkeys"
 pac "imwheel"
 pac "bc"
 pac "lxappearance"
+pac "rofi"
 pac "jgmenu"
 # for more!
 # https://jgmenu.github.io/screenshots.html
@@ -75,6 +77,16 @@ pac "ttf-liberation"
 pac "ttf-font-awesome"
 pac "noto-fonts-emoji"
 pac "ttf-jetbrains-mono"
+pac "ttf-fantasque-sans-mono"
+pac "noto-fonts"
+pac "ttf-droid"
+pac "terminus-font"
+
+ya "siji-git"
+ya "ttf-material-icons-git"
+ya "ttf-icomoon-feather"
+ya "nerd-fonts-iosevka"
+ya "nerd-fonts-iosevka"
 ya "noto-fonts-sc"
 ya "ttf-ms-fonts"
 ya "fontpreview-ueberzug-git"
@@ -88,4 +100,7 @@ rm -rf SteamFonts/
 wget https://github.com/Superjo149/auryo/releases/download/v2.5.4/Auryo-2.5.4.AppImage
 chmod +x Auryo-2.5.4.AppImage
 mv Auryo-2.5.4.AppImage ~/AppImages/
+
+cd ~/
+git clone --depth=1 https://github.com/adi1090x/polybar-themes.git
 
