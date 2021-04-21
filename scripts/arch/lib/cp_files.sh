@@ -16,14 +16,15 @@ cp -rf $DIR_PATH/dotfiles/.profile ~/
 cp $DIR_PATH/dotfiles/picom.conf ~/.config
 cp $DIR_PATH/dotfiles/mpv_scripts/* ~/.config/mpv/scripts/ || echo "can't copy mpv scripts" >> ~/log
 touch ~/.config/mpv/mpv.conf && echo osc=no >> ~/.config/mpv/mpv.conf
-cp -rf $DIR_PATH/dotfiles/start ~/
-cp -rf $DIR_PATH/dotfiles/jgmenu ~/.config
+cp -rf $DIR_PATH/dotfiles/scripts ~/
+cp -rf $DIR_PATH/dotfiles/jgmenu ~/.config/
+cp -rf $DIR_PATH/dotfiles/openbox ~/.config/
+cp -rf $DIR_PATH/dotfiles/polybar ~/.config/
 
 
 # fonts/
 sudo cp $DIR_PATH/fonts/*.ttf /usr/share/fonts/TTF
 # sudo cp $DIR_PATH/fonts/*.otf /usr/share/fonts/OTF
-
 
 
 # themes/
