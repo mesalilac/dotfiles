@@ -1,0 +1,2 @@
+shot=$(colorpicker --one-shot --short)
+notify-send 'hex color' "$shot"
