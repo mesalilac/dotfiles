@@ -18,3 +18,11 @@ then
     sudo make install &&
     cd .. &&
 fi
+
+if [[ $window_manager == "openbox" ]]
+then
+    pac "openbox"
+    pac "obconf"
+    pac "lxappearance-obconf"
+    pac "menumaker"
+fi
