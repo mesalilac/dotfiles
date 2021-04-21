@@ -4,7 +4,7 @@
 "$FILEMANAGER"
    Mod4+e
 
-"check=$(echo -e "yes\nno" | dmenu -p "are you sure you want to shutdown your computer?"); [ $check == "yes" ] && shutdown now"
+"check=$(echo -e "yes\nno" | rofi -dmenu -p "shutdown your computer?" -theme ~/.themes/rofi/launcher.rasi); [ $check == "yes" ] && shutdown now"
    Mod4+x
 
 "kitty bashtop"
