@@ -4,6 +4,8 @@
 #    _ / /_/ / /_/ (__  ) / / / /  / /__  
 #   (_)_.___/\__,_/____/_/ /_/_/   \___/  
 
+PATH="$PATH:/home/senpai/scripts"
+
 reset='\033[0m'
 lightBlack='\033[1;90m'
 lightRed='\033[1;91m'
