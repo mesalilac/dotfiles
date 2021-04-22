@@ -16,4 +16,4 @@
 #
 #xfce-mcs-manager &
 
-cd ~/.config/polybar/ && ./launch.sh --forest
+cd ~/.config/polybar/ && ./launch.sh --forest && cd ~/
