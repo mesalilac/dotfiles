@@ -1,0 +1,2 @@
+res=$(echo "$1" | bc)
+notify-send "$res"
