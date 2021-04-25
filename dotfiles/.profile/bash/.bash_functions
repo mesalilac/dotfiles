@@ -28,6 +28,10 @@ fnv () {
     $EDITOR `fzf --layout=reverse` 
 }
 
+nut () {
+    $1 > /dev/null 2>&1
+}
+
 untar () {
     tar -xf $1
     rm $1
@@ -35,6 +39,7 @@ untar () {
 
 vid () {
     clear
+    list=$(ls)
     video=$(ls | fzf --layout=reverse) 
 
     if [[ -d $video ]] 
