@@ -7,8 +7,11 @@
 "check=$(echo -e "yes\nno" | rofi -dmenu -p "shutdown your computer?" -theme ~/.themes/rofi/launcher.rasi); [ $check == "yes" ] && shutdown now"
    Mod4+x
 
-"kitty bashtop"
+"$TERMINAL bashtop"
     Mod4+n
+
+"$TERMINAL"
+    Mod4+Shift+Return
 
 "rofi -show run -theme ~/.themes/rofi/launcher.rasi"
     Mod4+p
