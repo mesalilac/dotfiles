@@ -101,4 +101,8 @@ wget https://github.com/Superjo149/auryo/releases/download/v2.5.4/Auryo-2.5.4.Ap
 chmod +x Auryo-2.5.4.AppImage
 mv Auryo-2.5.4.AppImage ~/AppImages/
 
+wget https://download.kde.org/stable/kdenlive/20.12/linux/kdenlive-20.12.3a-x86_64.appimage
+chmod +x kdenlive-20.12.3a-x86_64.appimage
+mv kdenlive-20.12.3a-x86_64.appimage ~/AppImages
+
 curl -sLf https://spacevim.org/install.sh | bash
