@@ -1,8 +1,8 @@
 autoload -U colors && colors
 
-HISTSIZE=HISTSIZE
-SAVEHIST=SAVEHIST
-HISTFILE=~/history
+HISTSIZE=999999999
+SAVEHIST=999999999
+HISTFILE=~/.zsh_history
 
 autoload -U compinit
 zstyle ':completion:*' menu select
@@ -12,6 +12,8 @@ _comp_options+=(globdots)
 
 bindkey -v
 export KEYTIMEOUT=1
+
+bindkey "^?" backward-delete-char
 
 function zle-keymap-select {
   if [[ ${KEYMAP} == vicmd ]] ||
