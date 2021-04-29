@@ -1,4 +1,7 @@
 autoload -U colors && colors
+autoload -U promptinit; promptinit
+
+prompt spaceship
 
 HISTSIZE=999999999
 SAVEHIST=999999999
