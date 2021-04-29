@@ -39,4 +39,10 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 [[ -f .profile/zsh/.zsh_functions ]] && . .profile/zsh/.zsh_functions
 [[ -f .profile/zsh/.zsh_prompt ]] && . .profile/zsh/.zsh_prompt
 
+# plugins
+[[ -f .profile/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] &&
+  . .profile/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[[ -f .profile/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]] &&
+  . .profile/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 
