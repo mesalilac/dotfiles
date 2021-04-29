@@ -22,6 +22,10 @@ cp -rf $DIR_PATH/dotfiles/polybar ~/.config/
 
 
 # fonts/
+git clone https://github.com/powerline/fonts.git
+cd fonts
+./install.sh
+cd ..
 sudo cp $DIR_PATH/fonts/*.ttf /usr/share/fonts/TTF
 # sudo cp $DIR_PATH/fonts/*.otf /usr/share/fonts/OTF
 
