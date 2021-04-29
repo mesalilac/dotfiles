@@ -60,15 +60,6 @@ ref () {
     . ~/.bashrc
 }
 
-printfa() {
-    echo -e "\nfunctions""$lightCyan\n"
-    declare -F | awk {'print $3'}
-    echo
-    echo -e "$reset\naliases""$lightCyan\n"
-    alias | awk {'print $2'} | awk -F= {'print $1'}
-    echo -e "\033[0m"
-}
-
 ma () {
     echo $(($1))
 }
