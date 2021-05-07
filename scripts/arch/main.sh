@@ -1,3 +1,5 @@
+#! /usr/bin/bash
+
 load () {
     [[ -f "$1" ]] && . "$1" || echo "can't load $1"
 }
