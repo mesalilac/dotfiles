@@ -39,6 +39,14 @@
       </startupnotify>
     </action>
   </item>
+  <item label="neovim">
+    <action name="Execute">
+      <command>kitty nvim</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
   <item label="Emacs">
     <action name="Execute">
       <command>emacs</command>
@@ -83,6 +91,14 @@
   <item label="Gnome Terminal">
     <action name="Execute">
       <command>gnome-terminal</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Kitty Terminal">
+    <action name="Execute">
+      <command>kitty</command>
       <startupnotify>
         <enabled>yes</enabled>
       </startupnotify>
@@ -335,6 +351,12 @@
   <item label="Openbox Configuration Manager">
     <action name="Execute">
       <command>obconf</command>
+      <startupnotify><enabled>yes</enabled></startupnotify>
+    </action>
+  </item>
+  <item label="Nitrogen">
+    <action name="Execute">
+      <command>nitrogen</command>
       <startupnotify><enabled>yes</enabled></startupnotify>
     </action>
   </item>
