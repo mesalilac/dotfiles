@@ -1,3 +1,5 @@
+#! /usr/bin/bash
+
 [[ -z $terminal ]] && echo "Error: see ~/log " &&
 echo "no terminal in config.sh" >> ~/log
 

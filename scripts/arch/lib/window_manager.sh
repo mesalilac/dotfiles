@@ -1,3 +1,5 @@
+#! /usr/bin/bash
+
 if [[ $window_manager == "dwm" ]] 
 then
     mkdir -p ~/wm &&

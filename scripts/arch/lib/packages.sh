@@ -1,3 +1,5 @@
+#! /usr/bin/bash
+
 # setup user folders
 mkdir -p ~/Documents
 mkdir -p ~/Pictures
@@ -70,6 +72,7 @@ ya "colorpicker"
 ya "figma-linux"
 ya "cava"
 ya "deadd-notification-center-bin"
+ya "spaceship-prompt-git"
 
 # fonts
 pac "ttf-dejavu"
