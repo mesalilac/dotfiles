@@ -1,7 +1,8 @@
 welcome () {
-    Date=$(date)
-    echo -e "Welcome back,$fg[blue] $Date\n"
-    neofetch
+    case $(tty) in 
+        (/dev/tty[1-9]) echo "";;
+        (*) Date=$(date) ; echo -e "Welcome back,$fg[blue] $Date\n" ; neofetch;;
+    esac
 }
 
 cmk () {
