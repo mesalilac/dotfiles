@@ -7,6 +7,7 @@ mkdir -p ~/Downloads
 mkdir -p ~/Music
 mkdir -p ~/Videos
 mkdir -p ~/Screenshots
+mkdir -p ~/mpv_screenshots
 mkdir -p ~/AppImages
 
 [[ -z $file_manager ]] && 
