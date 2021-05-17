@@ -2,6 +2,7 @@ alias ls='ls --color=auto --group-directories-first'
 alias grep="grep --color=auto"
 alias ccat="highlight --out-format=ansi"
 
+alias s="sudo"
 alias gs="git status"
 alias gd="git add"
 alias gc="git commit -m"
