@@ -6,7 +6,7 @@ prompt spaceship
 HISTSIZE=999999999
 SAVEHIST=999999999
 HISTFILE=~/.zsh_history
-PATH="$PATH:$HOME/scripts:$HOME/projects/JavaScript/upm/upm-gui"
+PATH+=":$HOME/scripts"
 
 autoload -U compinit
 zstyle ':completion:*' menu select
