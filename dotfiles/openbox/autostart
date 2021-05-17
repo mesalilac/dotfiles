@@ -1,1 +1,1 @@
-./.config/polybar/launch.sh --forest &
+./.config/polybar/launch.sh --docky &
