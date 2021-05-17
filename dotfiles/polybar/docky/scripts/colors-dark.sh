@@ -13,7 +13,7 @@ change_color() {
 	sed -i -e "s/module-fg = #.*/module-fg = $MF/g" $PFILE
 	sed -i -e "s/primary = #.*/primary = $AC/g" $PFILE
 	sed -i -e 's/secondary = #.*/secondary = #E53935/g' $PFILE
-	sed -i -e 's/alternate = #.*/alternate = #7cb342/g' $PFILE
+	sed -i -e 's/alternate = #.*/alternate = #2D82BF/g' $PFILE
 	
 	# rofi
 	cat > $RFILE <<- EOF
