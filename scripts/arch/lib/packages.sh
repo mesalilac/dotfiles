@@ -109,4 +109,8 @@ wget https://download.kde.org/stable/kdenlive/20.12/linux/kdenlive-20.12.3a-x86_
 chmod +x kdenlive-20.12.3a-x86_64.appimage
 mv kdenlive-20.12.3a-x86_64.appimage ~/AppImages
 
+git clone https://github.com/thameera/vimv.git
+sudo cp vimv/vimv /usr/local/bin/
+sudo chmod +x /usr/local/bin/vimv
+
 curl -sLf https://spacevim.org/install.sh | bash
