@@ -7,10 +7,12 @@ mkdir -p ~/.config/mpv/scripts &&
 mkdir -p /usr/share/cmus/ &&
 mkdir -p ~/.themes &&
 mkdir -p ~/.icons &&
-
+mkdir -p ~/.config/BetterDiscord &&
+mkdir -p /usr/share/fonts/TTF &&
 
 # dotfiles/
 cp $DIR_PATH/dotfiles/nvim/init.vim ~/.config/nvim/ || echo "can't copy init.vim" >> ~/log
+cp -rf $DIR_PATH/dotfiles/betterdiscord/themes ~/.config/BetterDiscord/
 cp $DIR_PATH/dotfiles/.* ~/
 cp -rf $DIR_PATH/dotfiles/.profile ~/
 # cp -r $DIR_PATH/dotfiles/compton ~/.config/
