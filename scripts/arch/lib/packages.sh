@@ -74,6 +74,7 @@ ya "figma-linux"
 ya "cava"
 ya "deadd-notification-center-bin"
 ya "spaceship-prompt-git"
+ya "code-marketplace"
 
 # fonts
 pac "ttf-dejavu"
