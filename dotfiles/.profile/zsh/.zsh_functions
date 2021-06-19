@@ -14,7 +14,7 @@ gen () {
 }
 
 rh () {
-    command=$(history | awk '{$1="";print substr($0,2)}' | fzf --layout=reverse)
+    command=$(cat ~/.zsh_history | fzf --layout=reverse)
     $command
 }
 
