@@ -7,6 +7,9 @@
 "check=$(echo -e "yes\nno" | rofi -dmenu -p "shutdown your computer?" -theme ~/.themes/rofi/launcher.rasi); [ $check == "yes" ] && shutdown now"
    Mod4+x
 
+"openbox --exit"
+  Mod4+Shift+q
+
 "$TERMINAL bashtop"
     Mod4+n
 
@@ -39,4 +42,3 @@
 
 "setxkbmap ara && sleep 0.1 ; notify-send 'keyboard layout' 'arabic' ; pkill -RTMIN+1 dwmblocks"
    Alt+Shift+2
-
