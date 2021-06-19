@@ -1,0 +1,5 @@
+devname="HID 256c:006d Pad pad"
+
+xsetwacom --set "$devname" Button +1 "key ctrl" "key z"
+xsetwacom --set "$devname" Button +2 "key ctrl" "key shift" "key z"
+xsetwacom --set "$devname" Button +3 "key e"
