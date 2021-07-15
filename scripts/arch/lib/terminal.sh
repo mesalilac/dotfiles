@@ -28,3 +28,9 @@ then
     gsettings set org.cinnamon.desktop.default-applications.terminal exec kitty 
 fi
 
+if [[ $Terminal == "alacritty" ]]
+then
+  sudo pacman -S alacritty
+fi
+
+
