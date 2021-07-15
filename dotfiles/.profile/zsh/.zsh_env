@@ -1,4 +1,4 @@
 export EDITOR="nvim"
-export TERMINAL="kitty"
+export TERMINAL="alacritty"
 export FILEMANAGER="nemo"
 export BROWSER="google-chrome-stable"
