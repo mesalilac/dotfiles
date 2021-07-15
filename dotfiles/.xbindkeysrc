@@ -1,3 +1,5 @@
+# global
+
 "$BROWSER"
    Mod4+w
 
@@ -7,14 +9,8 @@
 "check=$(echo -e "yes\nno" | rofi -dmenu -p "shutdown your computer?" -theme ~/.themes/rofi/launcher.rasi); [ $check == "yes" ] && shutdown now"
    Mod4+x
 
-"openbox --exit"
-  Mod4+Shift+q
-
 "$TERMINAL bashtop"
     Mod4+n
-
-"$TERMINAL"
-    Mod4+Shift+Return
 
 "rofi -show run -theme ~/.themes/rofi/launcher.rasi"
     Mod4+p
@@ -31,10 +27,10 @@
 "amixer -D pulse sset Master 10%- ; pkill -RTMIN+2 dwmblocks"
     Mod4+Down
 
-"cd ~/Screenshots && scrot && sleep 0.5 ; notify-send 'Screenshot saved' 'full screen'"
+"flameshot full -p ~/Screenshots"
    Alt+Shift+s
 
-"cd ~/Screenshots && scrot -s && sleep 0.5 ; notify-send 'Screenshot saved' 'part of the screen'"
+"flameshot gui -p ~/Screenshots"
    Alt+Shift+p
 
 "setxkbmap us && sleep 0.1 ; notify-send 'keyboard layout' 'english' ; pkill -RTMIN+1 dwmblocks"
@@ -42,3 +38,16 @@
 
 "setxkbmap ara && sleep 0.1 ; notify-send 'keyboard layout' 'arabic' ; pkill -RTMIN+1 dwmblocks"
    Alt+Shift+2
+
+# openbox
+
+#"openbox --exit"
+#  Mod4+Shift+q
+
+"polybar-msg cmd toggle"
+  Mod4+comma
+
+"$TERMINAL"
+    Mod4+Shift+Return
+
+
