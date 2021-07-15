@@ -56,6 +56,9 @@ pac "python3"
 pac "python-pip"
 pac "rxvt-unicode"
 pac "scrot"
+pac "flameshot"
+flameshot config --showhelp false
+
 pac "curl"
 pac "highlight"
 pac "wine"
