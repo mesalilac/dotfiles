@@ -1,0 +1,7 @@
+./.config/polybar/launch.sh --docky &
+
+# bspwm desktop management
+killall btops
+btops &
+~/.fehbg &
+
