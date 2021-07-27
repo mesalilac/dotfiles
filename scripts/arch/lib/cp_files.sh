@@ -14,6 +14,7 @@ mkdir -p /usr/share/fonts/TTF &&
 cp $DIR_PATH/dotfiles/nvim/init.vim ~/.config/nvim/ || echo "can't copy init.vim" >> ~/log
 cp -rf $DIR_PATH/dotfiles/bspwm ~/.config/
 cp -rf $DIR_PATH/dotfiles/sxhkd ~/.config/
+cp -rf $DIR_PATH/dotfiles/btops ~/.config/
 cp -rf $DIR_PATH/dotfiles/betterdiscord/themes ~/.config/BetterDiscord/
 cp $DIR_PATH/dotfiles/.* ~/
 cp -rf $DIR_PATH/dotfiles/.profile ~/
