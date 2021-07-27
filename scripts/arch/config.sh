@@ -6,8 +6,8 @@ browser="google-chrome"
 # st, kitty, alacritty
 terminal="alacritty"
 
-# dwm, openbox
-window_manager="openbox"
+# dwm, openbox, bspwm
+window_manager="bspwm"
 
 [[ -d $HOME/projects/shell/dotfiles ]] && 
 DIR_PATH="$HOME/projects/shell/dotfiles" || 
