@@ -28,3 +28,10 @@ then
     pac "lxappearance-obconf"
     pac "menumaker"
 fi
+
+if [[ $window_manager == "bspwm" ]]
+then
+    pac "bspwm"
+    pac "sxhkd"
+    ya "btops-git"
+fi
