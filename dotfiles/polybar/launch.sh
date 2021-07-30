@@ -69,6 +69,9 @@ elif [[ "$1" == "--panels" ]]; then
 	style="panels"
 	launch_bar
 
+elif [[ "$1" == "--senpai-1" ]]; then
+	style="senpai-1"
+	launch_bar
 else
 	cat <<- EOF
 	Usage : launch.sh --theme
@@ -77,5 +80,7 @@ else
 	--blocks    --colorblocks    --cuts      --docky
 	--forest    --grayblocks     --hack      --material
 	--panels    --pwidgets       --shades    --shapes
+
+--senpai-1
 	EOF
 fi
