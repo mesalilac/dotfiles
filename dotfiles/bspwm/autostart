@@ -1,7 +1,13 @@
-./.config/polybar/launch.sh --docky &
+#!/usr/bin/env bash
 
-# bspwm desktop management
-killall btops
-btops &
+./.config/polybar/launch.sh --senpai-1 &
+
+run() { killall $1; $1 & }
+
+run "picom"
+run "deadd-notification-center"
+run "xbindkeys"
+run "btops"
+run "imwheel -b 45"
+
 ~/.fehbg &
-
