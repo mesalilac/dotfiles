@@ -6,6 +6,7 @@ Copy dotfiles and install all packages
 """
 
 from lib.welcome import welcome_message
+from pathlib import Path
 
 class App:
   def __init__(self):
@@ -15,11 +16,17 @@ class App:
     self.input_value = input("$ ")
   
   def print_test(self):
-    print("test!")
+    print(Path().absolute())
   
   def start(self):
     welcome_message()
-    self.take_input()
+    # self.take_input()
+    _path = str(Path().absolute())
+    
+    if "scripts/arch" in _path:
+      # remove scripts/arch or throw error end exit  
+      print("Run main.py from dotfiles root dir\nThis way ./scripts/arch/main.py")
+      exit(1)
     
     if self.input_value == "hi":
       self.print_test()
