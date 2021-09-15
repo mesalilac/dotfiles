@@ -1,7 +1,0 @@
-{
-    "Lua.diagnostics.disable": [
-        "undefined-field",
-        "lowercase-global"
-    ],
-    "git.ignoreLimitWarning": true
-}
