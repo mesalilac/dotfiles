@@ -1,1 +1,4 @@
-def start_script(config): ...
+def start_script(config): 
+  '''Starting script'''
+  
+  
