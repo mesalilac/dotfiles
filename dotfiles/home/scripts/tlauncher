@@ -1,2 +1,1 @@
-pkill picom
-java -jar ~/TLauncher-2.75.jar
+java -jar ~/TLauncher-2.8.jar
