@@ -15,22 +15,13 @@ fi
 if [[ $terminal == "kitty" ]]
 then
     pac "kitty"
-    cd ../..
-    cd themes
-    
-    mkdir -p ~/.config/kitty/ &&
-    mkdir -p ~/.config/kitty/themes &&
-    cp kitty/* ~/.config/kitty/themes/ &&
-    touch ~/.config/kitty/kitty.conf &&
-    echo -e "include themes/2.conf" >> ~/.config/kitty/kitty.conf &&
-    echo -e "sync_to_monitor yes" >> ~/.config/kitty/kitty.conf &&
-    echo -e "font_family JetBrains Mono" >> ~/.config/kitty/kitty.conf &&
     gsettings set org.cinnamon.desktop.default-applications.terminal exec kitty 
 fi
 
 if [[ $Terminal == "alacritty" ]]
 then
   sudo pacman -S alacritty
+  gsettings set org.cinnamon.desktop.default-applications.terminal exec alacritty 
 fi
 
 

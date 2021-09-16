@@ -1,31 +1,31 @@
 #! /usr/bin/bash
 
 load () {
-    [[ -f "$1" ]] && . "$1" || echo "can't load $1"
+  [[ -f "$1" ]] && . "$1" || echo "can't load $1"
 }
 
 pac () {
-    echo -e "\n\033[1;32minstalling\033[0m $1\n"
-    sudo pacman -S $1 --noconfirm || echo "can't install $1 using pacman" >> ~/log
+  echo -e "\n\033[1;32minstalling\033[0m $1\n"
+  sudo pacman -S $1 --noconfirm || echo "can't install $1 using pacman" >> ~/log
 }
 
 ya () {
-    echo -e "\n\033[1;32minstalling\033[0m $1\n"
-    yay -S $1 || echo "can't install $1 using yay" >> ~/log
+  echo -e "\n\033[1;32minstalling\033[0m $1\n"
+  yay -S $1 || echo "can't install $1 using yay" >> ~/log 
 }
 
 if pacman -Qe "fzf" > /dev/null ; then
-        echo
-    else
-        pac "fzf"
+  echo
+  else
+    pac "fzf"
 fi
 
 if pacman -Qe "yay" > /dev/null ; then
-        echo
-    else
-        git clone https://aur.archlinux.org/yay.git
-        cd yay
-        makepkg -si
+  echo
+  else
+    git clone https://aur.archlinux.org/yay.git
+    cd yay
+    makepkg -si
 fi
 
 clear
