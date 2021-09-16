@@ -71,7 +71,9 @@ pac "bc"
 pac "lxappearance"
 pac "rofi"
 pac "gimp"
+pac "spotify"
 pac "gnome-calculator"
+pac "gnome-system-monitor"
 pac "steam"
 pac "jgmenu"
 # for more!
@@ -114,16 +116,30 @@ sudo mkdir -p /usr/local/share/fonts
 sudo mv SteamFonts/* /usr/local/share/fonts
 rm -rf SteamFonts/
 
-wget https://github.com/Superjo149/auryo/releases/download/v2.5.4/Auryo-2.5.4.AppImage
-chmod +x Auryo-2.5.4.AppImage
-mv Auryo-2.5.4.AppImage ~/AppImages/
-
-wget https://download.kde.org/stable/kdenlive/20.12/linux/kdenlive-20.12.3a-x86_64.appimage
-chmod +x kdenlive-20.12.3a-x86_64.appimage
-mv kdenlive-20.12.3a-x86_64.appimage ~/AppImages
-
 git clone https://github.com/thameera/vimv.git
 sudo cp vimv/vimv /usr/local/bin/
 sudo chmod +x /usr/local/bin/vimv
 
 curl -sLf https://spacevim.org/install.sh | bash
+
+# download appimages
+
+wget https://github.com/Superjo149/auryo/releases/download/v2.5.4/Auryo-2.5.4.AppImage
+chmod +x Auryo-2.5.4.AppImage
+mv Auryo-2.5.4.AppImage ~/AppImages/auryo
+
+wget https://download.kde.org/stable/kdenlive/21.08/linux/kdenlive-21.08.1-x86_64.appimage
+chmod +x kdenlive-20.12.3a-x86_64.appimage
+mv kdenlive-20.12.3a-x86_64.appimage ~/AppImages/kdenlive
+
+wget https://download.kde.org/stable/krita/4.4.8/krita-4.4.8-x86_64.appimage
+chmod +x krita-4.4.8-x86_64.appimage
+mv krita-4.4.8-x86_64.appimage ~/AppImages/krita
+
+wget https://github.com/ppy/osu/releases/download/2021.907.0/osu.AppImage
+chmod +x osu.AppImage
+mv osu.AppImage ~/AppImages/osu
+
+wget https://hyperbeam.com/download/linux
+chmod +x linux
+mv linux ~/AppImages/hyperbeam

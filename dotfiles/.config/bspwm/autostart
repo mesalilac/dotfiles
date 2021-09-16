@@ -4,10 +4,11 @@
 
 run() { killall $1; $1 & }
 
+# ~/.fehbg &
+
 run "picom"
 run "deadd-notification-center"
 run "xbindkeys"
 run "btops"
 run "imwheel -b 45"
 
-~/.fehbg &

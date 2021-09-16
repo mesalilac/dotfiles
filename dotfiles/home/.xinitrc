@@ -1,5 +1,7 @@
 #!/bin/sh
 
+window_manager="bspwm"
+
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
@@ -24,12 +26,28 @@ xrandr --output HDMI-1 --primary
 xrandr --output LVDS-1 --off
 
 #compton --config ~/.config/compton/compton.conf &
-picom --experimental-backends --backend glx &
+#picom --experimental-backends --backend glx &
+picom &
 deadd-notification-center &
 xbindkeys &
 nitrogen --restore &
 imwheel -b 45
 
-#exec openbox-session
-#exec dwmblocks &
-#exec dwm
+if [[ $window_manager = "openbox" ]]; then
+  echo "openbox" > ~/.wm
+  nemo-desktop &
+  exec openbox-session
+fi
+
+if [[ $window_manager = "dwm" ]]; then
+  echo "dwm" > ~/.wm
+  exec dwmblocks &
+  exec dwm
+fi
+
+if [[ $window_manager = "bspwm" ]]; then
+  echo "bspwm" > ~/.wm
+  exec bspwm
+fi
+
+
