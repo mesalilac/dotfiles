@@ -1,11 +1,6 @@
 #! /usr/bin/bash
 
-mkdir -p ~/.config && 
-mkdir -p ~/.config/nvim &&
-mkdir -p ~/.config/mpv &&
-mkdir -p ~/.config/mpv/scripts &&
 mkdir -p /usr/share/cmus/ &&
-mkdir -p ~/.themes &&
 mkdir -p ~/.icons &&
 mkdir -p ~/.config/BetterDiscord &&
 mkdir -p /usr/share/fonts/TTF &&
@@ -25,5 +20,3 @@ sudo cp $DIR_PATH/fonts/*.ttf /usr/share/fonts/TTF
 
 # themes/
 sudo cp $DIR_PATH/themes/cmus/*.theme /usr/share/cmus/
-cp -r $DIR_PATH/themes/gtk/* ~/.themes/ || echo "can't copy themes" >> ~/log
-cp -r $DIR_PATH/themes/icons/* ~/.icons || echo "can't copy icons" >> ~/log
