@@ -31,4 +31,6 @@ fi
 
 #bspc rule -a Gimp desktop='^8' state=floating follow=on
 bspc rule -a discord desktop='^2'
+bspc rule -a feh state=floating
+bspc rule -a mpv state=floating
 

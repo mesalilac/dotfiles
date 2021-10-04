@@ -11,4 +11,6 @@ run "deadd-notification-center"
 run "xbindkeys"
 run "btops"
 run "imwheel -b 45"
+run "flameshot"
 
+killall mudae_reminder; ~/scripts/./mudae_reminder &
