@@ -10,3 +10,7 @@
 "armcord"
     None, Up, Button4, 5
     None, Down, Button5, 5
+
+"lightcord"
+    None, Up, Button4, 5
+    None, Down, Button5, 5
