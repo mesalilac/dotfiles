@@ -1,7 +1,8 @@
 autoload -U colors && colors
 autoload -U promptinit; promptinit
 
-prompt spaceship
+# prompt spaceship
+eval "$(starship init zsh)"
 
 HISTSIZE=999999999
 SAVEHIST=999999999
