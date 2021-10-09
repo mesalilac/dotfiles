@@ -26,9 +26,10 @@ xrandr --output HDMI-1 --primary
 xrandr --output LVDS-1 --off
 
 #compton --config ~/.config/compton/compton.conf &
-#picom --experimental-backends --backend glx &
-picom &
-deadd-notification-center &
+picom --experimental-backends --backend glx &
+#picom &
+#deadd-notification-center &
+/usr/lib64/xfce4/notifyd/xfce4-notifyd &
 xbindkeys &
 nitrogen --restore &
 imwheel -b 45
