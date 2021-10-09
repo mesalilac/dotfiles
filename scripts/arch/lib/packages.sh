@@ -79,6 +79,7 @@ pac "jgmenu"
 # for more!
 # https://jgmenu.github.io/screenshots.html
 jgmenu_run init --theme=archlabs_1803
+sh -c "$(curl -fsSL https://starship.rs/install.sh)"
 
 ya "colorpicker"
 ya "figma-linux"
@@ -121,6 +122,8 @@ sudo cp vimv/vimv /usr/local/bin/
 sudo chmod +x /usr/local/bin/vimv
 
 curl -sLf https://spacevim.org/install.sh | bash
+
+
 
 # download appimages
 
