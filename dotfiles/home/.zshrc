@@ -7,7 +7,7 @@ eval "$(starship init zsh)"
 HISTSIZE=999999999
 SAVEHIST=999999999
 HISTFILE=~/.zsh_history
-PATH+=":$HOME/scripts:$HOME/AppImages"
+PATH+=":$HOME/scripts:$HOME/AppImages:$HOME/.cargo/bin"
 
 autoload -U compinit
 zstyle ':completion:*' menu select
