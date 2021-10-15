@@ -1,8 +1,8 @@
 autoload -U colors && colors
 autoload -U promptinit; promptinit
 
-# prompt spaceship
-eval "$(starship init zsh)"
+prompt spaceship
+#eval "$(starship init zsh)"
 
 HISTSIZE=999999999
 SAVEHIST=999999999
@@ -44,7 +44,7 @@ eval "$(dircolors -p | \
     sed 's/ 4[0-9];/ 01;/; s/;4[0-9];/;01;/g; s/;4[0-9] /;01 /' | \
     dircolors /dev/stdin)"
 
-zsh_profile="~/.shell_profile/zsh"
+zsh_profile=".shell_profile/zsh"
 
 [[ -f ~/$zsh_profile/.zsh_aliases ]] && . ~/$zsh_profile/.zsh_aliases
 [[ -f ~/$zsh_profile/.zsh_env ]] && . ~/$zsh_profile/.zsh_env
@@ -52,9 +52,9 @@ zsh_profile="~/.shell_profile/zsh"
 [[ -f ~/$zsh_profile/.zsh_prompt ]] && . ~/$zsh_profile/.zsh_prompt
 
 # plugins
-[[ -f ~/$zsh_profile/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] &&
-  . ~/$zsh_profile/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-[[ -f ~/$zsh_profile/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]] &&
-  . ~/$zsh_profile/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+[[ -f $zsh_profile/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] &&
+  . $zsh_profile/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[[ -f $zsh_profile/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]] &&
+  . $zsh_profile/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 
