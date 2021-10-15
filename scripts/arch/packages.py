@@ -37,3 +37,9 @@ mkdir -pv ~/AppImages
     pacman("sxhkd")
     yay("btops-git")
 
+  if config["window_manager"] == "openbox":
+    pacman("openbox")
+    pacman("obconf")
+    pacman("lxappearance-obconf")
+    pacman("menumaker")
+
