@@ -2,6 +2,7 @@ from config import config
 from packages import packages
 from copy_files import copy_files
 from sync import sync
+from backup import backup
 from os import system
 
 if not config["root"] or not config["home"]:
@@ -30,6 +31,7 @@ help\t help message
 exit\t exit script
 clear\t clear the screen
 sync\t sync local dotfiles with dotfiles repo
+backup\t backup local file to dotfiles repo
 
 install-packages\t install packages
 copy-files\t copy dotfiles and fonts files
@@ -48,6 +50,7 @@ class App:
       elif user_input.value == "exit": exit_script = True
       elif user_input.value == "clear": system("clear")
       elif user_input.value == "sync": sync()
+      elif user_input.value == "backup": backup()
       elif user_input.value == "install-packages": packages()
       elif user_input.value == "copy-files": copy_files()
       elif not user_input.value: ...
