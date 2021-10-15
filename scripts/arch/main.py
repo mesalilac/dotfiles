@@ -1,7 +1,6 @@
 from config import config
 from packages import packages
 from copy_files import copy_files
-from sync import sync
 from backup import backup
 from os import system
 
@@ -30,7 +29,6 @@ help_message = '''
 help\t help message
 exit\t exit script
 clear\t clear the screen
-sync\t sync local dotfiles with dotfiles repo
 backup\t backup local file to dotfiles repo
 
 install-packages\t install packages
@@ -49,7 +47,6 @@ class App:
       if user_input.value == "help": print(help_message)
       elif user_input.value == "exit": exit_script = True
       elif user_input.value == "clear": system("clear")
-      elif user_input.value == "sync": sync()
       elif user_input.value == "backup": backup()
       elif user_input.value == "install-packages": packages()
       elif user_input.value == "copy-files": copy_files()
