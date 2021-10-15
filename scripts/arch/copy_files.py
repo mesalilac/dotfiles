@@ -9,9 +9,6 @@ def copy_files():
   os.system(f'''
   {cd_root} &&
   mkdir -p /usr/share/cmus/ &&
-  mkdir -p ~/.icons &&
-  mkdir -p ~/.config/BetterDiscord &&
-  mkdir -p /usr/share/fonts/TTF &&
   
   cp -rf dotfiles/.config ~/.config
   cp -rf dotfiles/home/* ~/
