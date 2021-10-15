@@ -1,4 +1,7 @@
+import os
 from config import config
 
 def packages():
-  print(config["file_manager"])
+  ''' install all packages '''
+
+  ...
