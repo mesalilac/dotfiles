@@ -14,14 +14,11 @@ class User_input:
     self.value = input("# ").lower()
 
 user_input = User_input()
-help_message = '''Arch install script
-
-commands:
-\thelp\t help message
-\texit\t exit script
-\tclear\t clear the screen
-\tsync\t sync local dotfiles with dotfiles repo
-
+help_message = '''
+help\t help message
+exit\t exit script
+clear\t clear the screen
+sync\t sync local dotfiles with dotfiles repo
 '''
 
 class App:
