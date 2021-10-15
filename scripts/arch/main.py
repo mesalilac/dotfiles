@@ -26,18 +26,17 @@ install-packages\t install packages
 '''
 
 class App:
-  def __init__(self):
-    self.exit = False
-
   def init(self): 
     print(help_message)
-    while not self.exit:
+    exit_script = False
+
+    while not exit_script:
       user_input.get()
 
       if user_input.value == "help": print(help_message)
 
       elif user_input.value == "exit":
-        self.exit = True
+        exit_script = True
       
       elif user_input.value == "clear": os.system("clear")
       
