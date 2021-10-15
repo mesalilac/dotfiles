@@ -33,14 +33,15 @@ class App:
     while not self.exit:
       user_input.get()
 
-      if user_input.value == "help":
-        print(help_message)
+      if user_input.value == "help": print(help_message)
 
       elif user_input.value == "exit":
         self.exit = True
       
-      elif user_input.value == "clear":
-        os.system("clear")
+      elif user_input.value == "clear": os.system("clear")
+      
+      elif user_input.value == "sync":
+        ...
 
       elif not user_input.value:
         ...
