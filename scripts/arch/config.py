@@ -14,6 +14,8 @@ def find_root_dir() -> str:
   if os.path.exists(f"{home}/dotfiles"):
     return f"{home}/dotfiles"
 
+  return False
+
 config = {
   "file_manager": "nemo",
   "music_playercli": "cmus",
