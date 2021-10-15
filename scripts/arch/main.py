@@ -1,4 +1,5 @@
 from config import config
+from install.packages import packages
 import os
 
 if not config["root"] or not config["home"]:
@@ -19,6 +20,9 @@ help\t help message
 exit\t exit script
 clear\t clear the screen
 sync\t sync local dotfiles with dotfiles repo
+
+install-packages\t install packages
+
 '''
 
 class App:
@@ -39,6 +43,9 @@ class App:
       
       elif user_input.value == "sync":
         ...
+
+      elif user_input.value == "install-packages":
+        packages()
 
       elif not user_input.value:
         ...
