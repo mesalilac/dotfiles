@@ -1,12 +1,12 @@
 from config import config
 from packages import packages
-import os
+from os import system
 
 if not config["root"] or not config["home"]:
   print("Both 'root' and 'home' requirements!")
   exit(1)
 
-os.system('''if pacman -Qe "yay" > /dev/null ; then
+system('''if pacman -Qe "yay" > /dev/null ; then
   echo
   else
     git clone https://aur.archlinux.org/yay.git
@@ -46,7 +46,7 @@ class App:
       elif user_input.value == "exit":
         exit_script = True
       
-      elif user_input.value == "clear": os.system("clear")
+      elif user_input.value == "clear": system("clear")
       
       elif user_input.value == "sync":
         ...
