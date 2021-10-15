@@ -1,5 +1,5 @@
 from config import config
-from install.packages import packages
+from packages import packages
 import os
 
 if not config["root"] or not config["home"]:
