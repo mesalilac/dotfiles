@@ -33,10 +33,7 @@ mkdir -pv ~/AppImages
     os.system(f"gsettings set org.cinnamon.desktop.default-applications.terminal exec {config['terminal']}")
 
   if config["window_manager"] == "bspwm":
-    # pac "bspwm"
-    # pac "sxhkd"
-    # ya "btops-git"
     pacman("bspwm")
     pacman("sxhkd")
     yay("btops-git")
-    
+
