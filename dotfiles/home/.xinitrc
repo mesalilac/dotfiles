@@ -25,7 +25,7 @@ fi
 xrandr --output HDMI-1 --primary
 xrandr --output LVDS-1 --off
 
-~/scripts/./autostart
+~/scripts/./autostart &
 
 if [[ $window_manager = "openbox" ]]; then
   echo "openbox" > ~/.wm
