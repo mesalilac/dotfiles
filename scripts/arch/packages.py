@@ -27,7 +27,7 @@ mkdir -pv ~/AppImages
     os.system(f"gsettings set org.cinnamon.desktop.default-applications.terminal exec {config['terminal']}")
   if config["terminal"] == "st":
     os.system('''cd ~
-    git clone https://github.com/senpai-10/st.git
-    cd st
+    git clone https://github.com/LukeSmithxyz/st &&
+    cd st &&
     sudo make install''')
     os.system(f"gsettings set org.cinnamon.desktop.default-applications.terminal exec {config['terminal']}")
