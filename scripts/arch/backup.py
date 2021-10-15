@@ -2,7 +2,7 @@ from config import config
 from os import system
 
 def backup():
-  ''' sync dotfiles '''
+  ''' backup dotfiles '''
   root = config["root"]
   cd_root = f"cd {root}/dotfiles"
   
