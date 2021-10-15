@@ -1,5 +1,6 @@
 from config import config
 from packages import packages
+from copy_files import copy_files
 from os import system
 
 if not config["root"] or not config["home"]:
@@ -30,6 +31,7 @@ clear\t clear the screen
 sync\t sync local dotfiles with dotfiles repo
 
 install-packages\t install packages
+copy-files\t copy dotfiles and fonts files
 
 '''
 
@@ -52,6 +54,7 @@ class App:
         ...
 
       elif user_input.value == "install-packages": packages()
+      elif user_input.value == "copy-files": copy_files()
 
       elif not user_input.value:
         ...
