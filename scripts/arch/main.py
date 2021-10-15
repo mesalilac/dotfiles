@@ -1,6 +1,7 @@
 from config import config
 from packages import packages
 from copy_files import copy_files
+from sync import sync
 from os import system
 
 if not config["root"] or not config["home"]:
@@ -44,20 +45,12 @@ class App:
       user_input.get()
 
       if user_input.value == "help": print(help_message)
-
-      elif user_input.value == "exit":
-        exit_script = True
-      
+      elif user_input.value == "exit": exit_script = True
       elif user_input.value == "clear": system("clear")
-      
-      elif user_input.value == "sync":
-        ...
-
+      elif user_input.value == "sync": sync()
       elif user_input.value == "install-packages": packages()
       elif user_input.value == "copy-files": copy_files()
-
-      elif not user_input.value:
-        ...
+      elif not user_input.value: ...
       
       else: 
         print(f"{user_input.value} is not a valid command")
