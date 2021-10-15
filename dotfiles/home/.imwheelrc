@@ -2,6 +2,13 @@
     None, Up, Button4, 5 
     None, Down, Button5, 5
 
+"firefox"
+    None, Up, Button4, 5 
+    None, Down, Button5, 5
+
+"brave"
+    None, Up, Button4, 5 
+    None, Down, Button5, 5
 
 "discord"
     None, Up, Button4, 5
