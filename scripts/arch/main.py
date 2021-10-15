@@ -6,6 +6,14 @@ if not config["root"] or not config["home"]:
   print("Both 'root' and 'home' requirements!")
   exit(1)
 
+os.system('''if pacman -Qe "yay" > /dev/null ; then
+  echo
+  else
+    git clone https://aur.archlinux.org/yay.git
+    cd yay
+    makepkg -si
+fi''')
+
 class User_input:
   ''' get user input '''
   def __init__(self):
