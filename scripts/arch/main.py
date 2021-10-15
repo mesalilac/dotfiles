@@ -7,13 +7,16 @@ if not config["root"] or not config["home"]:
 class User_input:
   ''' get user input '''
   def __init__(self):
-    self.value
+    self.value = ""
 
-  def get(self): ...
+  def get(self): 
+    self.value = input("# ")
 
+user_input = User_input()
 class App:
-  def init(self): print("hi")
-
+  def init(self): 
+    user_input.get()
+    
 app = App()
 
 app.init()
