@@ -44,8 +44,7 @@ class App:
       elif user_input.value == "sync":
         ...
 
-      elif user_input.value == "install-packages":
-        packages()
+      elif user_input.value == "install-packages": packages()
 
       elif not user_input.value:
         ...
