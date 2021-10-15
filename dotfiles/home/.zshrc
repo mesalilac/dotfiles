@@ -44,15 +44,17 @@ eval "$(dircolors -p | \
     sed 's/ 4[0-9];/ 01;/; s/;4[0-9];/;01;/g; s/;4[0-9] /;01 /' | \
     dircolors /dev/stdin)"
 
-[[ -f ~/.profile/zsh/.zsh_aliases ]] && . ~/.profile/zsh/.zsh_aliases
-[[ -f ~/.profile/zsh/.zsh_env ]] && . ~/.profile/zsh/.zsh_env
-[[ -f ~/.profile/zsh/.zsh_functions ]] && . ~/.profile/zsh/.zsh_functions
-[[ -f ~/.profile/zsh/.zsh_prompt ]] && . ~/.profile/zsh/.zsh_prompt
+zsh_profile="~/.shell_profile/zsh"
+
+[[ -f ~/$zsh_profile/.zsh_aliases ]] && . ~/$zsh_profile/.zsh_aliases
+[[ -f ~/$zsh_profile/.zsh_env ]] && . ~/$zsh_profile/.zsh_env
+[[ -f ~/$zsh_profile/.zsh_functions ]] && . ~/$zsh_profile/.zsh_functions
+[[ -f ~/$zsh_profile/.zsh_prompt ]] && . ~/$zsh_profile/.zsh_prompt
 
 # plugins
-[[ -f ~/.profile/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] &&
-  . ~/.profile/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-[[ -f ~/.profile/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]] &&
-  . ~/.profile/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+[[ -f ~/$zsh_profile/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] &&
+  . ~/$zsh_profile/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[[ -f ~/$zsh_profile/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]] &&
+  . ~/$zsh_profile/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 

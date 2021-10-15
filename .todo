@@ -1,0 +1,3 @@
+[] autoStart script and run it from xinit and remove all autostart from bspwm, dwm, openbox
+[] sync files 
+  from main.py --sync or main.py and type sync
