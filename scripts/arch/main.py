@@ -1,3 +1,5 @@
 from config import config
 
-print(config["root"])
+if not config["root"] or not config["home"]:
+  print("Both 'root' and 'home' requirements!")
+  exit(1)
