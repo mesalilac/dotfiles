@@ -22,9 +22,11 @@ mkdir -pv ~/AppImages
   if config["browser"] == "google-chrome" or config["browser"] == "brave": yay(config["browser"])
   if config["browser"] == "firefox": pacman(config["browser"])
 
+  # terminal
   if config["terminal"] == "alacritty" or config["terminal"] == "kitty": 
     pacman(config["terminal"])
     os.system(f"gsettings set org.cinnamon.desktop.default-applications.terminal exec {config['terminal']}")
+  
   if config["terminal"] == "st":
     os.system('''cd ~
     git clone https://github.com/LukeSmithxyz/st &&
@@ -32,6 +34,7 @@ mkdir -pv ~/AppImages
     sudo make install''')
     os.system(f"gsettings set org.cinnamon.desktop.default-applications.terminal exec {config['terminal']}")
 
+  # window manager
   if config["window_manager"] == "bspwm":
     pacman("bspwm")
     pacman("sxhkd")
@@ -43,3 +46,21 @@ mkdir -pv ~/AppImages
     pacman("lxappearance-obconf")
     pacman("menumaker")
 
+  if config["window_manager"] == "dwm":
+    os.system('''mkdir -p ~/wm &&
+    cd ~/wm &&
+
+    git clone https://github.com/Senpai-10/dwm.git &&
+    cd dwm &&
+    sudo make install &&
+    cd .. &&
+
+    git clone https://github.com/Senpai-10/dmenu.git &&
+    cd dmenu &&
+    sudo make install &&
+    cd .. &&
+
+    git clone https://github.com/Senpai-10/dwmblocks.git &&
+    cd dwmblocks &&
+    sudo make install &&
+    cd .. &&''')
