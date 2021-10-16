@@ -23,4 +23,5 @@ case $keyboard_layout in
     ;;
 esac
 
+keyboard_layout=$(cat ~/keyboard_layout)
 sleep 0.1 && notify-send 'keyboard layout' "$keyboard_layout"
