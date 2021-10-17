@@ -30,6 +30,7 @@ def backup():
     cp ~/.config/compton -r .config/
     cp ~/.config/jgmenu -r .config/
     cp ~/.config/kitty -r .config/
+    cp ~/.config/deadd -r .config/
     cp ~/.config/mpv -r .config/
     cp ~/.config/nvim -r .config/
     cp ~/.config/openbox -r .config/
