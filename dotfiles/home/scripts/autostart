@@ -1,7 +1,9 @@
+fc-cache -f
+
 ~/.config/polybar/./launch.sh --senpai-1 &
 
 #compton --config ~/.config/compton/compton.conf &
-picom --experimental-backends --backend glx &
+picom -b --experimental-backends &
 # picom &
 deadd-notification-center &
 #/usr/lib64/xfce4/notifyd/xfce4-notifyd &
@@ -10,6 +12,6 @@ xbindkeys &
 btops &
 imwheel -b 45 &
 flameshot &
-
+xrdb -merge ~/.Xresources &
 
 killall reminder; ~/scripts/./reminder &

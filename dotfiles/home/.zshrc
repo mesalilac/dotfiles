@@ -7,7 +7,7 @@ prompt spaceship
 HISTSIZE=999999999
 SAVEHIST=999999999
 HISTFILE=~/.zsh_history
-PATH+=":$HOME/scripts:$HOME/AppImages:$HOME/.cargo/bin"
+PATH="$PATH:$HOME/scripts:$HOME/AppImages:$HOME/.cargo/bin:/usr/local/bin"
 
 autoload -U compinit
 zstyle ':completion:*' menu select
