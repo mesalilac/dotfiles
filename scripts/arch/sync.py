@@ -16,6 +16,8 @@ def sync():
     cp home/.xinitrc ~/
     cp home/.bashrc ~/
     cp home/.zshrc ~/
+    cp home/.zprofile ~/
+    cp home/.zshenv ~/
     cp home/.yarnrc ~/
     cp home/.xbindkeysrc ~/
     cp home/.imwheelrc ~/
@@ -36,5 +38,6 @@ def sync():
     cp .config/openbox -r ~/.config
     cp .config/polybar -r ~/.config
     cp .config/sxhkd -r ~/.config
+    cp .config/dxhd -r ~/.config
     cp .config/picom.conf ~/.config
   ''')
