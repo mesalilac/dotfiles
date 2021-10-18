@@ -16,6 +16,8 @@ def backup():
     cp ~/.xinitrc home/
     cp ~/.bashrc home/
     cp ~/.zshrc home/
+    cp ~/.zshenv home/
+    cp ~/.zprofile home/
     cp ~/.yarnrc home/
     cp ~/.xbindkeysrc home/
     cp ~/.imwheelrc home/
@@ -36,5 +38,6 @@ def backup():
     cp ~/.config/openbox -r .config/
     cp ~/.config/polybar -r .config/
     cp ~/.config/sxhkd -r .config/
+    cp ~/.config/dxhd -r .config/
     cp ~/.config/picom.conf -r .config/
   ''')
