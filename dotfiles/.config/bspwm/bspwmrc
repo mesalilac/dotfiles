@@ -3,9 +3,9 @@
 gap=10
 gaps=true
 
-killall sxhkd
-pgrep -x sxhkd > /dev/null || sxhkd &
-./.config/bspwm/autostart &
+#killall sxhkd
+#pgrep -x sxhkd > /dev/null || sxhkd &
+~/scripts/./autostart
 
 bspc monitor -d I II III IV V VI VII VIII IX X
 
