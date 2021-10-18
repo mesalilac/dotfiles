@@ -7,7 +7,6 @@ prompt spaceship
 HISTSIZE=999999999
 SAVEHIST=999999999
 HISTFILE=~/.zsh_history
-PATH="$PATH:$HOME/scripts:$HOME/AppImages"
 
 autoload -U compinit
 zstyle ':completion:*' menu select
