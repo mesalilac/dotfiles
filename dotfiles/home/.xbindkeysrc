@@ -6,16 +6,13 @@
 "$FILEMANAGER"
   Mod4+e
 
-"check=$(echo -e "yes\nno" | rofi -dmenu -p "shutdown your computer?" -theme ~/.themes/rofi/dark.rasi); [ $check == "yes" ] && shutdown now"
+"prompt "shutdown your computer?" "shutdown now""
   Mod4+x
 
-"$TERMINAL bashtop"
-  Mod4+n
-
-"rofi -show run -theme ~/.themes/rofi/dark.rasi"
+"rofi -show run -theme $rofi_theme"
   Mod4+p
 
-"rofi -show window -theme ~/.themes/rofi/dark.rasi"
+"rofi -show window -theme $rofi_theme"
   Mod4+Shift+p
 
 "[[ $(top -b -n1 | grep jgmenu) ]] && pkill jgmenu; jgmenu || jgmenu"
@@ -36,15 +33,8 @@
 "~/scripts/./change_layout.sh"
   Mod4+space
 
-# openbox
-
-#"openbox --exit"
-#  Mod4+Shift+q
-
 "polybar-msg cmd toggle"
   Mod4+comma
 
-"$TERMINAL"
-  Mod4+Shift+Return
-
-
+# "$TERMINAL"
+#   Mod4+Shift+Return
