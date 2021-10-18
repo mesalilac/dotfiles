@@ -7,7 +7,7 @@ prompt spaceship
 HISTSIZE=999999999
 SAVEHIST=999999999
 HISTFILE=~/.zsh_history
-PATH="$PATH:$HOME/scripts:$HOME/AppImages:$HOME/.cargo/bin:/usr/local/bin"
+PATH="$PATH:$HOME/scripts:$HOME/AppImages"
 
 autoload -U compinit
 zstyle ':completion:*' menu select
@@ -47,7 +47,6 @@ eval "$(dircolors -p | \
 zsh_profile=".shell_profile/zsh"
 
 [[ -f ~/$zsh_profile/.zsh_aliases ]] && . ~/$zsh_profile/.zsh_aliases
-[[ -f ~/$zsh_profile/.zsh_env ]] && . ~/$zsh_profile/.zsh_env
 [[ -f ~/$zsh_profile/.zsh_functions ]] && . ~/$zsh_profile/.zsh_functions
 [[ -f ~/$zsh_profile/.zsh_prompt ]] && . ~/$zsh_profile/.zsh_prompt
 
