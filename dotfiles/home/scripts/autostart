@@ -2,13 +2,13 @@ fc-cache -f
 
 ~/.config/polybar/./launch.sh --senpai-1 &
 
+dxhd &
 #compton --config ~/.config/compton/compton.conf &
 picom -b --experimental-backends &
 # picom &
 deadd-notification-center &
 #/usr/lib64/xfce4/notifyd/xfce4-notifyd &
 nitrogen --restore &
-xbindkeys &
 btops &
 imwheel -b 45 &
 flameshot &
