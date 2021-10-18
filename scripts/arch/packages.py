@@ -26,7 +26,7 @@ mkdir -pv ~/AppImages
   if config["terminal"] == "alacritty" or config["terminal"] == "kitty": 
     pacman(config["terminal"])
     os.system(f"gsettings set org.cinnamon.desktop.default-applications.terminal exec {config['terminal']}")
-  
+
   if config["terminal"] == "st":
     os.system('''cd ~
     git clone https://github.com/LukeSmithxyz/st &&
@@ -147,6 +147,9 @@ mkdir -pv ~/AppImages
   yay("polybar")
   yay("dxhd")
 
+  os.system('''sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    ''')
   os.system("sudo chsh -s $(which zsh)")
   os.system("flameshot config --showhelp false")
   os.system("jgmenu_run init --theme=archlabs_1803")
@@ -156,7 +159,7 @@ mkdir -pv ~/AppImages
   sudo mkdir -p /usr/local/share/fonts &&
   sudo mv SteamFonts/* /usr/local/share/fonts &&
   rm -rf SteamFonts/''')
-  
+
   os.system('''
   git clone https://github.com/thameera/vimv.git &&
   sudo cp vimv/vimv /usr/local/bin/ &&
