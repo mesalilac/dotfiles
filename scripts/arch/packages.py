@@ -110,7 +110,11 @@ mkdir -pv ~/AppImages
   pacman("gnome-system-monitor")
   pacman("steam")
   pacman("jgmenu")
-  
+  pacman("dmenu")
+  pacman("onboard")
+  pacman("redis")
+  pacman("docker")
+
   # fonts
   pacman("ttf-dejavu")
   pacman("ttf-liberation")
@@ -121,6 +125,7 @@ mkdir -pv ~/AppImages
   pacman("noto-fonts")
   pacman("ttf-droid")
   pacman("terminus-font")
+  pacman("ttf-fira-code")
 
   yay("consolas-font")
   yay("ttf-material-icons-git")
@@ -129,6 +134,7 @@ mkdir -pv ~/AppImages
   yay("noto-fonts-sc")
   yay("ttf-ms-fonts")
   yay("fontpreview-ueberzug-git")
+  yay("nerd-fonts-jetbrains-mono")
 
   yay("spotify")
   yay("colorpicker")
@@ -139,6 +145,7 @@ mkdir -pv ~/AppImages
   yay("code-marketplace")
   yay("ls-icons")
   yay("polybar")
+  yay("dxhd")
 
   os.system("sudo chsh -s $(which zsh)")
   os.system("flameshot config --showhelp false")
