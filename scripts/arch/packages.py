@@ -114,6 +114,7 @@ mkdir -pv ~/AppImages
   pacman("onboard")
   pacman("redis")
   pacman("docker")
+  pacman("pacman-contrib")
 
   # fonts
   pacman("ttf-dejavu")
