@@ -1,2 +1,4 @@
-shot=$(colorpicker --one-shot --short)
-notify-send 'hex color' "$shot"
+#!/bin/sh
+
+colorpicker --short --one-shot --preview | xclip -selection clipboard
+
