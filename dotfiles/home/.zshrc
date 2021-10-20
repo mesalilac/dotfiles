@@ -18,6 +18,7 @@ bindkey -v
 export KEYTIMEOUT=1
 
 bindkey "^?" backward-delete-char
+bindkey -s "^g" ". lc\n"
 
 function zle-keymap-select {
   if [[ ${KEYMAP} == vicmd ]] ||
