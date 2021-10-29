@@ -116,6 +116,18 @@ mkdir -pv ~/AppImages
   pacman("docker")
   pacman("pacman-contrib")
 
+  pacman("qemu")
+  pacman("virt-manager")
+  pacman("libvirt")
+  pacman("virt-viewer")
+  pacman("dnsmasq")
+  pacman("vde2")
+  pacman("bridge-utils")
+  pacman("openbsd-netcat")
+  pacman("libguestfs")
+  pacman("qemu-arch-extra")
+  pacman("ebtables")
+
   # fonts
   pacman("ttf-dejavu")
   pacman("ttf-liberation")
@@ -149,6 +161,7 @@ mkdir -pv ~/AppImages
   yay("dxhd")
   yay("lf")
 
+  os.system("sudo systemctl enable libvirtd --now")
   os.system('''sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
     ''')
