@@ -1,5 +1,3 @@
-fc-cache -f
-
 ~/.config/polybar/./launch.sh --senpai-1 &
 
 dxhd &
