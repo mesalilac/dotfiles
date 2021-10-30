@@ -1,7 +1,7 @@
 welcome () {
     case $(tty) in 
         (/dev/tty[1-9]) echo "";;
-        (*) Date=$(date) ; echo -e "Welcome back,$fg[blue] $Date\n" ; neofetch;;
+        (*) octofetch senpai-10 ; cl;;
     esac
 }
 
