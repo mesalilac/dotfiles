@@ -19,6 +19,8 @@ for i in "$@"; do
       ;;
   esac
 done
+# pacman -Qqen > pacman_pkglist
+# yay -Qqem > yay_pkglist
 
 # pacman -S - < pacman_pkglist
 # yay -S - < yay_pkglist
