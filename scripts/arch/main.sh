@@ -19,3 +19,6 @@ for i in "$@"; do
       ;;
   esac
 done
+
+# pacman -S - < pacman_pkglist
+# yay -S - < yay_pkglist
