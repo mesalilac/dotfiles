@@ -1,0 +1,12 @@
+#!/bin/bash
+
+curl -s "wttr.in?format=1" > /tmp/weather
+
+if [ $(fgrep -c -i "redirect" /tmp/weather ) -gt 0 ]; then
+	echo Sign In to Network;
+elif [ $(fgrep -c -i "Unknown location" /tmp/weather) -gt 0 ]; then
+	echo Temporarily Down;
+else
+	echo $(cat /tmp/weather);
+fi
+

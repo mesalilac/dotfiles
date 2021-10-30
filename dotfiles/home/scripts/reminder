@@ -1,8 +1,11 @@
 #!/bin/bash
+
+hour=$(date +"%I")
+minute=$(date +"%M")
+
 while true; do
   if [[ $(date +"%M") = "32" ]]; then
     notify-send "mudae" "claim timer"
   fi
-  
   sleep 60
 done

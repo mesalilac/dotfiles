@@ -3,4 +3,3 @@
 if [ "$(printf "yes\nno" | rofi -dmenu -p "$1" -theme $rofi_theme )" = "yes" ]; then
    $2
 fi
-
