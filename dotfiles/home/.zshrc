@@ -13,6 +13,7 @@ zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
 _comp_options+=(globdots)
+setopt autocd
 
 bindkey -v
 export KEYTIMEOUT=1
