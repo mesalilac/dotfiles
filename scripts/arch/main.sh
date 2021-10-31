@@ -20,7 +20,7 @@ if pacman -Qe "yay" > /dev/null ; then
     makepkg -si
 fi
 
-source functions/*
+source functions/* && echo "source functions"
 
 for i in "$@"; do
   case $i in
