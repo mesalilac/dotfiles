@@ -20,6 +20,18 @@ if pacman -Qe "yay" > /dev/null ; then
     makepkg -si
 fi
 
+mkdir -pv ~/Documents
+mkdir -pv ~/Pictures
+mkdir -pv ~/Downloads
+mkdir -pv ~/Music
+mkdir -pv ~/Videos
+mkdir -pv ~/Screenshots
+mkdir -pv ~/mpv_screenshots
+mkdir -pv ~/AppImages
+mkdir -pv /usr/share/cmus/
+mkdir -p ~/wm
+sudo mkdir -p /usr/local/share/fonts
+
 for f in functions/*; do source $f; done
 
 for i in "$@"; do
@@ -30,7 +42,6 @@ for i in "$@"; do
       ;;
     --install)
       install_packages
-      # copy_files
       shift
     ;;
   esac
