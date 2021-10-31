@@ -1,5 +1,8 @@
 # !/usr/bin/bash
 
 function backup {
-  ls
+  # write all pacman and aur packages 
+  pacman -Qqen > pacman_pkglist
+  yay -Qqem > yay_pkglist
+  
 }
