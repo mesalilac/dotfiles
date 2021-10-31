@@ -4,4 +4,11 @@ function copy_files {
   cd ../../
   cp -rfv dotfiles/.config ~/
   cp -av dotfiles/home/. ~/
+
+  git clone https://github.com/powerline/fonts.git &&
+  cd fonts && ./install.sh ; cd ..
+  
+  sudo cp fonts/* ~/.local/share/fonts/
+  sudo cp themes/cmus/*.theme /usr/share/cmus/
+
 }
