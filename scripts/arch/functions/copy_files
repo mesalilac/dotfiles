@@ -2,6 +2,7 @@
 
 function copy_files {
   cd ../../
+  ls
   cp dotfile/.config ~/
   cp dotfile/home ~/
 }
