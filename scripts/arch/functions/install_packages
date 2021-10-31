@@ -3,6 +3,9 @@
 function install_packages() {
   # sudo pacman -S - < pacman_pkglist
   # yay -S - < yay_pkglist
+  
+  source ./copy_files
+  copy_files
 
   local old_dir_path=`pwd`
 
@@ -11,7 +14,6 @@ function install_packages() {
   git clone https://github.com/siduck/st.git && cd st && sudo make install
 
   # install dwm, dmenu, dwmblocks
-  mkdir -p ~/wm &&
   cd ~/wm &&
   git clone https://github.com/Senpai-10/dwm.git &&
   cd dwm &&
@@ -25,4 +27,49 @@ function install_packages() {
   cd dwmblocks &&
   sudo make install &&
   cd $old_dir_path
+
+  sudo systemctl enable libvirtd --now
+  sudo usermod -a -G libvirt $USER
+
+  sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  
+  sudo chsh -s $(which zsh)
+  flameshot config --showhelp false
+  jgmenu_run init --theme=archlabs_1803
+  sh -c "$(curl -fsSL https://starship.rs/install.sh)"
+
+  git clone https://github.com/powerline/fonts.git &&
+  cd fonts && ./install.sh ; cd ..
+
+  wget https://support.steampowered.com/downloads/1974-YFKL-4947/SteamFonts.zip &&
+  unzip SteamFonts.zip -d SteamFonts/ && rm SteamFonts.zip &&
+  sudo mv SteamFonts/* /usr/local/share/fonts &&
+  rm -rf SteamFonts/
+
+  git clone https://github.com/thameera/vimv.git &&
+  sudo cp vimv/vimv /usr/local/bin/ &&
+  sudo chmod +x /usr/local/bin/vimv
+
+  curl -sLf https://spacevim.org/install.sh | bash
+
+  wget https://github.com/Superjo149/auryo/releases/download/v2.5.4/Auryo-2.5.4.AppImage &&
+  chmod +x Auryo-2.5.4.AppImage &&
+  mv Auryo-2.5.4.AppImage ~/AppImages/auryo
+
+  wget https://download.kde.org/stable/kdenlive/21.08/linux/kdenlive-21.08.1-x86_64.appimage &&
+  chmod +x kdenlive-20.12.3a-x86_64.appimage &&
+  mv kdenlive-20.12.3a-x86_64.appimage ~/AppImages/kdenlive
+
+  wget https://download.kde.org/stable/krita/4.4.8/krita-4.4.8-x86_64.appimage &&
+  chmod +x krita-4.4.8-x86_64.appimage &&
+  mv krita-4.4.8-x86_64.appimage ~/AppImages/krita
+
+  wget https://github.com/ppy/osu/releases/download/2021.907.0/osu.AppImage &&
+  chmod +x osu.AppImage &&
+  mv osu.AppImage ~/AppImages/osu
+
+  wget https://hyperbeam.com/download/linux &&
+  chmod +x linux &&
+  mv linux ~/AppImages/hyperbeam
 }
