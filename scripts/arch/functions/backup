@@ -11,38 +11,38 @@ function backup {
   # .config 
   #
   
-  rsync -Pr ~/.config/alacritty dotfiles/.config/
-  rsync -Pr ~/.config/bspwm dotfiles/.config/
-  rsync -Pr ~/.config/btops dotfiles/.config/
-  rsync -Pr ~/.config/compton dotfiles/.config/
-  rsync -Pr ~/.config/deadd dotfiles/.config/
-  rsync -Pr ~/.config/dxhd dotfiles/.config/
-  rsync -Pr ~/.config/jgmenu dotfiles/.config/
-  rsync -Pr ~/.config/kitty dotfiles/.config/
-  rsync -Pr ~/.config/mpv dotfiles/.config/
-  rsync -Pr ~/.config/nvim dotfiles/.config/
-  rsync -Pr ~/.config/openbox dotfiles/.config/
-  rsync -Pr ~/.config/polybar dotfiles/.config/
-  rsync -Pr ~/.config/sxhkd dotfiles/.config/
-  rsync -Pr ~/.config/picom.conf dotfiles/.config/
+  cp -av ~/.config/alacritty dotfiles/.config/
+  cp -av ~/.config/bspwm dotfiles/.config/
+  cp -av ~/.config/btops dotfiles/.config/
+  cp -av ~/.config/compton dotfiles/.config/
+  cp -av ~/.config/deadd dotfiles/.config/
+  cp -av ~/.config/dxhd dotfiles/.config/
+  cp -av ~/.config/jgmenu dotfiles/.config/
+  cp -av ~/.config/kitty dotfiles/.config/
+  cp -av ~/.config/mpv dotfiles/.config/
+  cp -av ~/.config/nvim dotfiles/.config/
+  cp -av ~/.config/openbox dotfiles/.config/
+  cp -av ~/.config/polybar dotfiles/.config/
+  cp -av ~/.config/sxhkd dotfiles/.config/
+  cp -av ~/.config/picom.conf dotfiles/.config/
 
   #
   # home 
   #
 
-  rsync -Pr ~/.icons dotfiles/home/
-  rsync -Pr ~/.shell_profile dotfiles/home/
-  rsync -Pr ~/.themes dotfiles/home/
-  rsync -Pr ~/scripts dotfiles/home/
+  cp -av ~/.icons dotfiles/home/
+  cp -av ~/.shell_profile dotfiles/home/
+  cp -av ~/.themes dotfiles/home/
+  cp -av ~/scripts dotfiles/home/
 
-  rsync -Pr ~/.bashrc dotfiles/home/
-  rsync -Pr ~/.imwheelrc dotfiles/home/
-  rsync -Pr ~/.xbindkeysrc dotfiles/home/
-  rsync -Pr ~/.xinitrc dotfiles/home/
-  rsync -Pr ~/.Xresources dotfiles/home/
-  rsync -Pr ~/.yarnrc dotfiles/home/
-  rsync -Pr ~/.zprofile dotfiles/home/
-  rsync -Pr ~/.zshenv dotfiles/home/
-  rsync -Pr ~/.zshrc dotfiles/home/
+  cp -av ~/.bashrc dotfiles/home/
+  cp -av ~/.imwheelrc dotfiles/home/
+  cp -av ~/.xbindkeysrc dotfiles/home/
+  cp -av ~/.xinitrc dotfiles/home/
+  cp -av ~/.Xresources dotfiles/home/
+  cp -av ~/.yarnrc dotfiles/home/
+  cp -av ~/.zprofile dotfiles/home/
+  cp -av ~/.zshenv dotfiles/home/
+  cp -av ~/.zshrc dotfiles/home/
 
 }
