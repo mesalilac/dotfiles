@@ -4,7 +4,7 @@ function install_packages() {
   # sudo pacman -S - < pacman_pkglist
   # yay -S - < yay_pkglist
 
-  old_dir_path=$(pwd)
+  local old_dir_path=$(pwd)
 
   # install st 
 
