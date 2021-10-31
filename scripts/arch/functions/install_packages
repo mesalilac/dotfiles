@@ -13,8 +13,8 @@ function install_packages() {
   mkdir -p ~/wm
   sudo mkdir -p /usr/local/share/fonts
 
-  # sudo pacman -S - < pacman_pkglist
-  # yay -S - < yay_pkglist
+  sudo pacman -S - < pacman_pkglist
+  yay -S - < yay_pkglist
   
   source ./copy_files
   copy_files
