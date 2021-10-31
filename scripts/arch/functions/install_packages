@@ -1,6 +1,18 @@
 # !/usr/bin/bash
 
 function install_packages() {
+  mkdir -pv ~/Documents
+  mkdir -pv ~/Pictures
+  mkdir -pv ~/Downloads
+  mkdir -pv ~/Music
+  mkdir -pv ~/Videos
+  mkdir -pv ~/Screenshots
+  mkdir -pv ~/mpv_screenshots
+  mkdir -pv ~/AppImages
+  mkdir -pv /usr/share/cmus/
+  mkdir -p ~/wm
+  sudo mkdir -p /usr/local/share/fonts
+
   # sudo pacman -S - < pacman_pkglist
   # yay -S - < yay_pkglist
   
