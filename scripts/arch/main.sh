@@ -32,3 +32,5 @@ done
 
 # pacman -S - < pacman_pkglist
 # yay -S - < yay_pkglist
+
+# git clone -b <branchname> <remote-repo-url>
