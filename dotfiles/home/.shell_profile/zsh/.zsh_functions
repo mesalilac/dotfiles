@@ -1,7 +1,8 @@
 welcome () {
     case $(tty) in 
         (/dev/tty[1-9]) echo "";;
-        (*) octofetch senpai-10 ; cl;;
+        #(*) octofetch senpai-10 ; cl;;
+        (*) get_color_script;;
     esac
 }
 
