@@ -2,8 +2,9 @@
 
 function help() {
   echo -e "
-  -h --help\t print this message 
-  --install\t install packages and copy files
+  help\t print this message 
+  install\t install packages and copy files
+  backup\t backup packages and dotfiles
   "
 }
 
@@ -36,12 +37,16 @@ for f in functions/*; do source $f; done
 
 for i in "$@"; do
   case $i in
-    -h|--help)
+    help)
       help
       shift
       ;;
-    --install)
+    install)
       install_packages
+      shift
+    ;;
+    backup)
+      backup
       shift
     ;;
   esac
