@@ -30,6 +30,7 @@ feh
 fff
 ffmpegthumbnailer
 ffmpegthumbs
+firefox
 flameshot
 flex
 fzf
@@ -46,6 +47,7 @@ imagemagick
 imwheel
 iptables-nft
 jgmenu
+kitty
 kmix
 lib32-libpulse
 libguestfs
@@ -55,9 +57,11 @@ linux
 linux-firmware
 linux-headers
 lxappearance
+lxappearance-obconf
 lxtask
 m4
 make
+menumaker
 mpv
 mtools
 nautilus
@@ -73,7 +77,9 @@ noto-fonts
 noto-fonts-emoji
 npm
 ntfs-3g
+obconf
 onboard
+openbox
 openbsd-netcat
 os-prober
 pacman-contrib
@@ -90,6 +96,7 @@ pulseaudio-jack
 python-pip
 python-setuptools
 qemu
+qemu-arch-extra
 redis
 reflector
 rofi
