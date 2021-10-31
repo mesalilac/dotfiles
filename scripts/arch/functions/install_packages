@@ -1,7 +1,5 @@
 # !/usr/bin/bash
 
-echo "test"
-
 function install_packages() {
   # sudo pacman -S - < pacman_pkglist
   # yay -S - < yay_pkglist
