@@ -21,8 +21,8 @@ for i in "$@"; do
       shift
       ;;
     --install)
-      copy_files
       # install_packages
+      copy_files
       shift
     ;;
   esac
