@@ -1,8 +1,8 @@
 # !/usr/bin/bash
 
 function install_packages() {
-  sudo pacman -S - < pacman_pkglist
-  yay -S - < yay_pkglist
+  # sudo pacman -S - < pacman_pkglist
+  # yay -S - < yay_pkglist
 
   old_dir_path=$(pwd)
 
@@ -22,6 +22,4 @@ function install_packages() {
   cd dwmblocks &&
   sudo make install &&
   cd $old_dir_path
-
-  
 }
