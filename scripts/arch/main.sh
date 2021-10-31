@@ -3,6 +3,7 @@
 function help() {
   echo -e "
   -h --help\t print this message 
+  --install\t install packages and copy files
   "
 }
 
@@ -11,12 +12,19 @@ if [[ $# = 0 ]]; then
   help
 fi
 
+source functions/*
+
 for i in "$@"; do
   case $i in
     -h|--help)
       help
       shift
       ;;
+    --install)
+      copy_files
+      # install_packages
+      shift
+    ;;
   esac
 done
 # pacman -Qqen > pacman_pkglist
