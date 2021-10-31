@@ -12,6 +12,14 @@ if [[ $# = 0 ]]; then
   help
 fi
 
+if pacman -Qe "yay" > /dev/null ; then
+  echo
+  else
+    git clone https://aur.archlinux.org/yay.git
+    cd yay
+    makepkg -si
+fi
+
 source functions/*
 
 for i in "$@"; do
