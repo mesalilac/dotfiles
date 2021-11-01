@@ -9,9 +9,9 @@ function install_packages() {
   mkdir -pv ~/Screenshots
   mkdir -pv ~/mpv_screenshots
   mkdir -pv ~/AppImages
-  mkdir -pv /usr/share/cmus/
   mkdir -p ~/wm
-  sudo mkdir -p /usr/local/share/fonts
+  sudo mkdir -pv /usr/share/cmus/
+  sudo mkdir -pv /usr/local/share/fonts
 
   sudo pacman -S - < pacman_pkglist
   yay -S - < yay_pkglist
