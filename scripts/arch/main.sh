@@ -19,6 +19,7 @@ if pacman -Qe "yay" > /dev/null ; then
     git clone https://aur.archlinux.org/yay.git
     cd yay
     makepkg -si
+    cd ..
 fi
 
 for f in functions/*; do source $f; done
