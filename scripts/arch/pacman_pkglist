@@ -87,7 +87,6 @@ patch
 patchelf
 pavucontrol
 pax-utils
-picom
 pkgconf
 pulseaudio
 pulseaudio-alsa
@@ -124,6 +123,7 @@ which
 wireless_tools
 xbindkeys
 xclip
+xdotool
 xf86-video-vesa
 xorg-bdftopcf
 xorg-docs

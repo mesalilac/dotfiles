@@ -4,6 +4,7 @@ btops-git
 cava-git
 code-marketplace
 colorpicker
+compton-conf-git
 consolas-font
 deadd-notification-center-bin
 discord-qt-appimage
@@ -13,11 +14,13 @@ fontpreview-ueberzug-git
 google-chrome
 lf-bin
 ls-icons
+lxqt-build-tools-git
 mongodb-bin
 mongodb-tools-bin
 nerd-fonts-complete
 noto-fonts-sc
 otf-symbola
+picom-ibhagwan-git
 polybar
 selectdefaultapplication-git
 spacefm
