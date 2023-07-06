@@ -24,8 +24,6 @@ backup_paths: list[Path] = [
         "dest": ".config/",
         "exclusions": [],
     },
-    {"src": "~/.config/deadd", "dest": ".config/", "exclusions": []},
-    {"src": "~/.config/dxhd", "dest": ".config/", "exclusions": []},
     {
         "src": "~/.config/jgmenu",
         "dest": ".config/",
@@ -33,7 +31,6 @@ backup_paths: list[Path] = [
     },
     {"src": "~/.config/kitty", "dest": ".config/", "exclusions": []},
     {"src": "~/.config/mpv", "dest": ".config/", "exclusions": []},
-    {"src": "~/.config/sxhkd", "dest": ".config/", "exclusions": []},
     {"src": "~/.config/cmus", "dest": ".config/", "exclusions": []},
     {
         "src": "~/.config/BetterDiscord",
@@ -45,7 +42,7 @@ backup_paths: list[Path] = [
     {
         "src": "~/.config/discover_overlay",
         "dest": ".config/",
-        "exclusions": ["discover_overlay.pid"],
+        "exclusions": [],
     },
     {
         "src": "~/.config/picom.conf",
