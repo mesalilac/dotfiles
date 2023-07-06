@@ -14,7 +14,6 @@ backup_paths: list[Path] = [
         "exclusions": [],
     },
     {"src": "~/.config/zsh", "dest": ".config/", "exclusions": []},
-    {"src": "~/.config/bash", "dest": ".config/", "exclusions": []},
     {
         "src": "~/.config/alacritty",
         "dest": ".config/",
@@ -79,9 +78,6 @@ backup_paths: list[Path] = [
     {"src": "~/scripts", "dest": "home/", "exclusions": []},
     {"src": "~/.themes", "dest": "home/", "exclusions": []},
     {"src": "~/.icons", "dest": "home/", "exclusions": []},
-    {"src": "~/.bashrc", "dest": "home/", "exclusions": []},
-    {"src": "~/.bash_profile", "dest": "home/", "exclusions": []},
-    {"src": "~/.bash_logout", "dest": "home/", "exclusions": []},
     {"src": "~/.dialogrc", "dest": "home/", "exclusions": []},
     {"src": "~/.imwheelrc", "dest": "home/", "exclusions": []},
     {"src": "~/.xbindkeysrc", "dest": "home/", "exclusions": []},
