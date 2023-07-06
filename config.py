@@ -24,13 +24,6 @@ backup_paths: list[Path] = [
         "dest": ".config/",
         "exclusions": [],
     },
-    {"src": "~/.config/bspwm", "dest": ".config/", "exclusions": []},
-    {"src": "~/.config/btops", "dest": ".config/", "exclusions": []},
-    {
-        "src": "~/.config/compton",
-        "dest": ".config/",
-        "exclusions": [],
-    },
     {"src": "~/.config/deadd", "dest": ".config/", "exclusions": []},
     {"src": "~/.config/dxhd", "dest": ".config/", "exclusions": []},
     {
@@ -40,16 +33,6 @@ backup_paths: list[Path] = [
     },
     {"src": "~/.config/kitty", "dest": ".config/", "exclusions": []},
     {"src": "~/.config/mpv", "dest": ".config/", "exclusions": []},
-    {
-        "src": "~/.config/openbox",
-        "dest": ".config/",
-        "exclusions": [],
-    },
-    {
-        "src": "~/.config/polybar",
-        "dest": ".config/",
-        "exclusions": [],
-    },
     {"src": "~/.config/sxhkd", "dest": ".config/", "exclusions": []},
     {"src": "~/.config/cmus", "dest": ".config/", "exclusions": []},
     {
