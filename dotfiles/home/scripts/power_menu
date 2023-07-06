@@ -1,0 +1,17 @@
+#!/bin/sh
+
+confirmation() {
+    confirmation=$(printf "yes\nno" | dmenu -p "$1" -l 30) 
+	[[ $confirmation = "yes" ]] && $2
+}
+
+option=$(echo "Shutdown
+Reboot
+Logout
+Cancel" | dmenu -p "Power menu" -l 30) 
+
+[[ $option = "Shutdown" ]] && confirmation "Shutdown" "shutdown now"
+[[ $option = "Reboot" ]] && confirmation "Reboot" "reboot"	
+[[ $option = "Logout" ]] && confirmation "Logout" "bspc quit"	
+
+exit 0

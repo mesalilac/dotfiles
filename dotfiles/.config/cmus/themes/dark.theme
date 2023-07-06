@@ -1,0 +1,55 @@
+# ref: https://www.ditig.com/256-colors-cheat-sheet
+
+# default text color
+set color_win_fg=default
+
+# overall background color
+set color_win_bg=default
+
+set color_separator=gray
+
+# command-line colors
+set color_cmdline_bg=default
+set color_cmdline_fg=default
+set color_error=lightred
+set color_info=lightyellow
+
+# bottom status line
+set color_statusline_bg=default
+set color_statusline_fg=white
+
+# bottom title line
+set color_titleline_bg=black
+set color_titleline_fg=203
+
+# top title area
+set color_win_title_bg=black
+set color_win_title_fg=203
+
+##### playing file colors ######################################################
+
+# unselected currently playing track's text
+set color_win_cur=203
+
+# active selection for currently playing track
+set color_win_cur_sel_bg=203
+set color_win_cur_sel_fg=black
+
+# inactive selection for currently playing track
+set color_win_inactive_cur_sel_bg=red
+set color_win_inactive_cur_sel_fg=black
+
+##### non-playing file colors ##################################################
+
+# active selection
+set color_win_sel_bg=203
+set color_win_sel_fg=black
+
+# inactive selection
+set color_win_inactive_sel_bg=red
+set color_win_inactive_sel_fg=black
+
+##### file browser view colors #################################################
+
+# directory listing color
+set color_win_dir=lightblue

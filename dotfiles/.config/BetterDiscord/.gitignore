@@ -1,0 +1,8 @@
+/*
+plugins/*.json
+plugins/*.css
+
+!themes
+!plugins/
+!plugins/*.plugin.js
+

@@ -1,0 +1,40 @@
+# global
+
+"$BROWSER"
+  Mod4+w
+
+"$FILEMANAGER"
+  Mod4+e
+
+"prompt "shutdown your computer?" "shutdown now""
+  Mod4+x
+
+"rofi -show run -theme $rofi_theme"
+  Mod4+p
+
+"rofi -show window -theme $rofi_theme"
+  Mod4+Shift+p
+
+"[[ $(top -b -n1 | grep jgmenu) ]] && pkill jgmenu; jgmenu || jgmenu"
+  Mod4+g
+
+"amixer -D pulse sset Master 10%+ ; pkill -RTMIN+2 dwmblocks"
+  Mod4+Up
+
+"amixer -D pulse sset Master 10%- ; pkill -RTMIN+2 dwmblocks"
+  Mod4+Down
+
+"flameshot full -p ~/Screenshots"
+  Alt+Shift+s
+
+"flameshot gui -p ~/Screenshots"
+  Alt+Shift+p
+
+"~/scripts/./change_layout.sh"
+  Mod4+space
+
+"polybar-msg cmd toggle"
+  Mod4+comma
+
+# "$TERMINAL"
+#   Mod4+Shift+Return

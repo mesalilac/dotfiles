@@ -1,0 +1,88 @@
+#!/bin/env bash
+
+# takes a git repo url
+# clone it in /tmp/
+# open it with EDITOR
+
+help_message() {
+    echo -e \
+"Help Message:
+
+-e, --editor
+    Provide a editor to edit the script with
+
+-u, --url
+    Git repo url
+
+-t, --terminal
+    open EDITOR in TERMINAL
+"
+}
+
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        -e|--editor)
+            EDITOR="$2"
+            shift # past argument
+            shift # past value
+        ;;
+        -t|--terminal)
+            OPEN_TERMINAL=YES
+            shift # past argument
+        ;;
+        -h|--help|-*|--*)
+            help_message
+            exit 1
+        ;;
+        *)
+            URL="$1"
+            shift # past argument
+        ;;
+    esac
+done
+
+_log() {
+    local body="$1"
+
+    notify-send "open_repo" "$body"
+}
+
+
+re="^(https|git)(:\/\/|@)([^\/:]+)[\/:]([^\/:]+)\/(.+)(.git)*$"
+
+if [[ $URL =~ $re ]]; then
+    protocol=${BASH_REMATCH[1]}
+    separator=${BASH_REMATCH[2]}
+    hostname=${BASH_REMATCH[3]}
+    user=${BASH_REMATCH[4]}
+    user="${user/.git/}"
+    repo=${BASH_REMATCH[5]}
+fi
+
+TMP_DIR="/tmp/open_repo/$user"
+DEST="$TMP_DIR/$repo"
+
+mkdir -pv "$TMP_DIR"
+
+if [ -z "$URL" ]
+then
+    _log "No --url provided!"
+
+    exit 1
+fi
+
+if [ ! -d "$DEST" ]
+then
+    _log "Cloning '$URL' into $DEST"
+
+    git clone "$URL" "$DEST"
+
+    _log "Opening $DEST Now!"
+fi
+
+if [ -n "$OPEN_TERMINAL" ]
+then
+    $TERMINAL -e $EDITOR "$DEST"
+else
+    $EDITOR "$DEST"
+fi

@@ -1,0 +1,19 @@
+#!/bin/env python3
+
+layouts: list[str] = ["us", "ara"]
+
+import subprocess
+
+def main():
+    current_layout: str = get_layout()
+    
+    for i in range(len(layouts)):
+        if layouts[i] != current_layout: continue
+        
+        next_index: int = 0 if  i + 1 >= len(layouts) else i + 1
+        set_layout(layouts[next_index])
+
+def get_layout() -> str: return subprocess.check_output(["sh", "-c", "setxkbmap -print | awk -F\"+\" '/xkb_symbols/ {print $2}'"]).decode("utf-8").rstrip('\n')
+def set_layout(layout: str) -> None: subprocess.check_call(["setxkbmap", layout])
+
+if __name__ == '__main__': main()

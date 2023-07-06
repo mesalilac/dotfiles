@@ -1,0 +1,16 @@
+[user]
+	email = bmjfdrh@gmail.com
+    name = abdalrzag eisa
+    signingkey = bmjfdrh@gmail.com
+
+[credential]
+    helper = store
+
+[commit]
+    gpgsign = true
+
+[tag]
+    gpgSign = true
+
+[core]
+	filemode = false

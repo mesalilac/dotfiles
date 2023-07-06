@@ -1,0 +1,16 @@
+# !/usr/bin/bash
+
+
+killall dxhd; dxhd &
+#compton --config ~/.config/compton/compton.conf &
+killall picom; picom &
+deadd-notification-center &
+#/usr/lib64/xfce4/notifyd/xfce4-notifyd &
+nitrogen --restore &
+killall btops; btops &
+killall imwheel; imwheel -b 45 &
+killall flameshot; flameshot &
+xrdb -merge ~/.Xresources &
+killall gromit-mpx; gromit-mpx &
+killall reminder; ~/scripts/./reminder &
+

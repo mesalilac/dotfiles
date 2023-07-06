@@ -1,0 +1,21 @@
+#!/usr/bin/python3
+
+# formated uptime
+# for status bar
+
+if "__main__" == __name__:
+    with open("/proc/uptime") as f:
+        time = float(f.readline().split(" ")[0])
+
+        output = ""
+
+        days = int((time/86400))
+        hours = int((time%86400)/3600)
+        minutes = int((time%3600)/60)
+        seconds = int(time%60)
+
+        if days != 0: output += f"{days}:"
+        if hours != 0: output += f"{hours}:"
+        if minutes != 0: output += f"{minutes}:"
+
+        print(f"{output}{seconds}")

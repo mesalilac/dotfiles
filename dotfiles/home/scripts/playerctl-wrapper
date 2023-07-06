@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+COMMAND=$1
+
+[[ -z $COMMAND ]] && playerctl --help
+
+PLAYER=""
+
+function player_running {
+    [ "$(playerctl -l | grep -i "$1")" ]
+}
+
+if player_running "spotify"; then
+    PLAYER="spotify"
+elif player_running "cmus"; then
+    PLAYER="cmus"
+fi
+
+playerctl -s --player=${PLAYER} $*

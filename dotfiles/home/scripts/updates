@@ -1,0 +1,9 @@
+#!/bin/sh
+
+updates_count=$(checkupdates | wc -l)
+
+if [[ $updates_count -gt 0 ]]; then
+    echo -e " $updates_count updates"
+fi
+
+echo ""

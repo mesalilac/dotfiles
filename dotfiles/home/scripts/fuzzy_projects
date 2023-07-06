@@ -1,0 +1,3 @@
+#!/bin/bash
+
+cd `fd -t d -d 2 . ~/projects | scout -i -l 40` && clear

@@ -1,0 +1,9 @@
+[Nemo Action]
+Name=Open folder with eog
+Comment=Open #F in eog
+Exec=<scripts/open_with_eog.sh %F>
+Icon-Name=eog
+Selection=any
+Extensions=dir;
+EscapeSpaces=true
+Dependencies=eog;

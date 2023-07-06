@@ -1,0 +1,70 @@
+#!/bin/sh
+
+# - Quick script
+# ----
+# Open a tmp file with your $EDITOR
+#   After you save and quit
+#   The script will run
+
+set -e
+
+help_message() {
+    echo -e \
+"Help Message:
+
+-e, --editor
+    Provide a editor to edit the script with
+
+-k, --keep
+    Use the same quick script
+"
+}
+
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        -e|--editor)
+            EDITOR="$2"
+            shift # past argument
+            shift # past value
+        ;;
+        -k|--keep)
+            KEEP=YES
+            shift # past argument
+        ;;
+        -h|--help|-*|--*)
+            help_message
+            exit 1
+        ;;
+        *)
+            shift # past argument
+        ;;
+    esac
+done
+
+# If EDITOR is empty use vim
+if [ -z "$EDITOR" ]
+then
+    EDITOR="vim"
+fi
+
+TMP_FILE=/tmp/quick_script
+
+# keep the same file
+if [[ "$KEEP" != "YES" ]]
+then
+    # overwite $TMP_FILE with this content
+    {
+        echo -e "#!/bin/sh"
+        echo -e "# This script will run after you write and quit!"
+        echo -e ""
+    } > "$TMP_FILE"
+fi
+
+# open file in $EDITOR
+$EDITOR "$TMP_FILE" 2> /dev/null
+
+# make script executable
+chmod +x "$TMP_FILE"
+
+# execute the script
+$TMP_FILE

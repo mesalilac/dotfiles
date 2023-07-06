@@ -1,0 +1,106 @@
+#!/bin/env python
+
+import subprocess
+import os
+
+home = os.getenv("HOME")
+list_file = f"{home}/Documents/setupvpn"
+tmp_used_emails_list_file = "/tmp/setupvpn_used_emails_list"
+
+
+def load_used_emails_list():
+    if os.path.exists(tmp_used_emails_list_file):
+        list = []
+
+        with open(tmp_used_emails_list_file, "r") as f:
+            for line in f.read().splitlines():
+                if line == "" or "@" not in line:
+                    continue
+
+                list.append(line)
+
+            return list
+    else:
+        return []
+
+
+def add_used_email(email: str):
+    with open(tmp_used_emails_list_file, "a") as f:
+        f.write(f"{email}\n")
+
+
+used_emails = load_used_emails_list()
+emails = []
+
+with open(list_file, "r") as f:
+    index = 1
+
+    for email in f.read().splitlines():
+        if email == "" or "@" not in email or email in used_emails:
+            continue
+
+        emails.append(f"{index} {email}")
+
+        index += 1
+
+
+def dmenu_select():
+    proc = subprocess.Popen(
+        ["dmenu", "-p", "select email", "-l", "40"],
+        universal_newlines=True,
+        stdin=subprocess.PIPE,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+
+    assert proc.stdin is not None
+    assert proc.stdout is not None
+    assert proc.stderr is not None
+
+    # write items over to dmenu
+    with proc.stdin:
+        for email in emails:
+            proc.stdin.write(email)
+            proc.stdin.write("\n")
+
+        if len(emails) == 0:
+            proc.stdin.write("All emails are used!")
+            proc.stdin.write("\n")
+
+
+    if proc.wait() == 0:
+        # return email
+        return proc.stdout.read().rstrip("\n")
+
+    stderr = proc.stderr.read()
+
+    if stderr == "":
+        # user hit escape
+        return None
+
+
+def send_to_clipboard(email):
+    args = ["xclip", "-selection", "clipboard"]
+
+    process = subprocess.Popen(["echo", email], stdout=subprocess.PIPE)
+
+    subprocess.Popen(
+        args,
+        stdin=process.stdout,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+    )
+
+
+selection = dmenu_select()
+
+if selection == None:
+    exit(0)
+
+# remove the index part
+email = selection.split(" ")[1]
+
+# mark email as used
+add_used_email(email)
+
+send_to_clipboard(email)

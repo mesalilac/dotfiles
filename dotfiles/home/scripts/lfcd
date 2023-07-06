@@ -1,0 +1,6 @@
+#!/bin/sh
+
+
+lf -last-dir-path /tmp/last_lf_dir; 
+cd "$(cat /tmp/last_lf_dir)"
+clear

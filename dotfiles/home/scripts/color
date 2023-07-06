@@ -1,0 +1,3 @@
+#!/bin/sh
+
+yad --color --center --on-top --selectable-labels | tr -d \\n | xclip -selection clipboard

@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# colorpicker --short --one-shot --preview | tr -d \\n | xclip -selection clipboard
+gpick -o -s | tr -d \\n | xclip -selection clipboard
+

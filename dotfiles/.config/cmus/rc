@@ -1,0 +1,145 @@
+colorscheme themes/dark
+add ~/Music
+
+set mouse=true
+set show_hidden=true
+
+# Playback
+
+bind -f common b player-next
+bind -f common B player-next-album
+bind -f common c player-pause
+bind -f common x player-play
+bind -f common z player-prev
+bind -f common Z player-prev-album
+bind -f common v player-stop
+
+bind -f common ] vol +0 +1%
+bind -f common [ vol +1% +0
+bind -f common + vol +10%
+bind -f common = vol +10%
+bind -f common } vol -0 -1%
+bind -f common { vol -1% -0
+bind -f common - vol -10%
+
+bind -f common , seek -1m
+bind -f common . seek +1m
+
+bind -f common h seek -5
+bind -f common l seek +5
+
+bind -f common left seek -5
+bind -f common right seek +5
+
+bind -f common mlb_click_bar player-pause
+bind -f common mouse_scroll_up_bar seek +5
+bind -f common mouse_scroll_down_bar seek -5
+
+# Setting toggles
+
+bind -f common m toggle aaa_mode
+bind -f common C toggle continue
+bind -f common M toggle play_library
+bind -f common o toggle play_sorted
+bind -f common r toggle repeat
+bind -f common ^R toggle repeat_current
+bind -f common t toggle show_remaining_time
+bind -f common s toggle shuffle
+bind -f common f toggle follow
+
+# Commands
+
+bind -f common q quit -i
+bind -f common ^C echo Type :quit<enter> to exit cmus.
+bind -f common I echo {}
+
+# note: the single space at the end is intentional
+bind -f common ! push shell
+
+# View/window navigation
+
+bind -f common 1 view tree
+bind -f common 2 view sorted
+bind -f common 3 view playlist
+bind -f common 4 view queue
+bind -f common 5 view browser
+bind -f common 6 view filters
+bind -f common 7 view settings
+
+bind -f common mouse_scroll_up_title left-view
+bind -f common mouse_scroll_down_title right-view
+
+bind -f common tab win-next
+
+bind -f common ^L refresh
+
+# Navigation
+
+bind -f common ^Y win-scroll-up
+bind -f common ^E win-scroll-down
+bind -f common ^B win-page-up
+bind -f common ^F win-page-down
+bind -f common ^U win-half-page-up
+bind -f common ^D win-half-page-down
+
+bind -f common k win-up
+bind -f common j win-down
+bind -f common g win-top
+bind -f common G win-bottom
+
+bind -f common up win-up
+bind -f common down win-down
+bind -f common home win-top
+bind -f common end win-bottom
+bind -f common page_up win-page-up
+bind -f common page_down win-page-down
+
+bind -f common mouse_scroll_up win-up
+bind -f common mouse_scroll_down win-down
+
+# Selection
+
+bind -f common i win-sel-cur
+bind -f common enter win-activate
+bind -f common mlb_click_selected win-activate
+
+bind -f common space win-toggle
+bind -f common D win-remove
+bind -f common delete win-remove
+bind -f common p win-mv-after
+bind -f common P win-mv-before
+
+bind -f common E win-add-Q
+bind -f common a win-add-l
+bind -f common y win-add-p
+bind -f common e win-add-q
+
+bind -f common u update-cache
+bind -f common U win-update-cache
+
+# Filters
+
+bind -f common / search-start
+bind -f common ? search-b-start
+bind -f common n search-next
+bind -f common N search-prev
+
+# note: the single space at the end is intentional
+bind -f common F push filter
+bind -f common L push live-filter
+
+fset 90s=date>=1990&date<2000
+fset classical=genre="Classical"
+fset unheard=play_count=0
+fset missing-tag=!stream&(artist=""|album=""|title=""|tracknumber=-1|date=-1)
+fset mp3=filename="*.mp3"
+fset ogg=filename="*.ogg"
+fset ogg-or-mp3=ogg|mp3
+fset format_current= %{artist} - %-40{title} %= (play count %{play_count}) (%{date})
+
+# File browser
+
+bind -f browser backspace browser-up
+bind -f browser space win-activate
+bind -f browser i toggle show_hidden
+bind -f browser u win-update

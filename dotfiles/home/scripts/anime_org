@@ -1,0 +1,164 @@
+#!/bin/python3
+
+import tkinter as tk
+from tkinter import filedialog
+import logging
+import shutil
+import os
+
+def helper_expand_ranges_filler_list(list):
+    ''' Returns array of numbers '''
+    # Remove all whitespace from string
+    list = list.replace(" ", "")
+
+    tmp_arr = list.split(",")
+
+    filler_list = []
+
+    for i in tmp_arr:
+        if "-" in i:
+            start, end = i.split("-")
+
+            if start.isdigit() == False or end.isdigit() == False: continue
+
+            start = int(start)
+            end = int(end)
+
+            for j in range(start, end+1):
+                filler_list.append(j)
+        else:
+            if i.isdigit() == False:
+                continue
+
+            filler_list.append(int(i))
+
+    return filler_list
+
+module_logger = logging.getLogger(__name__)
+
+class App(tk.Tk):
+    def __init__(self, title, size):
+        super().__init__()
+
+        self.title(title)
+        self.geometry(f"{size[0]}x{size[1]}")
+        self.resizable(width=False, height=False)
+        # self.minsize(size[0], size[1])
+
+        self.wait_visibility() # If removed you can't use input fields
+        self.folder_selected = filedialog.askdirectory()
+
+        self.grid()
+
+        self.anime_name_lable = tk.Label(self, text = "Anime name")
+        self.anime_name_lable.grid(column=0, row=0)
+
+        self.anime_name = tk.Entry(self)
+        self.anime_name.grid(column=0, row=2)
+        self.anime_name.bind('<Control-KeyRelease-a>', self.callback)
+
+        self.filler_list_lable = tk.Label(self, text = "Filler list")
+        self.filler_list_lable.grid(column=0, row=3)
+
+        self.filler_list = tk.Entry(self)
+        self.filler_list.grid(column=0, row=4)
+        self.filler_list.bind('<Control-KeyRelease-a>', self.callback)
+
+        self.clean_up_names_button = tk.Button(self, text="clean up names")
+        self.clean_up_names_button.grid(column=0,row=5)
+        self.clean_up_names_button.bind("<ButtonRelease-1>", self.clean_up)
+
+        self.mark_fillers_button = tk.Button(self, text="Mark fillers")
+        self.mark_fillers_button.grid(column=0,row=6)
+        self.mark_fillers_button.bind("<ButtonRelease-1>", self.mark_fillers)
+
+        self.log = tk.Text(self, state="disabled")
+        self.log.grid(column=0, row=7)
+
+        stderrHandler = logging.StreamHandler()
+        module_logger.addHandler(stderrHandler)
+        guiHandler = MyHandlerText(self.log)
+        module_logger.addHandler(guiHandler)
+        module_logger.setLevel(logging.INFO)
+
+        self.mainloop()
+
+    def callback(self, event):
+        # select text
+        event.widget.select_range(0, 'end')
+        # move cursor to the end
+        event.widget.icursor('end')
+
+    def clean_up(self, _):
+        anime_name = self.anime_name.get()
+
+        if anime_name == "":
+            module_logger.error("[Error]: 'Anime name' is required.")
+            return
+
+        files = sorted(os.listdir(self.folder_selected))
+
+        for file in files:
+            full_path = os.path.join(self.folder_selected, file)
+
+            if os.path.isfile(full_path) == False:
+                continue
+
+            if file.startswith("EP") and file.endswith(".mp4"):
+                ep_number = file.split(".")[1]
+
+                new_file_name = os.path.join(self.folder_selected, f"{anime_name} {ep_number}.mp4")
+                shutil.move(full_path, new_file_name)
+
+                module_logger.info(f"[Info]: '{file}' -> '{anime_name} {ep_number}.mp4'.")
+
+    def mark_fillers(self, _):
+        if self.filler_list.get() == "" or self.anime_name.get() == "":
+            module_logger.error("[Error]: 'Anime name' and 'Filler list' both are required.")
+            return
+
+        anime_name = self.anime_name.get()
+        filler_list = helper_expand_ranges_filler_list(self.filler_list.get())
+
+        files = sorted(os.listdir(self.folder_selected))
+
+        for file in files:
+            full_path = os.path.join(self.folder_selected, file)
+
+            if not os.path.isfile(full_path):
+                continue
+
+            if file.startswith(anime_name) and file.endswith(".mp4"):
+                ep_name = file.split(".")[0]
+                tmp_str = ep_name.split(" ")
+
+                if tmp_str[-1] == "(Filler)":
+                    continue
+
+                ep_number = int(tmp_str[-1])
+
+                if ep_number in filler_list:
+                    new_file_name = os.path.join(self.folder_selected, f"{ep_name} (Filler).mp4")
+                    shutil.move(full_path, new_file_name)
+
+                    module_logger.info(f"[Info]: '{file}' Marked as filler '{ep_name} (Filler).mp4'.")
+
+class MyHandlerText(logging.StreamHandler):
+    def __init__(self, textctrl):
+        logging.StreamHandler.__init__(self)
+        self.textctrl = textctrl
+
+    def emit(self, record):
+        msg = self.format(record)
+        self.textctrl.config(state="normal")
+        self.textctrl.insert("end", msg + "\n")
+
+        # auto scroll
+        self.textctrl.see(tk.END)
+
+        self.flush()
+        self.textctrl.config(state="disabled")
+
+if __name__ == "__main__":
+    App("Anime org", (570, 570))
+
