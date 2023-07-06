@@ -27,9 +27,5 @@ xrandr --output HDMI-1 --primary
 xrandr --output LVDS-1 --off
 xrandr -r 60
 
-# if [ "$DESKTOP_ENV" = "awesomewm" ]; then
-#     exec awesome
-# fi
-
 # start awesomewm
 exec awesome
