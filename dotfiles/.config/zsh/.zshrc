@@ -34,7 +34,7 @@ bindkey "^?" backward-delete-char
 bindkey -s "^g" ". lfcd\n"
 bindkey -s "^p" ". fuzzy_projects\n"
 bindkey -s "^n" "nvim .\n"
-bindkey -s "^e" ". ~/scripts/quick_script\n"
+bindkey -s "^e" "ea\n"
 bindkey "^X^E" edit-command-line
 
 function zle-keymap-select {
