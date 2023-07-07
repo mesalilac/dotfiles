@@ -1,5 +1,5 @@
 # go to external drive
-alias ed='cd "/run/media/$USER/toshiba hard drive/"'
+alias ed='cd "/run/media/$USER/Toshiba external hard drive/"'
 
 alias grep="grep --color=auto"
 alias grep_from_all="grep --exclude-dir='.git/' --exclude-dir='target/' --exclude='Cargo.lock' -R"
