@@ -5,5 +5,5 @@ plugins/*.css
 !themes
 !plugins/
 !plugins/*.plugin.js
-!data/stable
-
+!data/
+!data/stable/*
