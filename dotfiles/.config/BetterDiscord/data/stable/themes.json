@@ -22,12 +22,13 @@
     "Catppuccin Latte": false,
     "Lavender": false,
     "Catppuccin Macchiato": false,
-    "Catppuccin Mocha": false,
+    "Catppuccin Mocha": true,
     "Modern Indicators": false,
     "Neutron": false,
     "Slook": false,
     "Smooth Theme": false,
     "surCord": false,
-    "Tokyo Night": true,
-    "Twitter Dim Mode": false
+    "Tokyo Night": false,
+    "Twitter Dim Mode": false,
+    "piOS": false
 }
