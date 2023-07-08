@@ -2,7 +2,6 @@
 
 export PACKMAN_PACKAGES=(
     "smartmontools"
-    "networkmanager-openvpn"
     "gnome-text-editor"
     "seahorse"
     "xtrlock"
@@ -13,7 +12,6 @@ export PACKMAN_PACKAGES=(
     "cloc"
     "fontforge"
     "font-manager"
-    "gedit"
     "udiskie"
     # xorg stuff
     "xorg"
@@ -43,11 +41,6 @@ export PACKMAN_PACKAGES=(
     #"ttf-dejavu"
     #"ttf-droid"
 
-    #
-    # password manager
-    #
-    "bitwarden"
-    "bitwarden-cli"
     #
     # virt
     #
@@ -96,9 +89,7 @@ export PACKMAN_PACKAGES=(
     #
     # system monitor
     #
-    "bashtop"
     "htop"
-    "gtop"
     #
     # image editing
     #
@@ -107,8 +98,6 @@ export PACKMAN_PACKAGES=(
     # screenshot tools
     #
     "flameshot"
-    "scrot"
-    "maim"
     #
     # imagemagick
     #
@@ -135,11 +124,6 @@ export PACKMAN_PACKAGES=(
     "nemo-audio-tab"
     "nemo-fileroller"
     "nemo-image-converter"
-    "pcmanfm"
-    #
-    # tui file manager
-    #
-    "fff"
     #
     # menus
     #
@@ -230,18 +214,12 @@ export AUR_PACKAGES=(
     "x11-emoji-picker"
     "adw-gtk3-git"
     "exa"
-    "hyperbeam"
     "diesel-cli"
-    "polybar"
     "cava"
     "pfetch"
     "lf-bin"
-    "mongodb-bin"
-    "mongodb-tools-bin"
-    "pyinstaller"
     "smenu"
     "code-marketplace"
-    "spacefm"
     "spaceship-prompt-git"
     "spotify"
     # "gromit-mpx"
