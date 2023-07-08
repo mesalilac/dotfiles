@@ -17,21 +17,21 @@ def confirm_prompt(message: str, default: str) -> bool:
         print(f"Unknown answer! using default: {default}")
         answer = default
 
-    if answer == "y" or answer == "yes":
+    if answer in ("yes", "y"):
         return True
 
     return False
 
 
-def remove_trailing_slash(s):
-    if s.endswith("/"):
-        s = s[:-1]
+def remove_trailing_slash(string):
+    if string.endswith("/"):
+        string = string[:-1]
 
-    return s
+    return string
 
-def remove_dir_or_file(p):
-    if os.path.isdir(p):
-        shutil.rmtree(p)
+def remove_dir_or_file(path):
+    if os.path.isdir(path):
+        shutil.rmtree(path)
 
-    elif os.path.isfile(p):
-        os.remove(p)
+    elif os.path.isfile(path):
+        os.remove(path)

@@ -1,28 +1,32 @@
 #!/bin/env python3
 
+"""
+Backup files and dirs or cleanup dotfiles
+"""
+
 # backup script written in python
 # will replace backup.sh soon
 
-import config
 import os
 import argparse
+import config
 from lib.logger import log
 from lib.rsync import rsync
 from lib.backup import cleanup, push_changes
 
-HOME = str(os.getenv("HOME"))
-
-
-def check_for_duplicate_sources(list, src: str) -> bool:
+def check_for_duplicate_sources(backup_list, src: str) -> bool:
     """return True if SOURCE does already exists in list"""
-    for key in list:
+    for key in backup_list:
         if key["src"] == src:
             return True
 
     return False
 
-
 def backup(verbose: bool, no_prompt_for_confirm: bool):
+    """
+    Backup files and dirs
+    """
+
     backup_list = config.backup_paths
 
     for item in backup_list:
@@ -57,7 +61,9 @@ if __name__ == "__main__":
         "-y", "--yes", help="Don't prompt for confirmation", action="store_true"
     )
     parser.add_argument("-v", "--verbose", help="Show info when copying", action="store_true")
-    parser.add_argument("-c", "--cleanup", help="Remove files/dirs not in backup_paths list", action="store_true")
+    parser.add_argument("-c", "--cleanup",
+            help="Remove files/dirs not in backup_paths list",
+            action="store_true")
 
     args = parser.parse_args()
 

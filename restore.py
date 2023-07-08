@@ -1,25 +1,19 @@
 #!/bin/env python3
 
-from os import getenv
+import argparse
+from config import HOME, DOTFILES_DIR
 from lib.rsync import rsync
 from lib.resotre import sync_repo
-import argparse
-
-HOME = str(getenv("HOME"))
-
 
 def restore(verbose: bool):
-    DOTPATH = f"{HOME}/.dotfiles"
-
-    rsync.copy_dir(src=f"{DOTPATH}/dotfiles/.config", dest=HOME, verbose=verbose)
-    rsync.copy_dir(src=f"{DOTPATH}/dotfiles/home/.", dest=HOME, verbose=verbose)
+    rsync.copy_dir(src=f"{DOTFILES_DIR}/dotfiles/.config", dest=HOME, verbose=verbose)
+    rsync.copy_dir(src=f"{DOTFILES_DIR}/dotfiles/home/.", dest=HOME, verbose=verbose)
     rsync.copy_dir(
-        src=f"{DOTPATH}/dotfiles/.local", dest=HOME, verbose=verbose
+        src=f"{DOTFILES_DIR}/dotfiles/.local", dest=HOME, verbose=verbose
     )
 
     sync_repo("https://github.com/senpai-10/nvim-config", f"{HOME}/.config/nvim")
     sync_repo("https://github.com/senpai-10/awesome-config", f"{HOME}/.config/awesome")
-
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser("backup dotfiles")

@@ -1,11 +1,10 @@
 import os
 import subprocess
-import lib.colors as colors
-from lib.helpers import confirm_prompt, remove_trailing_slash, remove_dir_or_file
 from datetime import datetime
+from lib import colors
+from lib.helpers import confirm_prompt, remove_trailing_slash, remove_dir_or_file
 from lib.logger import log
 from lib.types import Path
-
 
 def format_git_status_output(output: str) -> str:
     tmp = ""

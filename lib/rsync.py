@@ -3,24 +3,27 @@
 import subprocess
 from .logger import log
 
-class __Rsync:
+class Rsync:
     def copy_file(self, src: str, dest: str):
         log.copy(src=src, dest=dest)
-        subprocess.run(["rsync", src, dest])
+        subprocess.run(["rsync", src, dest], check=False)
 
-    def copy_dir(self, src: str, dest: str, override=False, exclude=[], root=False, verbose=False):
+    def copy_dir(self, src: str, dest: str, override=False, exclude=None, root=False, verbose=False):
         command = []
 
-        if root == True:
+        if exclude is None:
+            exclude = []
+
+        if root is True:
             command.append("sudo")
 
         command.append("rsync")
         opts = ["-ra"]
 
-        if override == True:
+        if override is True:
             opts.append("--delete")
 
-        if verbose == True:
+        if verbose is True:
             opts.append("--human-readable")
             opts.append("--progress")
 
@@ -36,7 +39,6 @@ class __Rsync:
         command.append(dest)
 
         log.copy(src=src, dest=dest)
-        subprocess.run(command)
+        subprocess.run(command, check=False)
 
-
-rsync = __Rsync()
+rsync = Rsync()

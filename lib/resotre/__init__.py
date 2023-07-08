@@ -1,8 +1,7 @@
 import subprocess
 from os import path
-import lib.colors as colors
+from lib import colors
 from lib.logger import log
-
 
 def sync_repo(url: str, clone_path: str):
     """
@@ -40,4 +39,4 @@ def clone(repo_url: str, repo_path: str):
     command.append(repo_url)
     command.append(repo_path)
 
-    subprocess.run(command)
+    subprocess.run(command, check=False)

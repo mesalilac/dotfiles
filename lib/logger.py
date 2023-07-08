@@ -1,8 +1,7 @@
 import re
 from . import colors
 
-
-class __Logger:
+class Logger:
     def __init__(self, file=None) -> None:
         self.file = file
 
@@ -53,9 +52,8 @@ class __Logger:
 
             result = ansi_escape.sub("", text)
 
-            f = open(self.file, "a")
-            f.write(result + "\n")
-            f.close()
+            with open(self.file, 'a', encoding="UTF-8") as file:
+                file.write(result + "\n")
 
     def __create_header(self, level) -> str:
         level_color = colors.white
@@ -76,4 +74,4 @@ class __Logger:
         return str(f"{colored_level}")
 
 
-log = __Logger()
+log = Logger()
