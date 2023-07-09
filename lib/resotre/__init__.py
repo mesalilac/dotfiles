@@ -3,6 +3,7 @@ from os import path
 from lib import colors
 from lib.logger import log
 
+
 def sync_repo(url: str, clone_path: str):
     """
     git pull if repo is found and clone if not

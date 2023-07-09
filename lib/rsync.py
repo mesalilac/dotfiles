@@ -5,6 +5,7 @@ import subprocess
 from .types import Dir, File
 from .logger import log
 
+
 class Rsync:
     def copy_file(self, target: File):
         src = target.src
@@ -45,5 +46,6 @@ class Rsync:
 
         log.copy(src=src, dest=dest)
         subprocess.run(command, check=False)
+
 
 rsync = Rsync()

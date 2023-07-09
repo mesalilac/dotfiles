@@ -15,6 +15,7 @@ from lib.rsync import rsync
 from lib.backup import cleanup, push_changes
 from lib.types import Dir, Entry, File
 
+
 def duplicate_sources(backup_list: list[Entry]) -> list[Entry]:
     duplicates: list[Entry] = []
     sources: list[str] = []
@@ -27,6 +28,7 @@ def duplicate_sources(backup_list: list[Entry]) -> list[Entry]:
         sources.append(item.src)
 
     return duplicates
+
 
 def backup(verbose: bool, no_prompt_for_confirm: bool):
     """
@@ -50,9 +52,7 @@ def backup(verbose: bool, no_prompt_for_confirm: bool):
             continue
 
         if isinstance(entry, Dir):
-            rsync.copy_dir(
-                entry, override=True, verbose=verbose
-            )
+            rsync.copy_dir(entry, override=True, verbose=verbose)
         elif isinstance(entry, File):
             rsync.copy_file(entry)
 
@@ -65,14 +65,21 @@ if __name__ == "__main__":
     parser.add_argument(
         "-y", "--yes", help="Don't prompt for confirmation", action="store_true"
     )
-    parser.add_argument("-v", "--verbose", help="Show info when copying", action="store_true")
-    parser.add_argument("-c", "--cleanup",
-            help="Remove files/dirs not in backup_paths list",
-            action="store_true")
+    parser.add_argument(
+        "-v", "--verbose", help="Show info when copying", action="store_true"
+    )
+    parser.add_argument(
+        "-c",
+        "--cleanup",
+        help="Remove files/dirs not in backup_paths list",
+        action="store_true",
+    )
 
     args = parser.parse_args()
 
     if args.cleanup:
-        cleanup("~/.dotfiles/dotfiles/", config.backup_paths, no_prompt_for_confirm=args.yes)
+        cleanup(
+            "~/.dotfiles/dotfiles/", config.backup_paths, no_prompt_for_confirm=args.yes
+        )
 
     backup(verbose=args.verbose, no_prompt_for_confirm=args.yes)

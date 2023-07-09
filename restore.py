@@ -6,15 +6,15 @@ from lib.rsync import rsync
 from lib.resotre import sync_repo
 from lib.types import Dir
 
+
 def restore(verbose: bool):
     rsync.copy_dir(Dir(f"{DOTFILES_DIR}/dotfiles/.config", HOME), verbose=verbose)
     rsync.copy_dir(Dir(f"{DOTFILES_DIR}/dotfiles/home/.", HOME), verbose=verbose)
-    rsync.copy_dir(
-        Dir(f"{DOTFILES_DIR}/dotfiles/.local", HOME), verbose=verbose
-    )
+    rsync.copy_dir(Dir(f"{DOTFILES_DIR}/dotfiles/.local", HOME), verbose=verbose)
 
     sync_repo("https://github.com/senpai-10/nvim-config", f"{HOME}/.config/nvim")
     sync_repo("https://github.com/senpai-10/awesome-config", f"{HOME}/.config/awesome")
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser("backup dotfiles")

@@ -1,6 +1,7 @@
 from dataclasses import dataclass, field
 from typing import List, Union
 
+
 @dataclass
 class Dir:
     src: str
@@ -10,6 +11,7 @@ class Dir:
     def as_string(self):
         return "dir"
 
+
 @dataclass
 class File:
     src: str
@@ -17,5 +19,6 @@ class File:
 
     def as_string(self):
         return "file"
+
 
 Entry = Union[Dir, File]

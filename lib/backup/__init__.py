@@ -6,14 +6,16 @@ from lib.helpers import confirm_prompt, remove_trailing_slash, remove_dir_or_fil
 from lib.logger import log
 from lib.types import Entry
 
+
 def format_git_status_output(output: str) -> str:
     tmp = ""
 
     for line in output.split("\n"):
         if "dotfiles/" in line:
-            tmp += line+"\n"
+            tmp += line + "\n"
 
     return tmp
+
 
 def push_changes(no_prompt_for_confirm: bool, cwd: str):
     """push backup to github"""

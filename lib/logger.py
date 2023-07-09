@@ -1,6 +1,7 @@
 import re
 from . import colors
 
+
 class Logger:
     def __init__(self, file=None) -> None:
         self.file = file
@@ -52,7 +53,7 @@ class Logger:
 
             result = ansi_escape.sub("", text)
 
-            with open(self.file, 'a', encoding="UTF-8") as file:
+            with open(self.file, "a", encoding="UTF-8") as file:
                 file.write(result + "\n")
 
     def __create_header(self, level) -> str:

@@ -1,6 +1,7 @@
 import os
 import shutil
 
+
 def confirm_prompt(message: str, default: str) -> bool:
     """
     **message**
@@ -28,6 +29,7 @@ def remove_trailing_slash(string):
         string = string[:-1]
 
     return string
+
 
 def remove_dir_or_file(path):
     if os.path.isdir(path):
