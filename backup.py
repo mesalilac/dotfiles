@@ -13,14 +13,20 @@ import config
 from lib.logger import log
 from lib.rsync import rsync
 from lib.backup import cleanup, push_changes
+from lib.types import Dir, Entry, File
 
-def check_for_duplicate_sources(backup_list, src: str) -> bool:
-    """return True if SOURCE does already exists in list"""
-    for key in backup_list:
-        if key["src"] == src:
-            return True
+def duplicate_sources(backup_list: list[Entry]) -> list[Entry]:
+    duplicates: list[Entry] = []
+    sources: list[str] = []
 
-    return False
+    for item in backup_list:
+        if item.src in sources:
+            duplicates.append(item)
+            continue
+
+        sources.append(item.src)
+
+    return duplicates
 
 def backup(verbose: bool, no_prompt_for_confirm: bool):
     """
@@ -29,27 +35,26 @@ def backup(verbose: bool, no_prompt_for_confirm: bool):
 
     backup_list = config.backup_paths
 
-    for item in backup_list:
-        src = os.path.expanduser(item["src"])
-        dest = item["dest"]
-        exclusions = item["exclusions"]
+    duplicates: list[Entry] = duplicate_sources(backup_list)
 
-        dest = f"{config.DOTFILES_DIR}/dotfiles/{dest}"
+    for entry in duplicates:
+        log.warning(f"'{entry.src}' already exists in backup list!")
+        backup_list.remove(entry)
 
-        if not os.path.exists(src):
-            log.error(f"Failed to copy '{src}' file/dir not found")
+    for entry in backup_list:
+        entry.src = os.path.expanduser(entry.src)
+        entry.dest = f"{config.DOTFILES_DIR}/dotfiles/{entry.dest}"
+
+        if not os.path.exists(entry.src):
+            log.error(f"Failed to copy '{entry.src}' {entry.as_string()} not found")
             continue
 
-        if check_for_duplicate_sources(backup_list, src):
-            log.warning(f"'{src}' already exists in backup list. skipping...")
-            continue
-
-        if os.path.isdir(src):
+        if isinstance(entry, Dir):
             rsync.copy_dir(
-                src, dest, override=True, exclude=exclusions, verbose=verbose
+                entry, override=True, verbose=verbose
             )
-        elif os.path.isfile(src):
-            rsync.copy_file(src, dest)
+        elif isinstance(entry, File):
+            rsync.copy_file(entry)
 
     push_changes(no_prompt_for_confirm, cwd=config.DOTFILES_DIR)
 

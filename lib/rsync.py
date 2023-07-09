@@ -1,18 +1,24 @@
 # Simple wrapper for rsync command
 
 import subprocess
+
+from .types import Dir, File
 from .logger import log
 
 class Rsync:
-    def copy_file(self, src: str, dest: str):
+    def copy_file(self, target: File):
+        src = target.src
+        dest = target.dest
+
         log.copy(src=src, dest=dest)
         subprocess.run(["rsync", src, dest], check=False)
 
-    def copy_dir(self, src: str, dest: str, override=False, exclude=None, root=False, verbose=False):
-        command = []
+    def copy_dir(self, target: Dir, override=False, root=False, verbose=False):
+        src = target.src
+        dest = target.dest
+        exclude = target.exclude
 
-        if exclude is None:
-            exclude = []
+        command = []
 
         if root is True:
             command.append("sudo")
@@ -27,9 +33,8 @@ class Rsync:
             opts.append("--human-readable")
             opts.append("--progress")
 
-        if len(exclude) > 0:
-            for item in exclude:
-                opts.append("--exclude=" + item)
+        for item in exclude:
+            opts.append("--exclude=" + item)
 
         opts.append("--mkpath")
 

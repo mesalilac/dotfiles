@@ -4,7 +4,7 @@ from datetime import datetime
 from lib import colors
 from lib.helpers import confirm_prompt, remove_trailing_slash, remove_dir_or_file
 from lib.logger import log
-from lib.types import Path
+from lib.types import Entry
 
 def format_git_status_output(output: str) -> str:
     tmp = ""
@@ -49,7 +49,7 @@ def push_changes(no_prompt_for_confirm: bool, cwd: str):
 
 
 def cleanup(
-    dotfiles_dir: str, backup_paths: list[Path], no_prompt_for_confirm: bool
+    dotfiles_dir: str, backup_paths: list[Entry], no_prompt_for_confirm: bool
 ) -> None:
     """
     Remove files/dirs that are not in config.backup_paths from ~/.dotfiles/dotfiles/
@@ -62,8 +62,8 @@ def cleanup(
     log.info("Starting Cleanup!")
 
     for item in backup_paths:
-        src = remove_trailing_slash(os.path.basename(item["src"]))
-        dest = remove_trailing_slash(item["dest"])
+        src = remove_trailing_slash(os.path.basename(item.src))
+        dest = remove_trailing_slash(item.dest)
 
         map.setdefault(dest, []).append(src)
 
