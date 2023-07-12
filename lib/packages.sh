@@ -159,7 +159,8 @@ export PACKMAN_PACKAGES=(
     #
     "tree"
     "dust"
-    "dbeaver"
+    # "dbeaver"
+    "pgadmin4"
     "onboard"
     "github-cli"
     "gparted"
