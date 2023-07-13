@@ -22,7 +22,7 @@
     "Catppuccin Latte": false,
     "Lavender": false,
     "Catppuccin Macchiato": false,
-    "Catppuccin Mocha": true,
+    "Catppuccin Mocha": false,
     "Modern Indicators": false,
     "Neutron": false,
     "Slook": false,
@@ -30,5 +30,6 @@
     "surCord": false,
     "Tokyo Night": false,
     "Twitter Dim Mode": false,
-    "piOS": false
+    "piOS": false,
+    "AMOLED-Cord": true
 }

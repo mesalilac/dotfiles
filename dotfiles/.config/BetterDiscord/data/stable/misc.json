@@ -4,5 +4,14 @@
         "plugin": {
             "view": "grid"
         }
+    },
+    "drawerStates": {
+        "settings": {
+            "addons": false,
+            "customcss": false,
+            "editor": false,
+            "developer": false,
+            "window": false
+        }
     }
 }
