@@ -161,6 +161,7 @@ export PACKMAN_PACKAGES=(
     "dust"
     # "dbeaver"
     "pgadmin4"
+    "tmux"
     "onboard"
     "github-cli"
     "gparted"
