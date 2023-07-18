@@ -160,7 +160,6 @@ export PACKMAN_PACKAGES=(
     "tree"
     "dust"
     # "dbeaver"
-    "pgadmin4"
     "tmux"
     "onboard"
     "github-cli"
