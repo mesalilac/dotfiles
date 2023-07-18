@@ -22,6 +22,7 @@ backup_paths: List[Entry] = [
     Dir("~/.config/discover_overlay", ".config/"),
     File("~/.config/picom.conf", ".config/"),
     File("~/.config/gromit-mpx.ini", ".config/"),
+    File("~/.config/scout.toml", ".config/"),
     # home/
     Dir("~/scripts", "home/"),
     Dir("~/.themes", "home/"),
