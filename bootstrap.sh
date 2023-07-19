@@ -101,6 +101,10 @@ chmod +x ~/.local/bin/vimv
 log_info "Installing rust"
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
+log_info "Installing sccache"
+# https://github.com/mozilla/sccache
+cargo install sccache --locked
+
 log_info "Installing cmus-rpc"
 cargo install --git https://github.com/Senpai-10/cmus-rpc.git
 

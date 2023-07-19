@@ -1,6 +1,7 @@
 /*
 plugins/*.json
 plugins/*.css
+plugins/*_IMAGE_CACHE
 data/betterdiscord.asar
 
 !themes

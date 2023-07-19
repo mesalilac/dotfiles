@@ -20,6 +20,9 @@ export PNPM_HOME="$HOME/.local/share/pnpm"
 #export RUST_SRC_PATH="$HOME/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library"
 export RUST_SRC_PATH="$HOME/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library"
 
+# https://github.com/mozilla/sccache
+export RUSTC_WRAPPER=/path/to/sccache
+
 path=(
     "$HOME/.deno/bin"
     "$HOME/go/bin"
