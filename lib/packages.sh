@@ -214,6 +214,7 @@ export AUR_PACKAGES=(
     "system-monitoring-center"
     "x11-emoji-picker"
     "adw-gtk3-git"
+    "tmuxinator"
     "exa"
     "diesel-cli"
     "cava"
