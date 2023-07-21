@@ -41,11 +41,17 @@ playrand_for() {
     done
 }
 
-yt() {
+yt-select() {
     URL=$1
     [ -z $URL ] && echo -e "You must provide at least one URL." && return 1
     format_id=$(yt-dlp --list-formats $URL | tail -n +6 |  fzf --layout=reverse | awk '{print $1}')
     yt-dlp -o "%(title)s.%(ext)s" --restrict-filenames --add-metadata -ic -f $format_id $URL
+}
+
+yt() {
+    URL=$1
+    [ -z $URL ] && echo -e "You must provide at least one URL." && return 1
+    yt-dlp -o "%(title)s.%(ext)s" --restrict-filenames --add-metadata -ic -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best" $URL
 }
 
 cmk() {
