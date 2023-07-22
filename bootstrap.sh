@@ -105,6 +105,9 @@ log_info "Installing sccache"
 # https://github.com/mozilla/sccache
 cargo install sccache
 
+log_info "Installing tree-sitter-cli"
+cargo install tree-sitter-cli
+
 log_info "Installing cmus-rpc"
 cargo install --git https://github.com/Senpai-10/cmus-rpc.git
 
