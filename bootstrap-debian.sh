@@ -41,10 +41,10 @@ mkdir -pv ~/Music
 mkdir -pv ~/Videos
 mkdir -pv ~/Screenshots
 mkdir -pv ~/mpv_screenshots
-mkdir -pv ~/AppImages
 mkdir -pv ~/sources
 mkdir -pv ~/.local/
 mkdir -pv ~/.local/bin/
+mkdir -pv ~/.local/bin/app-images
 
 log_info "Installing rust"
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
@@ -158,14 +158,6 @@ fi
 cd colorpicker
 make clean colorpicker
 cp colorpicker ~/.local/bin/
-
-cd ..
-
-if [ ! -d "icons-in-terminal" ] ; then
-    git clone https://github.com/sebastiencs/icons-in-terminal.git
-fi
-cd icons-in-terminal
-./install.sh
 
 cd ..
 
