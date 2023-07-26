@@ -37,6 +37,7 @@ export APT_PACKGES=(
     "neofetch"
     "gnome-text-editor"
     "gnome-keyring"
+    "policykit-1-gnome"
     "seahorse"
     "xtrlock"
     "gpick"
