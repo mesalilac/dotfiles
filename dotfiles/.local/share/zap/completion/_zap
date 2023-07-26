@@ -1,0 +1,10 @@
+#compdef zap
+
+local -a subcmds=(
+	"clean:Remove unused plugins"
+	"help:Show help informations"
+	"list:List plugins"
+	"update:Update plugins"
+	"version:Show version information"
+)
+_describe 'zap' subcmds

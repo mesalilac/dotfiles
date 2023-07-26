@@ -78,4 +78,4 @@ plug "djui/alias-tips"
 
 
 # bun completions
-[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+# [ -f "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
