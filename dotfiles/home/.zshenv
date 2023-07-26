@@ -16,6 +16,13 @@ export rofi_theme="~/.config/rofi/dark.rasi"
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export BUN_INSTALL="$HOME/.bun"
 export PNPM_HOME="$HOME/.local/share/pnpm"
+export GPG_TTY=$(tty)
+[ -f ~/.gnupg/gpg-agent-info ] && source ~/.gnupg/gpg-agent-info
+if [ -S "${GPG_AGENT_INFO%%:*}" ]; then
+    export GPG_AGENT_INFO
+else
+    eval $( gpg-agent --daemon --options ~/.gnupg/gpg-agent.conf --write-env-file ~/.gnupg/gpg-agent-info )
+fi
 
 #export RUST_SRC_PATH="$HOME/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library"
 export RUST_SRC_PATH="$HOME/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library"

@@ -27,5 +27,7 @@ xrandr --output HDMI-1 --primary
 xrandr --output LVDS-1 --off
 xrandr -r 60
 
+/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+
 # start awesomewm
-exec awesome
+exec dbus-run-session awesome
