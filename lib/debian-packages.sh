@@ -96,6 +96,9 @@ export APT_PACKGES=(
     "network-manager-gnome"
     "wireplumber"
     "pipewire-media-session-"
+    "postgresql"
+    "postgresql-client"
+    "postgresql-doc"
 
     # fonts
     "fonts-mononoki"
