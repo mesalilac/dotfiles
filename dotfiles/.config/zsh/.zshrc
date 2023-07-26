@@ -67,7 +67,6 @@ ZSH_PATH=".config/zsh"
 
 source ~/.config/zsh/init.zsh
 
-welcome
 prompt_6
 
 # source "$HOME/clone/zap.git/improve-plug-function/zap.zsh"

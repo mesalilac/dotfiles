@@ -1,12 +1,3 @@
-welcome() {
-    case $(tty) in
-        (/dev/tty[1-9]) echo "";;
-        (*) pfetch;;
-        #(*) octofetch senpai-10 ; cl;;
-        #(*) get_color_script;;
-    esac
-}
-
 overview() {
     du -h --max-depth=1 | sed -r '
     $d; s/^([.0-9]+[KMGTPEZY]\t)\.\//\1/
