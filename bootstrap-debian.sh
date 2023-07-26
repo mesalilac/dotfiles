@@ -46,13 +46,13 @@ mkdir -pv ~/.local/
 mkdir -pv ~/.local/bin/
 mkdir -pv ~/.local/bin/app-images
 
+log_info "Downloading and Installing apt packages"
+sudo apt-get install -y "${APT_PACKAGES[@]}"
+
 log_info "Installing rust"
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
 source "$HOME/.cargo/env"
-
-log_info "Downloading and Installing apt packages"
-sudo apt-get install -y "${APT_PACKAGES[@]}"
 
 log_info "Changing default shell to zsh!"
 chsh -s "$(which zsh)"
@@ -93,12 +93,12 @@ log_info "Installing discord"
 wget "https://discord.com/api/download?platform=linux&format=deb" -O ~/Downloads/discord.deb
 sudo apt install ~/Downloads/./discord.deb
 
-log_info "Installing steam"
-NEW_SOURCE="deb http://deb.debian.org/debian/ bookworm main contrib non-free"
-if ! grep -Fxq "$NEW_SOURCE" /etc/apt/sources.list
+#log_info "Installing steam"
+NEW_SOURCE=""
+if ! grep -Fxq "deb http://deb.debian.org/debian/ bookworm main contrib non-free" /etc/apt/sources.list
 then
     log_info "adding new software source"
-    sudo echo "$NEW_SOURCE" >> /etc/apt/sources.list
+    sudo sh -c 'echo "deb http://deb.debian.org/debian/ bookworm main contrib non-free" >> /etc/apt/sources.list'
     sudo dpkg --add-architecture i386
     sudo apt-get update
 fi
@@ -161,7 +161,7 @@ make install
 cd ..
 
 if [ ! -d "neovim" ] ; then
-    git clone https:://github.com/neovim/neovim
+    git clone "https://github.com/neovim/neovim"
 fi
 cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
 sudo make install
@@ -171,7 +171,6 @@ cd ..
 if [ ! -d "colorpicker" ] ; then
     git clone https://github.com/Jack12816/colorpicker.git
 fi
-
 cd colorpicker
 make clean colorpicker
 cp colorpicker ~/.local/bin/

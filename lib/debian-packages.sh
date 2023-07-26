@@ -1,4 +1,4 @@
-export APT_PACKGES=(
+export APT_PACKAGES=(
     # libs/build
     "libx11-dev"
     "libxft-dev"
@@ -32,7 +32,6 @@ export APT_PACKGES=(
     "firefox-esr"
     "zsh"
     "npm"
-    "yarn"
     "flameshot"
     "neofetch"
     "gnome-text-editor"
@@ -78,7 +77,6 @@ export APT_PACKGES=(
     "eog"
     "xclip"
     "xdotool"
-    "unrar"
     "p7zip"
     "jq"
     "yad"
