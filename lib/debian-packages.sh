@@ -92,6 +92,7 @@ export APT_PACKGES=(
     "smenu"
     "python3-pip"
     "inxi"
+    "gawk"
 
     # fonts
     "fonts-mononoki"
