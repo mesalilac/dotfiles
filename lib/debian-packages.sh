@@ -93,6 +93,7 @@ export APT_PACKGES=(
     "python3-pip"
     "inxi"
     "gawk"
+    "network-manager-gnome"
 
     # fonts
     "fonts-mononoki"
