@@ -94,6 +94,8 @@ export APT_PACKGES=(
     "inxi"
     "gawk"
     "network-manager-gnome"
+    "wireplumber"
+    "pipewire-media-session-"
 
     # fonts
     "fonts-mononoki"

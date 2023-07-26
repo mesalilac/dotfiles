@@ -129,6 +129,8 @@ systemctl --user daemon-reload
 # Enable and start the user service
 systemctl --user enable opentabletdriver --now
 
+systemctl --user --now enable wireplumber.service
+
 wget https://github.com/Figma-Linux/figma-linux/releases/download/v0.10.0/figma-linux_0.10.0_linux_amd64.deb -O ~/Downloads/figma-linux_amd64.deb
 sudo dpkg -i ~/Downloads/figma-linux_amd64.deb
 
