@@ -153,6 +153,8 @@ sudo /usr/pgadmin4/bin/setup-web.sh
 
 sudo npm -g install yarn
 
+pipx install discover-overlay
+
 # build from source
 cd ~/sources
 

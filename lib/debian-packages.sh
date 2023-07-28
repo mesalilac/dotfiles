@@ -89,6 +89,7 @@ export APT_PACKAGES=(
     "lf"
     "smenu"
     "python3-pip"
+    "pipx"
     "inxi"
     "gawk"
     "network-manager-gnome"
