@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+
+TERMINAL="$TERMINAL"
+PLAYGROUNDS_PATH="$HOME/.playgrounds"
+
+if [ ! -d "$PLAYGROUNDS_PATH" ]
+then
+    mkdir "$PLAYGROUNDS_PATH"
+    mkdir "$PLAYGROUNDS_PATH/rust"
+    mkdir "$PLAYGROUNDS_PATH/typescript"
+fi
+
+LANG="$1"
+PLAYGROUND_NAME="$2"
+
+if [ -z "$LANG" ]
+then
+    LANG=$(echo -e "$(ls -v $PLAYGROUNDS_PATH)" | dmenu -p "Select language")
+fi
+
+if [ ! -d "$PLAYGROUNDS_PATH/$LANG" ]
+then
+    mkdir "$PLAYGROUNDS_PATH/$LANG"
+fi
+
+if [ -z "$PLAYGROUND_NAME" ]
+then
+    PLAYGROUND_NAME=$(echo -e "$(ls -v $PLAYGROUNDS_PATH/$LANG)" | dmenu -p "Select playground")
+fi
+
+PLAYGROUND_PATH="$PLAYGROUNDS_PATH/$LANG/$PLAYGROUND_NAME"
+
+if [ ! -d "$PLAYGROUND_PATH" ]
+then
+    mkdir "$PLAYGROUND_PATH"
+    cd "$PLAYGROUND_PATH"
+
+    case $LANG in
+        rust)
+            cargo init . --name "$PLAYGROUND_NAME"
+        ;;
+        typescript)
+            notify-send "$PLAYGROUND_NAME" "yarn init ."
+            yarn init . -y
+            notify-send "$PLAYGROUND_NAME" "yarn add @types/node typescript"
+            yarn add @types/node typescript
+            notify-send "$PLAYGROUND_NAME" "yarn add -D ts-node"
+            yarn add -D ts-node
+            notify-send "$PLAYGROUND_NAME" "creating tsconfig.json"
+            yarn tsc --init --rootDir src --outDir ./bin --esModuleInterop --lib ES2019 --module commonjs --noImplicitAny true
+            mkdir src
+            echo "console.log('Hello World')" > src/index.ts
+        ;;
+        javascript)
+            notify-send "$PLAYGROUND_NAME" "yarn init ."
+            yarn init . -y
+            mkdir src/
+            echo "console.log('Hello World')" > src/index.js
+        ;;
+    esac
+
+    $TERMINAL -e nvim "$PLAYGROUND_PATH"
+
+else
+    $TERMINAL -e nvim "$PLAYGROUND_PATH"
+fi

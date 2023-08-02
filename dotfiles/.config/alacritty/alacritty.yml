@@ -91,7 +91,8 @@ font:
         #   - (Linux/BSD) monospace
         #   - (Windows) Consolas
         #family: "FiraCode"
-        family: 'mononoki'
+        # family: 'mononoki'
+        family: 'Fira Code'
 
         # The `style` can be specified to pick a specific face.
         style: Regular
@@ -101,7 +102,7 @@ font:
         #
         # If the bold family is not specified, it will fall back to the
         # value specified for the normal font.
-        family: 'mononoki'
+        family: 'Fira Code'
         # The `style` can be specified to pick a specific face.
         style: Bold
     # Italic font face
@@ -110,7 +111,7 @@ font:
         #
         # If the italic family is not specified, it will fall back to the
         # value specified for the normal font.
-        family: 'mononoki'
+        family: 'Fira Code'
         # The `style` can be specified to pick a specific face.
         style: Italic
     # Bold italic font face
@@ -119,12 +120,13 @@ font:
         #
         # If the bold italic family is not specified, it will fall back to the
         # value specified for the normal font.
-        family: 'mononoki'
+        family: 'Fira Code'
         # The `style` can be specified to pick a specific face.
         style: Bold Italic
 
     # Point size
-    size: 13
+    # size: 13
+    size: 15
 
     # Offset is the extra space around each character. `offset.y` can be thought of
     # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
