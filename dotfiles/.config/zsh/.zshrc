@@ -67,7 +67,7 @@ ZSH_PATH=".config/zsh"
 
 source ~/.config/zsh/init.zsh
 
-prompt_6
+prompt_5
 
 # source "$HOME/clone/zap.git/improve-plug-function/zap.zsh"
 [ -f "$HOME/.local/share/zap/zap.zsh" ] && source "$HOME/.local/share/zap/zap.zsh"
