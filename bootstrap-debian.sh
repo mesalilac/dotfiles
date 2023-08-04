@@ -91,6 +91,8 @@ cargo install bat
 
 cargo install scout
 
+cargo install bacon
+
 log_info "Installing discord"
 wget "https://discord.com/api/download?platform=linux&format=deb" -O ~/Downloads/discord.deb
 sudo apt install ~/Downloads/./discord.deb
