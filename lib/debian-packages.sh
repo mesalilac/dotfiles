@@ -20,6 +20,11 @@ export APT_PACKAGES=(
     "gnupg2"
     "debian-keyring"
     "libxcb-xfixes0-dev"
+    "libwebkit2gtk-4.0-dev"
+    "libssl-dev"
+    "libgtk-3-dev"
+    "libayatana-appindicator3-dev"
+    "librsvg2-dev"
 
     "gettext"
     "cmake"
