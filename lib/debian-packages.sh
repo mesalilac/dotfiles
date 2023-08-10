@@ -26,6 +26,7 @@ export APT_PACKAGES=(
     "libayatana-appindicator3-dev"
     "librsvg2-dev"
 
+    "picard"
     "python-is-python3"
     "gettext"
     "cmake"
