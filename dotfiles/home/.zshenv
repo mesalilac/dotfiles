@@ -29,7 +29,6 @@ export RUST_SRC_PATH="$HOME/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/l
 
 # https://github.com/mozilla/sccache
 export RUSTC_WRAPPER=~/.cargo/bin/sccache
-export TERM="xterm-256color"
 
 path=(
     "$HOME/.deno/bin"
