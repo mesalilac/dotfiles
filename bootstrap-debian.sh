@@ -157,6 +157,11 @@ sudo npm -g install yarn
 
 pipx install discover-overlay
 
+if [ ! -d "$HOME/.tmux/plugins/tpm" ] ; then
+    mkdir -p "$HOME/.tmux/plugins"
+    git clone "https://github.com/tmux-plugins/tpm" "$HOME/.tmux/plugins/tpm"
+fi
+
 # build from source
 cd ~/sources
 
