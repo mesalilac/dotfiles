@@ -3,7 +3,7 @@ autoload -U promptinit; promptinit
 
 # prompt pure
 # prompt spaceship
-# eval "$(starship init zsh)"
+eval "$(starship init zsh)"
 
 HISTSIZE=999999999
 SAVEHIST=999999999
@@ -67,7 +67,7 @@ ZSH_PATH=".config/zsh"
 
 source ~/.config/zsh/init.zsh
 
-prompt_5
+# prompt_5
 
 # source "$HOME/clone/zap.git/improve-plug-function/zap.zsh"
 [ -f "$HOME/.local/share/zap/zap.zsh" ] && source "$HOME/.local/share/zap/zap.zsh"

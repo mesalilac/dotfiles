@@ -4,7 +4,7 @@
     "Dark+": false,
     "Discord 11": false,
     "DiscordNight": false,
-    "GitHub Dark": false,
+    "GitHub Dark": true,
     "LodeTheme": false,
     "Material_Discord": false,
     "OSX": false,
@@ -31,5 +31,6 @@
     "Tokyo Night": false,
     "Twitter Dim Mode": false,
     "piOS": false,
-    "AMOLED-Cord": true
+    "AMOLED-Cord": false,
+    "Rounded Discord": true
 }
