@@ -157,6 +157,8 @@ sudo npm -g install yarn
 
 pipx install discover-overlay
 
+curl -sS https://starship.rs/install.sh | sh
+
 if [ ! -d "$HOME/.tmux/plugins/tpm" ] ; then
     mkdir -p "$HOME/.tmux/plugins"
     git clone "https://github.com/tmux-plugins/tpm" "$HOME/.tmux/plugins/tpm"
