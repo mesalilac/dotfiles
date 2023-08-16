@@ -155,6 +155,8 @@ sudo /usr/pgadmin4/bin/setup-web.sh
 
 sudo npm -g install yarn
 
+yarn global add sass
+
 pipx install discover-overlay
 
 curl -sS https://starship.rs/install.sh | sh
