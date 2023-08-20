@@ -1,3 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Recursive:CASL@1&display=swap');
+
+:root {
+        --Chat-Font-Used: 'Recursive', sans-serif;
+        --Chat-Font-Size: 8px;
+}
+
+:not([class="hljs"]):not(code) {
+        font-family: var(--Chat-Font-Used) !important;
+}
+
+.markup:not(code) {
+        font-size: var(--Chat-Font-Size) !important;
+}
+
 .emojiItemDisabled-3VVnwp {
     -webkit-filter: none !important;
     filter: none !important;

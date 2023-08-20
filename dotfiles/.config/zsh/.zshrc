@@ -30,11 +30,20 @@ export KEYTIMEOUT=1
 autoload -z edit-command-line
 zle -N edit-command-line
 
+function run_tmux {
+    if [ -f "$(pwd)/.tmuxinator.yml" ]; then
+        tmuxinator start
+    else
+        tmux
+    fi
+}
+
 bindkey "^?" backward-delete-char
 bindkey -s "^g" ". lfcd\n"
 bindkey -s "^p" ". fuzzy_projects\n"
 bindkey -s "^n" "nvim .\n"
 bindkey -s "^e" "ea\n"
+bindkey -s "^t" run_tmux"\n"
 bindkey "^X^E" edit-command-line
 
 function zle-keymap-select {
