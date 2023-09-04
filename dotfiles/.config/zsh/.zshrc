@@ -85,6 +85,6 @@ plug "zsh-users/zsh-autosuggestions"
 plug "zsh-users/zsh-syntax-highlighting"
 plug "djui/alias-tips"
 
-
 # bun completions
 # [ -f "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
