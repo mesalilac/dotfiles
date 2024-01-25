@@ -1,4 +1,5 @@
-colorscheme themes/dark
+# colorscheme themes/dark
+colorscheme dracula
 add ~/Music
 
 set mouse=true

@@ -1,0 +1,684 @@
+#compdef diesel
+
+autoload -U is-at-least
+
+_diesel() {
+    typeset -A opt_args
+    typeset -a _arguments_options
+    local ret=1
+
+    if is-at-least 5.2; then
+        _arguments_options=(-s -S -C)
+    else
+        _arguments_options=(-s -C)
+    fi
+
+    local context curcontext="$curcontext" state line
+    _arguments "${_arguments_options[@]}" \
+'--database-url=[Specifies the database URL to connect to. Falls back to the DATABASE_URL environment variable if unspecified.]: : ' \
+'--config-file=[The location of the configuration file to use. Falls back to the \`DIESEL_CONFIG_FILE\` environment variable if unspecified. Defaults to \`diesel.toml\` in your project root. See diesel.rs/guides/configuring-diesel-cli for documentation on this file.]: :_files' \
+'--locked-schema[Require that the schema file is up to date.]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'-V[Print version]' \
+'--version[Print version]' \
+":: :_diesel_commands" \
+"*::: :->diesel" \
+&& ret=0
+    case $state in
+    (diesel)
+        words=($line[1] "${words[@]}")
+        (( CURRENT += 1 ))
+        curcontext="${curcontext%:*:*}:diesel-command-$line[1]:"
+        case $line[1] in
+            (migration)
+_arguments "${_arguments_options[@]}" \
+'--migration-dir=[The location of your migration directory. By default this will look for a directory called \`migrations\` in the current directory and its parents.]: :_files' \
+'--database-url=[Specifies the database URL to connect to. Falls back to the DATABASE_URL environment variable if unspecified.]: : ' \
+'--config-file=[The location of the configuration file to use. Falls back to the \`DIESEL_CONFIG_FILE\` environment variable if unspecified. Defaults to \`diesel.toml\` in your project root. See diesel.rs/guides/configuring-diesel-cli for documentation on this file.]: :_files' \
+'--locked-schema[Require that the schema file is up to date.]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+":: :_diesel__migration_commands" \
+"*::: :->migration" \
+&& ret=0
+
+    case $state in
+    (migration)
+        words=($line[1] "${words[@]}")
+        (( CURRENT += 1 ))
+        curcontext="${curcontext%:*:*}:diesel-migration-command-$line[1]:"
+        case $line[1] in
+            (run)
+_arguments "${_arguments_options[@]}" \
+'--migration-dir=[The location of your migration directory. By default this will look for a directory called \`migrations\` in the current directory and its parents.]: :_files' \
+'--database-url=[Specifies the database URL to connect to. Falls back to the DATABASE_URL environment variable if unspecified.]: : ' \
+'--config-file=[The location of the configuration file to use. Falls back to the \`DIESEL_CONFIG_FILE\` environment variable if unspecified. Defaults to \`diesel.toml\` in your project root. See diesel.rs/guides/configuring-diesel-cli for documentation on this file.]: :_files' \
+'--locked-schema[Require that the schema file is up to date.]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+&& ret=0
+;;
+(revert)
+_arguments "${_arguments_options[@]}" \
+'(-a --all)-n+[Reverts the last \`n\` migration files.]: : ' \
+'(-a --all)--number=[Reverts the last \`n\` migration files.]: : ' \
+'--migration-dir=[The location of your migration directory. By default this will look for a directory called \`migrations\` in the current directory and its parents.]: :_files' \
+'--database-url=[Specifies the database URL to connect to. Falls back to the DATABASE_URL environment variable if unspecified.]: : ' \
+'--config-file=[The location of the configuration file to use. Falls back to the \`DIESEL_CONFIG_FILE\` environment variable if unspecified. Defaults to \`diesel.toml\` in your project root. See diesel.rs/guides/configuring-diesel-cli for documentation on this file.]: :_files' \
+'(-n --number)-a[Reverts previously run migration files.]' \
+'(-n --number)--all[Reverts previously run migration files.]' \
+'--locked-schema[Require that the schema file is up to date.]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+&& ret=0
+;;
+(redo)
+_arguments "${_arguments_options[@]}" \
+'(-a --all)-n+[Redo the last \`n\` migration files.]: : ' \
+'(-a --all)--number=[Redo the last \`n\` migration files.]: : ' \
+'--migration-dir=[The location of your migration directory. By default this will look for a directory called \`migrations\` in the current directory and its parents.]: :_files' \
+'--database-url=[Specifies the database URL to connect to. Falls back to the DATABASE_URL environment variable if unspecified.]: : ' \
+'--config-file=[The location of the configuration file to use. Falls back to the \`DIESEL_CONFIG_FILE\` environment variable if unspecified. Defaults to \`diesel.toml\` in your project root. See diesel.rs/guides/configuring-diesel-cli for documentation on this file.]: :_files' \
+'(-n --number)-a[Reverts and re-runs all migrations.]' \
+'(-n --number)--all[Reverts and re-runs all migrations.]' \
+'--locked-schema[Require that the schema file is up to date.]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+&& ret=0
+;;
+(list)
+_arguments "${_arguments_options[@]}" \
+'--migration-dir=[The location of your migration directory. By default this will look for a directory called \`migrations\` in the current directory and its parents.]: :_files' \
+'--database-url=[Specifies the database URL to connect to. Falls back to the DATABASE_URL environment variable if unspecified.]: : ' \
+'--config-file=[The location of the configuration file to use. Falls back to the \`DIESEL_CONFIG_FILE\` environment variable if unspecified. Defaults to \`diesel.toml\` in your project root. See diesel.rs/guides/configuring-diesel-cli for documentation on this file.]: :_files' \
+'--locked-schema[Require that the schema file is up to date.]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+&& ret=0
+;;
+(pending)
+_arguments "${_arguments_options[@]}" \
+'--migration-dir=[The location of your migration directory. By default this will look for a directory called \`migrations\` in the current directory and its parents.]: :_files' \
+'--database-url=[Specifies the database URL to connect to. Falls back to the DATABASE_URL environment variable if unspecified.]: : ' \
+'--config-file=[The location of the configuration file to use. Falls back to the \`DIESEL_CONFIG_FILE\` environment variable if unspecified. Defaults to \`diesel.toml\` in your project root. See diesel.rs/guides/configuring-diesel-cli for documentation on this file.]: :_files' \
+'--locked-schema[Require that the schema file is up to date.]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+&& ret=0
+;;
+(generate)
+_arguments "${_arguments_options[@]}" \
+'--version=[The version number to use when generating the migration. Defaults to the current timestamp, which should suffice for most use cases.]: : ' \
+'--format=[The format of the migration to be generated.]: :(sql)' \
+'--diff-schema=[Populate the generated migrations based on the current difference between your \`schema.rs\` file and the specified database. 
+
+The generated migrations are not expected to be perfect. Be sure to check whether they meet your expectations. Adjust the generated output if that'\''s not the case.]' \
+'--migration-dir=[The location of your migration directory. By default this will look for a directory called \`migrations\` in the current directory and its parents.]: :_files' \
+'--database-url=[Specifies the database URL to connect to. Falls back to the DATABASE_URL environment variable if unspecified.]: : ' \
+'--config-file=[The location of the configuration file to use. Falls back to the \`DIESEL_CONFIG_FILE\` environment variable if unspecified. Defaults to \`diesel.toml\` in your project root. See diesel.rs/guides/configuring-diesel-cli for documentation on this file.]: :_files' \
+'-u[Don'\''t generate a down.sql file. You won'\''t be able to run migration \`revert\` or \`redo\`.]' \
+'--no-down[Don'\''t generate a down.sql file. You won'\''t be able to run migration \`revert\` or \`redo\`.]' \
+'--locked-schema[Require that the schema file is up to date.]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+':MIGRATION_NAME -- The name of the migration to create.:' \
+&& ret=0
+;;
+(help)
+_arguments "${_arguments_options[@]}" \
+":: :_diesel__migration__help_commands" \
+"*::: :->help" \
+&& ret=0
+
+    case $state in
+    (help)
+        words=($line[1] "${words[@]}")
+        (( CURRENT += 1 ))
+        curcontext="${curcontext%:*:*}:diesel-migration-help-command-$line[1]:"
+        case $line[1] in
+            (run)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(revert)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(redo)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(list)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(pending)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(generate)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(help)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+        esac
+    ;;
+esac
+;;
+        esac
+    ;;
+esac
+;;
+(setup)
+_arguments "${_arguments_options[@]}" \
+'--migration-dir=[The location of your migration directory. By default this will look for a directory called \`migrations\` in the current directory and its parents.]: :_files' \
+'--database-url=[Specifies the database URL to connect to. Falls back to the DATABASE_URL environment variable if unspecified.]: : ' \
+'--config-file=[The location of the configuration file to use. Falls back to the \`DIESEL_CONFIG_FILE\` environment variable if unspecified. Defaults to \`diesel.toml\` in your project root. See diesel.rs/guides/configuring-diesel-cli for documentation on this file.]: :_files' \
+'--locked-schema[Require that the schema file is up to date.]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+&& ret=0
+;;
+(database)
+_arguments "${_arguments_options[@]}" \
+'--migration-dir=[The location of your migration directory. By default this will look for a directory called \`migrations\` in the current directory and its parents.]: :_files' \
+'--database-url=[Specifies the database URL to connect to. Falls back to the DATABASE_URL environment variable if unspecified.]: : ' \
+'--config-file=[The location of the configuration file to use. Falls back to the \`DIESEL_CONFIG_FILE\` environment variable if unspecified. Defaults to \`diesel.toml\` in your project root. See diesel.rs/guides/configuring-diesel-cli for documentation on this file.]: :_files' \
+'--locked-schema[Require that the schema file is up to date.]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+":: :_diesel__database_commands" \
+"*::: :->database" \
+&& ret=0
+
+    case $state in
+    (database)
+        words=($line[1] "${words[@]}")
+        (( CURRENT += 1 ))
+        curcontext="${curcontext%:*:*}:diesel-database-command-$line[1]:"
+        case $line[1] in
+            (setup)
+_arguments "${_arguments_options[@]}" \
+'--migration-dir=[The location of your migration directory. By default this will look for a directory called \`migrations\` in the current directory and its parents.]: :_files' \
+'--database-url=[Specifies the database URL to connect to. Falls back to the DATABASE_URL environment variable if unspecified.]: : ' \
+'--config-file=[The location of the configuration file to use. Falls back to the \`DIESEL_CONFIG_FILE\` environment variable if unspecified. Defaults to \`diesel.toml\` in your project root. See diesel.rs/guides/configuring-diesel-cli for documentation on this file.]: :_files' \
+'--locked-schema[Require that the schema file is up to date.]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+&& ret=0
+;;
+(reset)
+_arguments "${_arguments_options[@]}" \
+'--migration-dir=[The location of your migration directory. By default this will look for a directory called \`migrations\` in the current directory and its parents.]: :_files' \
+'--database-url=[Specifies the database URL to connect to. Falls back to the DATABASE_URL environment variable if unspecified.]: : ' \
+'--config-file=[The location of the configuration file to use. Falls back to the \`DIESEL_CONFIG_FILE\` environment variable if unspecified. Defaults to \`diesel.toml\` in your project root. See diesel.rs/guides/configuring-diesel-cli for documentation on this file.]: :_files' \
+'--locked-schema[Require that the schema file is up to date.]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+&& ret=0
+;;
+(drop)
+_arguments "${_arguments_options[@]}" \
+'--migration-dir=[The location of your migration directory. By default this will look for a directory called \`migrations\` in the current directory and its parents.]: :_files' \
+'--database-url=[Specifies the database URL to connect to. Falls back to the DATABASE_URL environment variable if unspecified.]: : ' \
+'--config-file=[The location of the configuration file to use. Falls back to the \`DIESEL_CONFIG_FILE\` environment variable if unspecified. Defaults to \`diesel.toml\` in your project root. See diesel.rs/guides/configuring-diesel-cli for documentation on this file.]: :_files' \
+'--locked-schema[Require that the schema file is up to date.]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+&& ret=0
+;;
+(help)
+_arguments "${_arguments_options[@]}" \
+":: :_diesel__database__help_commands" \
+"*::: :->help" \
+&& ret=0
+
+    case $state in
+    (help)
+        words=($line[1] "${words[@]}")
+        (( CURRENT += 1 ))
+        curcontext="${curcontext%:*:*}:diesel-database-help-command-$line[1]:"
+        case $line[1] in
+            (setup)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(reset)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(drop)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(help)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+        esac
+    ;;
+esac
+;;
+        esac
+    ;;
+esac
+;;
+(completions)
+_arguments "${_arguments_options[@]}" \
+'--database-url=[Specifies the database URL to connect to. Falls back to the DATABASE_URL environment variable if unspecified.]: : ' \
+'--config-file=[The location of the configuration file to use. Falls back to the \`DIESEL_CONFIG_FILE\` environment variable if unspecified. Defaults to \`diesel.toml\` in your project root. See diesel.rs/guides/configuring-diesel-cli for documentation on this file.]: :_files' \
+'--locked-schema[Require that the schema file is up to date.]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+':SHELL:(bash elvish fish powershell zsh)' \
+&& ret=0
+;;
+(print-schema)
+_arguments "${_arguments_options[@]}" \
+'-s+[The name of the schema.]: : ' \
+'--schema=[The name of the schema.]: : ' \
+'--with-docs-config=[Render documentation comments for tables and columns.]: :(database-comments-fallback-to-auto-generated-doc-comment only-database-comments no-doc-comments)' \
+'--column-sorting=[Sort order for table columns.]: :(ordinal_position name)' \
+'--patch-file=[A unified diff file to be applied to the final schema.]: :_files' \
+'*--import-types=[A list of types to import for every table, separated by commas.]: : ' \
+'*--custom-type-derives=[A list of derives to implement for every automatically generated SqlType in the schema, separated by commas.]: : ' \
+'--database-url=[Specifies the database URL to connect to. Falls back to the DATABASE_URL environment variable if unspecified.]: : ' \
+'--config-file=[The location of the configuration file to use. Falls back to the \`DIESEL_CONFIG_FILE\` environment variable if unspecified. Defaults to \`diesel.toml\` in your project root. See diesel.rs/guides/configuring-diesel-cli for documentation on this file.]: :_files' \
+'(-e --except-tables)-o[Only include tables from table-name that matches regexp.]' \
+'(-e --except-tables)--only-tables[Only include tables from table-name that matches regexp.]' \
+'(-o --only-tables)-e[Exclude tables from table-name that matches regex.]' \
+'(-o --only-tables)--except-tables[Exclude tables from table-name that matches regex.]' \
+'--with-docs[Render documentation comments for tables and columns.]' \
+'--no-generate-missing-sql-type-definitions[Generate SQL type definitions for types not provided by diesel]' \
+'--locked-schema[Require that the schema file is up to date.]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'*::table-name -- Table names to filter (default only-tables if not empty).:' \
+&& ret=0
+;;
+(help)
+_arguments "${_arguments_options[@]}" \
+":: :_diesel__help_commands" \
+"*::: :->help" \
+&& ret=0
+
+    case $state in
+    (help)
+        words=($line[1] "${words[@]}")
+        (( CURRENT += 1 ))
+        curcontext="${curcontext%:*:*}:diesel-help-command-$line[1]:"
+        case $line[1] in
+            (migration)
+_arguments "${_arguments_options[@]}" \
+":: :_diesel__help__migration_commands" \
+"*::: :->migration" \
+&& ret=0
+
+    case $state in
+    (migration)
+        words=($line[1] "${words[@]}")
+        (( CURRENT += 1 ))
+        curcontext="${curcontext%:*:*}:diesel-help-migration-command-$line[1]:"
+        case $line[1] in
+            (run)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(revert)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(redo)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(list)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(pending)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(generate)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+        esac
+    ;;
+esac
+;;
+(setup)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(database)
+_arguments "${_arguments_options[@]}" \
+":: :_diesel__help__database_commands" \
+"*::: :->database" \
+&& ret=0
+
+    case $state in
+    (database)
+        words=($line[1] "${words[@]}")
+        (( CURRENT += 1 ))
+        curcontext="${curcontext%:*:*}:diesel-help-database-command-$line[1]:"
+        case $line[1] in
+            (setup)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(reset)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(drop)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+        esac
+    ;;
+esac
+;;
+(completions)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(print-schema)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(help)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+        esac
+    ;;
+esac
+;;
+        esac
+    ;;
+esac
+}
+
+(( $+functions[_diesel_commands] )) ||
+_diesel_commands() {
+    local commands; commands=(
+'migration:A group of commands for generating, running, and reverting migrations.' \
+'setup:Creates the migrations directory, creates the database specified in your DATABASE_URL, and runs existing migrations.' \
+'database:A group of commands for setting up and resetting your database.' \
+'completions:Generate shell completion scripts for the diesel command.' \
+'print-schema:Print table definitions for database schema.' \
+'help:Print this message or the help of the given subcommand(s)' \
+    )
+    _describe -t commands 'diesel commands' commands "$@"
+}
+(( $+functions[_diesel__completions_commands] )) ||
+_diesel__completions_commands() {
+    local commands; commands=()
+    _describe -t commands 'diesel completions commands' commands "$@"
+}
+(( $+functions[_diesel__help__completions_commands] )) ||
+_diesel__help__completions_commands() {
+    local commands; commands=()
+    _describe -t commands 'diesel help completions commands' commands "$@"
+}
+(( $+functions[_diesel__database_commands] )) ||
+_diesel__database_commands() {
+    local commands; commands=(
+'setup:Creates the database specified in your DATABASE_URL, and then runs any existing migrations.' \
+'reset:Resets your database by dropping the database specified in your DATABASE_URL and then running \`diesel database setup\`.' \
+'drop:Drops the database specified in your DATABASE_URL.' \
+'help:Print this message or the help of the given subcommand(s)' \
+    )
+    _describe -t commands 'diesel database commands' commands "$@"
+}
+(( $+functions[_diesel__help__database_commands] )) ||
+_diesel__help__database_commands() {
+    local commands; commands=(
+'setup:Creates the database specified in your DATABASE_URL, and then runs any existing migrations.' \
+'reset:Resets your database by dropping the database specified in your DATABASE_URL and then running \`diesel database setup\`.' \
+'drop:Drops the database specified in your DATABASE_URL.' \
+    )
+    _describe -t commands 'diesel help database commands' commands "$@"
+}
+(( $+functions[_diesel__database__drop_commands] )) ||
+_diesel__database__drop_commands() {
+    local commands; commands=()
+    _describe -t commands 'diesel database drop commands' commands "$@"
+}
+(( $+functions[_diesel__database__help__drop_commands] )) ||
+_diesel__database__help__drop_commands() {
+    local commands; commands=()
+    _describe -t commands 'diesel database help drop commands' commands "$@"
+}
+(( $+functions[_diesel__help__database__drop_commands] )) ||
+_diesel__help__database__drop_commands() {
+    local commands; commands=()
+    _describe -t commands 'diesel help database drop commands' commands "$@"
+}
+(( $+functions[_diesel__help__migration__generate_commands] )) ||
+_diesel__help__migration__generate_commands() {
+    local commands; commands=()
+    _describe -t commands 'diesel help migration generate commands' commands "$@"
+}
+(( $+functions[_diesel__migration__generate_commands] )) ||
+_diesel__migration__generate_commands() {
+    local commands; commands=()
+    _describe -t commands 'diesel migration generate commands' commands "$@"
+}
+(( $+functions[_diesel__migration__help__generate_commands] )) ||
+_diesel__migration__help__generate_commands() {
+    local commands; commands=()
+    _describe -t commands 'diesel migration help generate commands' commands "$@"
+}
+(( $+functions[_diesel__database__help_commands] )) ||
+_diesel__database__help_commands() {
+    local commands; commands=(
+'setup:Creates the database specified in your DATABASE_URL, and then runs any existing migrations.' \
+'reset:Resets your database by dropping the database specified in your DATABASE_URL and then running \`diesel database setup\`.' \
+'drop:Drops the database specified in your DATABASE_URL.' \
+'help:Print this message or the help of the given subcommand(s)' \
+    )
+    _describe -t commands 'diesel database help commands' commands "$@"
+}
+(( $+functions[_diesel__database__help__help_commands] )) ||
+_diesel__database__help__help_commands() {
+    local commands; commands=()
+    _describe -t commands 'diesel database help help commands' commands "$@"
+}
+(( $+functions[_diesel__help_commands] )) ||
+_diesel__help_commands() {
+    local commands; commands=(
+'migration:A group of commands for generating, running, and reverting migrations.' \
+'setup:Creates the migrations directory, creates the database specified in your DATABASE_URL, and runs existing migrations.' \
+'database:A group of commands for setting up and resetting your database.' \
+'completions:Generate shell completion scripts for the diesel command.' \
+'print-schema:Print table definitions for database schema.' \
+'help:Print this message or the help of the given subcommand(s)' \
+    )
+    _describe -t commands 'diesel help commands' commands "$@"
+}
+(( $+functions[_diesel__help__help_commands] )) ||
+_diesel__help__help_commands() {
+    local commands; commands=()
+    _describe -t commands 'diesel help help commands' commands "$@"
+}
+(( $+functions[_diesel__migration__help_commands] )) ||
+_diesel__migration__help_commands() {
+    local commands; commands=(
+'run:Runs all pending migrations.' \
+'revert:Reverts the specified migrations.' \
+'redo:Reverts and re-runs the latest migration. Useful for testing that a migration can in fact be reverted.' \
+'list:Lists all available migrations, marking those that have been applied.' \
+'pending:Returns true if there are any pending migrations.' \
+'generate:Generate a new migration with the given name, and the current timestamp as the version.' \
+'help:Print this message or the help of the given subcommand(s)' \
+    )
+    _describe -t commands 'diesel migration help commands' commands "$@"
+}
+(( $+functions[_diesel__migration__help__help_commands] )) ||
+_diesel__migration__help__help_commands() {
+    local commands; commands=()
+    _describe -t commands 'diesel migration help help commands' commands "$@"
+}
+(( $+functions[_diesel__help__migration__list_commands] )) ||
+_diesel__help__migration__list_commands() {
+    local commands; commands=()
+    _describe -t commands 'diesel help migration list commands' commands "$@"
+}
+(( $+functions[_diesel__migration__help__list_commands] )) ||
+_diesel__migration__help__list_commands() {
+    local commands; commands=()
+    _describe -t commands 'diesel migration help list commands' commands "$@"
+}
+(( $+functions[_diesel__migration__list_commands] )) ||
+_diesel__migration__list_commands() {
+    local commands; commands=()
+    _describe -t commands 'diesel migration list commands' commands "$@"
+}
+(( $+functions[_diesel__help__migration_commands] )) ||
+_diesel__help__migration_commands() {
+    local commands; commands=(
+'run:Runs all pending migrations.' \
+'revert:Reverts the specified migrations.' \
+'redo:Reverts and re-runs the latest migration. Useful for testing that a migration can in fact be reverted.' \
+'list:Lists all available migrations, marking those that have been applied.' \
+'pending:Returns true if there are any pending migrations.' \
+'generate:Generate a new migration with the given name, and the current timestamp as the version.' \
+    )
+    _describe -t commands 'diesel help migration commands' commands "$@"
+}
+(( $+functions[_diesel__migration_commands] )) ||
+_diesel__migration_commands() {
+    local commands; commands=(
+'run:Runs all pending migrations.' \
+'revert:Reverts the specified migrations.' \
+'redo:Reverts and re-runs the latest migration. Useful for testing that a migration can in fact be reverted.' \
+'list:Lists all available migrations, marking those that have been applied.' \
+'pending:Returns true if there are any pending migrations.' \
+'generate:Generate a new migration with the given name, and the current timestamp as the version.' \
+'help:Print this message or the help of the given subcommand(s)' \
+    )
+    _describe -t commands 'diesel migration commands' commands "$@"
+}
+(( $+functions[_diesel__help__migration__pending_commands] )) ||
+_diesel__help__migration__pending_commands() {
+    local commands; commands=()
+    _describe -t commands 'diesel help migration pending commands' commands "$@"
+}
+(( $+functions[_diesel__migration__help__pending_commands] )) ||
+_diesel__migration__help__pending_commands() {
+    local commands; commands=()
+    _describe -t commands 'diesel migration help pending commands' commands "$@"
+}
+(( $+functions[_diesel__migration__pending_commands] )) ||
+_diesel__migration__pending_commands() {
+    local commands; commands=()
+    _describe -t commands 'diesel migration pending commands' commands "$@"
+}
+(( $+functions[_diesel__help__print-schema_commands] )) ||
+_diesel__help__print-schema_commands() {
+    local commands; commands=()
+    _describe -t commands 'diesel help print-schema commands' commands "$@"
+}
+(( $+functions[_diesel__print-schema_commands] )) ||
+_diesel__print-schema_commands() {
+    local commands; commands=()
+    _describe -t commands 'diesel print-schema commands' commands "$@"
+}
+(( $+functions[_diesel__help__migration__redo_commands] )) ||
+_diesel__help__migration__redo_commands() {
+    local commands; commands=()
+    _describe -t commands 'diesel help migration redo commands' commands "$@"
+}
+(( $+functions[_diesel__migration__help__redo_commands] )) ||
+_diesel__migration__help__redo_commands() {
+    local commands; commands=()
+    _describe -t commands 'diesel migration help redo commands' commands "$@"
+}
+(( $+functions[_diesel__migration__redo_commands] )) ||
+_diesel__migration__redo_commands() {
+    local commands; commands=()
+    _describe -t commands 'diesel migration redo commands' commands "$@"
+}
+(( $+functions[_diesel__database__help__reset_commands] )) ||
+_diesel__database__help__reset_commands() {
+    local commands; commands=()
+    _describe -t commands 'diesel database help reset commands' commands "$@"
+}
+(( $+functions[_diesel__database__reset_commands] )) ||
+_diesel__database__reset_commands() {
+    local commands; commands=()
+    _describe -t commands 'diesel database reset commands' commands "$@"
+}
+(( $+functions[_diesel__help__database__reset_commands] )) ||
+_diesel__help__database__reset_commands() {
+    local commands; commands=()
+    _describe -t commands 'diesel help database reset commands' commands "$@"
+}
+(( $+functions[_diesel__help__migration__revert_commands] )) ||
+_diesel__help__migration__revert_commands() {
+    local commands; commands=()
+    _describe -t commands 'diesel help migration revert commands' commands "$@"
+}
+(( $+functions[_diesel__migration__help__revert_commands] )) ||
+_diesel__migration__help__revert_commands() {
+    local commands; commands=()
+    _describe -t commands 'diesel migration help revert commands' commands "$@"
+}
+(( $+functions[_diesel__migration__revert_commands] )) ||
+_diesel__migration__revert_commands() {
+    local commands; commands=()
+    _describe -t commands 'diesel migration revert commands' commands "$@"
+}
+(( $+functions[_diesel__help__migration__run_commands] )) ||
+_diesel__help__migration__run_commands() {
+    local commands; commands=()
+    _describe -t commands 'diesel help migration run commands' commands "$@"
+}
+(( $+functions[_diesel__migration__help__run_commands] )) ||
+_diesel__migration__help__run_commands() {
+    local commands; commands=()
+    _describe -t commands 'diesel migration help run commands' commands "$@"
+}
+(( $+functions[_diesel__migration__run_commands] )) ||
+_diesel__migration__run_commands() {
+    local commands; commands=()
+    _describe -t commands 'diesel migration run commands' commands "$@"
+}
+(( $+functions[_diesel__database__help__setup_commands] )) ||
+_diesel__database__help__setup_commands() {
+    local commands; commands=()
+    _describe -t commands 'diesel database help setup commands' commands "$@"
+}
+(( $+functions[_diesel__database__setup_commands] )) ||
+_diesel__database__setup_commands() {
+    local commands; commands=()
+    _describe -t commands 'diesel database setup commands' commands "$@"
+}
+(( $+functions[_diesel__help__database__setup_commands] )) ||
+_diesel__help__database__setup_commands() {
+    local commands; commands=()
+    _describe -t commands 'diesel help database setup commands' commands "$@"
+}
+(( $+functions[_diesel__help__setup_commands] )) ||
+_diesel__help__setup_commands() {
+    local commands; commands=()
+    _describe -t commands 'diesel help setup commands' commands "$@"
+}
+(( $+functions[_diesel__setup_commands] )) ||
+_diesel__setup_commands() {
+    local commands; commands=()
+    _describe -t commands 'diesel setup commands' commands "$@"
+}
+
+if [ "$funcstack[1]" = "_diesel" ]; then
+    _diesel "$@"
+else
+    compdef _diesel diesel
+fi
