@@ -1,0 +1,72 @@
+#!/bin/env python3
+
+import argparse
+import os
+import random
+import string
+
+
+def get_random_string(length):
+    letters = "0123456789" + string.ascii_lowercase + string.ascii_uppercase
+    result_str = "".join(random.choice(letters) for _ in range(length))
+    return result_str
+
+
+def extract_ext(filename):
+    ext = ""
+
+    if "." in filename:
+        ext = "." + filename.split(".").pop()
+
+    return ext
+
+
+class Args:
+    def __init__(self, args) -> None:
+        self.length: int = args.length
+
+
+def main():
+    parser = argparse.ArgumentParser(
+        prog="file-scrampler",
+        description="randomize file names",
+    )
+    parser.add_argument(
+        "-l", "--length", action="store", type=int, default=24, required=False
+    )
+
+    args = Args(parser.parse_args())
+
+    queue = []
+    for x in os.walk(top="."):
+        dirpath = x[0]
+        filenames = x[2]
+
+        for file in filenames:
+            random_string = get_random_string(args.length)
+            ext = extract_ext(file)
+            old_file = os.path.join(dirpath, file)
+            new_file = f"{os.path.join(dirpath, random_string)}{ext}"
+
+            queue.append((old_file, new_file))
+
+    print(f"Total: {len(queue)}")
+    print(f"Cwd: {os.getcwd()}")
+
+    confirm_prompt = input("Do you want to continue? (y/N): ") or "n"
+    if confirm_prompt.lower() != "y":
+        return
+
+    print("\nStarting now...")
+    print("-" * 30)
+
+    for index, (old_file, new_file) in enumerate(queue):
+        print(f"[{index+1}] {old_file} -> {new_file}")
+        os.rename(old_file, new_file)
+
+    print("-" * 30)
+    print(f"Done... {len(queue)} file/s renamed")
+
+
+if __name__ == "__main__":
+    main()
