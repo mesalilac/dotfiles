@@ -28,6 +28,7 @@ export APT_PACKAGES=(
 
     "picard"
     "python-is-python3"
+    "pipx"
     "gettext"
     "cmake"
     "zip"
