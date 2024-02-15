@@ -29,8 +29,11 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
     unset f
 fi
 
-xrandr --output HDMI-1 --primary
-xrandr --output LVDS-1 --off
+xrandr --output VGA-1 --auto --primary
+xrandr --output LVDS-1 --auto --right-of VGA-1
+
+# xrandr --output HDMI-1 --primary
+# xrandr --output LVDS-1 --off
 xrandr -r 60
 
 /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
