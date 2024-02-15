@@ -39,5 +39,6 @@ backup_paths: List[Entry] = [
     # .local
     Dir("~/.local/share/fonts", ".local/share/"),
     Dir("~/.local/share/nemo", ".local/share/"),
-    Dir("~/.local/share/zap", ".local/share/")
+    Dir("~/.local/share/zap", ".local/share/"),
+    Dir("~/.local/share/eog", ".local/share/")
 ]
