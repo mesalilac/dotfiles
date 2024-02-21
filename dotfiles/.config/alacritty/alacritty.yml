@@ -26,9 +26,9 @@ window:
     #
     # Specified in number of pixels.
     # If the position is not set, the window manager will handle the placement.
-    #position:
-    #  x: 0
-    #  y: 0
+    # position:
+    #   x: 0
+    #   y: 0
     # Window padding (changes require restart)
     #
     # Blank space added around the window in pixels. This padding is scaled
@@ -132,7 +132,7 @@ font:
 
     # Point size
     # size: 13
-    size: 15
+    size: 13
 
     # Offset is the extra space around each character. `offset.y` can be thought of
     # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -160,26 +160,50 @@ font:
     # This is a global setting and will require a log out or restart to take
     # effect.
 
-# The definition of color schemes.
+
 colors:
     primary:
-        background: '#1E1D23'
-        foreground: '#DED7D0'
+        background: '#282828'
+        foreground: '#fbf1c7'
     normal:
-        black: '#938884'
-        red: '#FF7DA3'
-        green: '#7EC49D'
-        yellow: '#EFD472'
-        blue: '#8BB8D0'
-        magenta: '#BDA9D4'
-        cyan: '#BDA9D4'
-        white: '#DED7D0'
+        black: '#928374'
+        red: '#cc241d'
+        green: '#98971a'
+        yellow: '#d79921'
+        blue: '#458588'
+        magenta: '#b16286'
+        cyan: '#689d6a'
+        white: '#f9f5d7'
     bright:
-        black: '#938884'
-        red: '#FF7DA3'
-        green: '#7EC49D'
-        yellow: '#EFD472'
-        blue: '#8BB8D0'
-        magenta: '#BDA9D4'
-        cyan: '#BDA9D4'
-        white: '#DED7D0'
+        black: '#928374'
+        red: '#fb4934'
+        green: '#b8bb26'
+        yellow: '#fabd2f'
+        blue: '#83a598'
+        magenta: '#d3869b'
+        cyan: '#8ec07c'
+        white: '#f9f5d7'
+
+# The definition of color schemes.
+# colors:
+#     primary:
+#         background: '#1E1D23'
+#         foreground: '#DED7D0'
+#     normal:
+#         black: '#938884'
+#         red: '#FF7DA3'
+#         green: '#7EC49D'
+#         yellow: '#EFD472'
+#         blue: '#8BB8D0'
+#         magenta: '#BDA9D4'
+#         cyan: '#BDA9D4'
+#         white: '#DED7D0'
+#     bright:
+#         black: '#938884'
+#         red: '#FF7DA3'
+#         green: '#7EC49D'
+#         yellow: '#EFD472'
+#         blue: '#8BB8D0'
+#         magenta: '#BDA9D4'
+#         cyan: '#BDA9D4'
+#         white: '#DED7D0'
