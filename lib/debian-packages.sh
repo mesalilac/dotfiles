@@ -26,6 +26,7 @@ export APT_PACKAGES=(
     "libayatana-appindicator3-dev"
     "librsvg2-dev"
 
+    "software-properties-common" # for apt-add-repository
     "clang-format"
     "picard"
     "python-is-python3"

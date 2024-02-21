@@ -49,6 +49,9 @@ mkdir -pv ~/.local/bin/app-images
 log_info "Downloading and Installing apt packages"
 sudo apt-get install -y "${APT_PACKAGES[@]}"
 
+# Add new sources
+sudo apt-add-repository contrib non-free -y
+
 log_info "Installing rust"
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
@@ -98,14 +101,8 @@ wget "https://discord.com/api/download?platform=linux&format=deb" -O ~/Downloads
 sudo apt install ~/Downloads/./discord.deb
 
 #log_info "Installing steam"
-NEW_SOURCE=""
-if ! grep -Fxq "deb http://deb.debian.org/debian/ bookworm main contrib non-free" /etc/apt/sources.list
-then
-    log_info "adding new software source"
-    sudo sh -c 'echo "deb http://deb.debian.org/debian/ bookworm main contrib non-free" >> /etc/apt/sources.list'
-    sudo dpkg --add-architecture i386
-    sudo apt-get update
-fi
+sudo dpkg --add-architecture i386
+sudo apt-get update
 # https://wiki.debian.org/Steam
 sudo apt install mesa-vulkan-drivers libglx-mesa0:i386 mesa-vulkan-drivers:i386 libgl1-mesa-dri:i386
 sudo apt-get install steam-installer
@@ -116,6 +113,12 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo 
 && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
 && sudo apt update \
 && sudo apt install gh -y
+
+# Install spotify
+curl -sS https://download.spotify.com/debian/pubkey_6224F9941A8AA6D1.gpg | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg
+echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+sudo apt update
+sudo apt install spotify-client
 
 wget https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -O ~/Downloads/packages-microsoft-prod.deb
 wget https://opentabletdriver.net/Release/Download/OpenTabletDriver.deb -O ~/Downloads/OpenTabletDriver.deb
@@ -204,7 +207,3 @@ sudo apt install ./build/*.deb
 
 cd ..
 
-# if [ ! -d "Discover" ] ; then
-#     git clone https://github.com/trigg/Discover.git
-# fi
-# cd Discover && python3 -m pip install .
