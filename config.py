@@ -27,7 +27,6 @@ backup_paths: List[Entry] = [
     Dir("~/scripts", "home/"),
     Dir("~/.themes", "home/"),
     Dir("~/.icons", "home/"),
-    Dir("~/.gnupg", "home/"),
     File("~/.tmux.conf", "home/"),
     File("~/.dialogrc", "home/"),
     File("~/.imwheelrc", "home/"),
