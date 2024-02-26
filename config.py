@@ -27,6 +27,7 @@ backup_paths: List[Entry] = [
     Dir("~/scripts", "home/"),
     Dir("~/.themes", "home/"),
     Dir("~/.icons", "home/"),
+    Dir("~/.gnupg", "home/"),
     File("~/.tmux.conf", "home/"),
     File("~/.dialogrc", "home/"),
     File("~/.imwheelrc", "home/"),
@@ -40,5 +41,5 @@ backup_paths: List[Entry] = [
     Dir("~/.local/share/fonts", ".local/share/"),
     Dir("~/.local/share/nemo", ".local/share/"),
     Dir("~/.local/share/zap", ".local/share/"),
-    Dir("~/.local/share/eog", ".local/share/")
+    Dir("~/.local/share/eog", ".local/share/"),
 ]
