@@ -4,6 +4,7 @@ plugins/*.css
 plugins/*_IMAGE_CACHE
 data/betterdiscord.asar
 
+!.gitignore
 !themes
 !plugins/
 !plugins/*.plugin.js
