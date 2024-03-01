@@ -26,6 +26,7 @@ export APT_PACKAGES=(
     "libayatana-appindicator3-dev"
     "librsvg2-dev"
 
+    "smartmontools" # Control and monitor storage systems using S.M.A.R.T.
     "software-properties-common" # for apt-add-repository
     "clang-format"
     "picard"
