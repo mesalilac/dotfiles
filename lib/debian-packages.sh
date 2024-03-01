@@ -15,7 +15,6 @@ export APT_PACKAGES=(
 	"ninja-build"                  # Small Build System Closest In Spirit To Make
 	"libwacom-bin"                 # Wacom Model Feature Query Library -- Binaries
 	"libcanberra-gtk-module"       # Translates Gtk+ Widgets Signals To Event Sounds
-	"software-properties-common"   # Manage The Repositories That You Install Software From (Common)
 	"apt-transport-https"          # Transitional Package For Https Support
 	"gnupg2"                       # Gnu Privacy Guard - A Free Pgp Replacement (Dummy Transitional Package)
 	"debian-keyring"               # Gnupg Keys Of Debian Developers And Maintainers
