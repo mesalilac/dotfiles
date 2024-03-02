@@ -1,50 +1,33 @@
 export APT_PACKAGES=(
 
-	# ----------------------------
-	# | Admin                    |
-	# ----------------------------
+# Admin:
 	  "software-properties-common"   # Manage The Repositories That You Install Software From (Common)
 	  "tmux"                         # Terminal Multiplexer
 	  "hwinfo"                       # Hardware Identification System
-	# ----------------------------
 
-	# ----------------------------
-	# | Database                 |
-	# ----------------------------
+# Database:
 	  "default-libmysqlclient-dev"   # Mysql Database Development Files (Metapackage)
 	  "postgresql"                   # Object-Relational Sql Database (Supported Version)
 	  "postgresql-client"            # Front-End Programs For Postgresql (Supported Version)
-	# ----------------------------
 
-	# ----------------------------
-	# | Devel                    |
-	# ----------------------------
+# Devel:
 	  "build-essential"              # Informational List Of Build-Essential Packages
 	  "ninja-build"                  # Small Build System Closest In Spirit To Make
 	  "clang-format"                 # Tool To Format C/C++/Obj-C Code
 	  "gettext"                      # Gnu Internationalization Utilities
 	  "cmake"                        # Cross-Platform, Open-Source Make System
 	  "highlight"                    # Universal Source Code To Formatted Text Converter
-	# ----------------------------
 
-	# ----------------------------
-	# | Doc                      |
-	# ----------------------------
+# Doc:
 	  "postgresql-doc"               # Documentation For The Postgresql Database Management System
-	# ----------------------------
 
-	# ----------------------------
-	# | Fonts                    |
-	# ----------------------------
+# Fonts:
 	  "fontforge"                    # Font Editor
 	  "fonts-mononoki"               # Font For Programming And Code Review
 	  "fonts-liberation"             # Fonts With The Same Metrics As Times, Arial And Courier
 	  "fonts-wqy-zenhei"             # "Wenquanyi Zen Hei" A Hei-Ti Style (Sans-Serif) Chinese Font
-	# ----------------------------
 
-	# ----------------------------
-	# | Gnome                    |
-	# ----------------------------
+# Gnome:
 	  "gnome-text-editor"            # Simple Text Editor For Gnome
 	  "gnome-keyring"                # Gnome Keyring Services (Daemon And Tools)
 	  "policykit-1-gnome"            # Authentication Agent For Policykit
@@ -53,33 +36,21 @@ export APT_PACKAGES=(
 	  "gparted"                      # Gnome Partition Editor
 	  "eog"                          # Eye Of Gnome Graphics Viewer Program
 	  "network-manager-gnome"        # Network Management Framework (Gnome Frontend)
-	# ----------------------------
 
-	# ----------------------------
-	# | Graphics                 |
-	# ----------------------------
+# Graphics:
 	  "flameshot"                    # Powerful Yet Simple-To-Use Screenshot Software
 	  "gpick"                        # Advanced Gtk+ Color Picker
 	  "font-manager"                 # Font Management Application For The Gnome Desktop
 	  "imagemagick"                  # Image Manipulation Programs -- Binaries
 	  "feh"                          # Imlib2 Based Image Viewer
-	# ----------------------------
 
-	# ----------------------------
-	# | Interpreters             |
-	# ----------------------------
+# Interpreters:
 	  "gawk"                         # Gnu Awk, A Pattern Scanning And Processing Language
-	# ----------------------------
 
-	# ----------------------------
-	# | Kde                      |
-	# ----------------------------
+# Kde:
 	  "ffmpegthumbs"                 # Video Thumbnail Generator Using Ffmpeg
-	# ----------------------------
 
-	# ----------------------------
-	# | Libdevel                 |
-	# ----------------------------
+# Libdevel:
 	  "libx11-dev"                   # X11 Client-Side Library (Development Headers)
 	  "libxft-dev"                   # Freetype-Based Font Drawing Library For X (Development Files)
 	  "libcairo2-dev"                # Development Files For The Cairo 2D Graphics Library
@@ -92,93 +63,57 @@ export APT_PACKAGES=(
 	  "libgtk-3-dev"                 # Development Files For The Gtk Library
 	  "libayatana-appindicator3-dev" # Ayatana Application Indicators (Development Files, Gtk-3+ Version)
 	  "librsvg2-dev"                 # Sax-Based Renderer Library For Svg Files (Development)
-	# ----------------------------
 
-	# ----------------------------
-	# | Libs                     |
-	# ----------------------------
+# Libs:
 	  "libcairo2"                    # Cairo 2D Vector Graphics Library
 	  "libwacom-bin"                 # Wacom Model Feature Query Library -- Binaries
 	  "libcanberra-gtk-module"       # Translates Gtk+ Widgets Signals To Event Sounds
-	# ----------------------------
 
-	# ----------------------------
-	# | Math                     |
-	# ----------------------------
+# Math:
 	  "gnome-calculator"             # Gnome Desktop Calculator
 	  "qalc"                         # Powerful And Easy To Use Command Line Calculator
-	# ----------------------------
 
-	# ----------------------------
-	# | Misc                     |
-	# ----------------------------
+# Misc:
 	  "debian-keyring"               # Gnupg Keys Of Debian Developers And Maintainers
 	  "nemo"                         # File Manager And Graphical Shell For Cinnamon
 	  "inxi"                         # Full Featured System Information Script
-	# ----------------------------
 
-	# ----------------------------
-	# | Net                      |
-	# ----------------------------
+# Net:
 	  "rsync"                        # Fast, Versatile, Remote (And Local) File-Copying Tool
 	  "transmission-gtk"             # Lightweight Bittorrent Client (Gtk+ Interface)
-	# ----------------------------
 
-	# ----------------------------
-	# | Oldlibs                  |
-	# ----------------------------
+# Oldlibs:
 	  "libgconf-2-4"                 # Gnome Configuration Database System (Shared Libraries)
 	  "libgtk2.0-dev"                # Development Files For The Gtk Library
 	  "apt-transport-https"          # Transitional Package For Https Support
 	  "gnupg2"                       # Gnu Privacy Guard - A Free Pgp Replacement (Dummy Transitional Package)
-	# ----------------------------
 
-	# ----------------------------
-	# | Otherosfs                |
-	# ----------------------------
+# Otherosfs:
 	  "ntfs-3g"                      # Read/Write Ntfs Driver For Fuse
-	# ----------------------------
 
-	# ----------------------------
-	# | Python                   |
-	# ----------------------------
+# Python:
 	  "python-is-python3"            # Symlinks /Usr/Bin/Python To Python3
 	  "pipx"                         # Execute Binaries From Python Packages In Isolated Environments
 	  "python3-pip"                  # Python Package Installer
 	  "pipx"                         # Execute Binaries From Python Packages In Isolated Environments
-	# ----------------------------
 
-	# ----------------------------
-	# | Ruby                     |
-	# ----------------------------
+# Ruby:
 	  "tmuxinator"                   # Create And Manage Tmux Sessions Easily
-	# ----------------------------
 
-	# ----------------------------
-	# | Shells                   |
-	# ----------------------------
+# Shells:
 	  "zsh"                          # Shell With Lots Of Features
-	# ----------------------------
 
-	# ----------------------------
-	# | Sound                    |
-	# ----------------------------
+# Sound:
 	  "picard"                       # Next-Generation Musicbrainz Audio Files Tagger
 	  "playerctl"                    # Utility To Control Media Players Via Mpris
 	  "pavucontrol"                  # Pulseaudio Volume Control
 	  "cmus"                         # Lightweight Ncurses Audio Player
-	# ----------------------------
 
-	# ----------------------------
-	# | Unused                   |
-	# ----------------------------
+# Unused:
 	  # "nemo-audio-tab"               # Not Found On Debian
 	  # "nemo-image-converter"         # Not Found On Debian
-	# ----------------------------
 
-	# ----------------------------
-	# | Utils                    |
-	# ----------------------------
+# Utils:
 	  "smartmontools"                # Control And Monitor Storage Systems Using S.M.A.R.T.
 	  "zip"                          # Archiver For .Zip Files
 	  "unzip"                        # De-Archiver For .Zip Files
@@ -193,30 +128,21 @@ export APT_PACKAGES=(
 	  "exa"                          # Modern Replacement For Ls
 	  "lf"                           # Terminal File Manager Written In Go
 	  "smenu"                        # Curse-Based Cli Selection Box
-	# ----------------------------
 
-	# ----------------------------
-	# | Video                    |
-	# ----------------------------
+# Video:
 	  "ffmpeg"                       # Tools For Transcoding, Streaming And Playing Of Multimedia Files
 	  "ffmpegthumbnailer"            # Fast And Lightweight Video Thumbnailer
 	  "kdenlive"                     # Non-Linear Video Editor
 	  "mpv"                          # Video Player Based On Mplayer/Mplayer2
 	  "wireplumber"                  # Modular Session / Policy Manager For Pipewire
-	# ----------------------------
 
-	# ----------------------------
-	# | Web                      |
-	# ----------------------------
+# Web:
 	  "curl"                         # Command Line Tool For Transferring Data With Url Syntax
 	  "firefox-esr"                  # Mozilla Firefox Web Browser - Extended Support Release (Esr)
 	  "npm"                          # Package Manager For Node.Js
 	  "wget"                         # Retrieves Files From The Web
-	# ----------------------------
 
-	# ----------------------------
-	# | X11                      |
-	# ----------------------------
+# X11:
 	  "xorg-dev"                     # X.Org X Window System Development Libraries
 	  "xorg"                         # X.Org X Window System
 	  "alacritty"                    # Fast, Cross-Platform, Opengl Terminal Emulator
@@ -232,6 +158,5 @@ export APT_PACKAGES=(
 	  "xdotool"                      # Simulate (Generate) X11 Keyboard/Mouse Input Events
 	  "picom"                        # Lightweight Compositor For X11
 	  "imwheel"                      # Add Support To Non-Standard Buttons On Mouse In Linux
-	# ----------------------------
 
 )
