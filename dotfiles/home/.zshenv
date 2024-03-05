@@ -42,6 +42,7 @@ path=(
     "$BUN_INSTALL/bin"
     "$HOME/.spicetify"
     "$PNPM_HOME"
+    "/usr/sbin"
 
     $path
 )

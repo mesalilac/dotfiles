@@ -5,7 +5,7 @@ usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
-eval "$(/usr/bin/gnome-keyring-daemon --start --components=secrets,ssh,pcks11)"
+eval "$(/usr/bin/gnome-keyring-daemon --replace -d --components=secrets,ssh,pcks11)"
 export SSH_AUTH_SOCK
 
 # merge in defaults and keymaps
