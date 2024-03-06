@@ -120,6 +120,15 @@ echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sou
 sudo apt update
 sudo apt install spotify-client
 
+# Install cloudflare-wrap
+# Add cloudflare gpg key
+curl -fsSL https://pkg.cloudflareclient.com/pubkey.gpg | sudo gpg --yes --dearmor --output /usr/share/keyrings/cloudflare-warp-archive-keyring.gpg
+# Add this repo to your apt repositories
+echo "deb [signed-by=/usr/share/keyrings/cloudflare-warp-archive-keyring.gpg] https://pkg.cloudflareclient.com/ $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/cloudflare-client.list
+sudo apt-get update
+sudo apt-get install -y cloudflare-warp
+# --------------
+
 wget https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -O ~/Downloads/packages-microsoft-prod.deb
 wget https://opentabletdriver.net/Release/Download/OpenTabletDriver.deb -O ~/Downloads/OpenTabletDriver.deb
 # Add the Microsoft Packages repository, use the URL related to your distribution
