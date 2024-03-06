@@ -91,8 +91,11 @@ font:
         #   - (Linux/BSD) monospace
         #   - (Windows) Consolas
         # family: 'FiraCode'
-        family: 'mononoki'
+        # family: 'mononoki'
+        # family: "dejavu sans mono"
         # family: 'Rec Mono SemiCasual'
+        family: "monaspace krypton"
+
 
         # The `style` can be specified to pick a specific face.
         style: Regular
@@ -102,8 +105,12 @@ font:
         #
         # If the bold family is not specified, it will fall back to the
         # value specified for the normal font.
-        family: 'mononoki'
+        # family: 'FiraCode'
+        # family: 'mononoki'
+        # family: "dejavu sans mono"
         # family: 'Rec Mono SemiCasual'
+        family: "monaspace krypton"
+
 
         # The `style` can be specified to pick a specific face.
         style: Bold
@@ -113,8 +120,11 @@ font:
         #
         # If the italic family is not specified, it will fall back to the
         # value specified for the normal font.
-        family: 'mononoki'
+        # family: 'FiraCode'
+        # family: 'mononoki'
+        # family: "dejavu sans mono"
         # family: 'Rec Mono SemiCasual'
+        family: "monaspace krypton"
 
         # The `style` can be specified to pick a specific face.
         style: Italic
@@ -124,8 +134,11 @@ font:
         #
         # If the bold italic family is not specified, it will fall back to the
         # value specified for the normal font.
-        family: 'mononoki'
+        # family: 'FiraCode'
+        # family: 'mononoki'
+        # family: "dejavu sans mono"
         # family: 'Rec Mono SemiCasual'
+        family: "monaspace krypton"
 
         # The `style` can be specified to pick a specific face.
         style: Bold Italic
@@ -166,23 +179,23 @@ colors:
         background: '#282828'
         foreground: '#fbf1c7'
     normal:
-        black: '#928374'
+        black: '#564d44'
         red: '#cc241d'
         green: '#98971a'
         yellow: '#d79921'
         blue: '#458588'
         magenta: '#b16286'
         cyan: '#689d6a'
-        white: '#f9f5d7'
+        white: '#fcf9e9'
     bright:
-        black: '#928374'
+        black: '#564d44'
         red: '#fb4934'
         green: '#b8bb26'
         yellow: '#fabd2f'
         blue: '#83a598'
         magenta: '#d3869b'
         cyan: '#8ec07c'
-        white: '#f9f5d7'
+        white: '#fcf9e9'
 
 # The definition of color schemes.
 # colors:

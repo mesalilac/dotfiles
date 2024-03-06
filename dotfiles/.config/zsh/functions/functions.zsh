@@ -4,6 +4,10 @@ overview() {
     ' | sort -hr
 }
 
+init-clang-format() {
+    clang-format --style=Microsoft -dump-config > .clang-format
+}
+
 cdf() {
     cd `fd -t d . . | fzf --layout=reverse`
 }
