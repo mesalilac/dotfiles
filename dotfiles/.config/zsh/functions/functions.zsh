@@ -8,6 +8,10 @@ init-clang-format() {
     clang-format --style=Microsoft -dump-config > .clang-format
 }
 
+alacritty-fzf() {
+     alacritty-theme-switcher `ls ~/.config/alacritty/themes | fzf --layout=reverse`
+}
+
 cdf() {
     cd `fd -t d . . | fzf --layout=reverse`
 }

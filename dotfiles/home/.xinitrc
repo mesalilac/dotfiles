@@ -30,8 +30,8 @@ fi
 
 /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 
-xrandr --output VGA-1 --auto --primary
 xrandr --output LVDS-1 --auto --right-of VGA-1
+xrandr --output VGA-1 --auto --primary
 
 # xrandr --output HDMI-1 --primary
 # xrandr --output LVDS-1 --off

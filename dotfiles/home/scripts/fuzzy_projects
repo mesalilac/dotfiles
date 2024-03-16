@@ -1,4 +1,4 @@
 #!/bin/bash
 
 # use ~/projects/dev/* with -d 1 to only search projects no lang/runtime folder
-cd `fd -t d -d 2 . ~/projects/dev | scout -i -l 40` && clear
+cd `fd -t d -d 2 . ~/dev | scout -i -l 40` && clear
