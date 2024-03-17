@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+echo "Cleaning up build directories."
+
+fd -t d -I '^target$|^node_modules$' ~/dev/ -x rm -vrf {}
