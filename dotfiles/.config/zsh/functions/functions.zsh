@@ -1,3 +1,7 @@
+pwd-copy() {
+    pwd | xclip -selection clipboard
+}
+
 overview() {
     du -h --max-depth=1 | sed -r '
     $d; s/^([.0-9]+[KMGTPEZY]\t)\.\//\1/
@@ -9,7 +13,7 @@ init-clang-format() {
 }
 
 alacritty-fzf() {
-     alacritty-theme-switcher `ls ~/.config/alacritty/themes | fzf --layout=reverse`
+     alacritty-theme-switcher "$(ls ~/.config/alacritty/themes | fzf --layout=reverse)"
 }
 
 cdf() {
@@ -38,15 +42,6 @@ playrand_for() {
         echo video number: "$index"
         playrand
     done
-}
-
-cmk() {
-    mkdir -p $1 && cd $1
-}
-
-fp() {
-    [[ -z $1 ]] && echo "process name is not provided!" ||
-        pgrep $1
 }
 
 webp_to_gif() {
