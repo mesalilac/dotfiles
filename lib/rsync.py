@@ -7,21 +7,29 @@ from .logger import log
 
 
 class Rsync:
-    def copy_file(self, target: File):
+    def copy_file(self, target: File, sudo=False):
         src = target.src
         dest = target.dest
+        command = []
+
+        if sudo:
+            command.append("sudo")
+
+        command.append("rsync")
+        command.append(src)
+        command.append(dest)
 
         log.copy(src=src, dest=dest)
-        subprocess.run(["rsync", src, dest], check=False)
+        subprocess.run(command, check=False)
 
-    def copy_dir(self, target: Dir, override=False, root=False, verbose=False):
+    def copy_dir(self, target: Dir, override=False, sudo=False, verbose=False):
         src = target.src
         dest = target.dest
         exclude = target.exclude
 
         command = []
 
-        if root is True:
+        if sudo is True:
             command.append("sudo")
 
         command.append("rsync")

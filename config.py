@@ -23,7 +23,6 @@ backup_paths: List[Entry] = [
     File("~/.config/picom.conf", ".config/"),
     File("~/.config/gromit-mpx.ini", ".config/"),
     File("~/.config/scout.toml", ".config/"),
-
     # home/
     Dir("~/scripts", "home/"),
     Dir("~/.themes", "home/"),
@@ -37,10 +36,13 @@ backup_paths: List[Entry] = [
     File("~/.Xresources", "home/"),
     File("~/.zshenv", "home/"),
     File("~/.gitconfig", "home/"),
-
     # .local
     Dir("~/.local/share/fonts", ".local/share/"),
     Dir("~/.local/share/nemo", ".local/share/"),
     Dir("~/.local/share/zap", ".local/share/"),
     Dir("~/.local/share/eog", ".local/share/"),
+    File(
+        "/usr/share/thumbnailers/ffmpegthumbnailer.thumbnailer",
+        "thumbnailers/",
+    ),
 ]
