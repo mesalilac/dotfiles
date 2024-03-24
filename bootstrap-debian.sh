@@ -190,10 +190,10 @@ make install
 cd ..
 
 if [ ! -d "neovim" ] ; then
-    git clone "https://github.com/neovim/neovim"
+    git clone --depth=1 "https://github.com/senpai-10/neovim" --branch stable
 fi
-cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
-sudo make install
+cd neovim && make CMAKE_BUILD_TYPE=Release
+cd build && cpack -G DEB && sudo dpkg -i nvim-linux64.deb
 
 cd ..
 
