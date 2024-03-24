@@ -2,8 +2,10 @@
 
 SESSION="$(tmux list-sessions | rofi -dmenu | awk -F: '{printf $1}')"
 
-if [ -t 0 ]; then
-    tmux attach -t "$SESSION"
-else
-    $TERMINAL -e tmux attach -t "$SESSION"
+if [[ -n "$SESSION" ]]; then
+    if [[ -t 0 ]]; then
+        tmux attach -t "$SESSION"
+    else
+        $TERMINAL -e tmux attach -t "$SESSION"
+    fi
 fi

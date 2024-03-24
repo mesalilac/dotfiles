@@ -4,16 +4,16 @@ list=()
 
 mapfile -t list < <(fd -t d -d 2 . ~/dev)
 
-list+=("$HOME/.config/nvim/")
-list+=("$HOME/.config/awesome/")
+list+=("${HOME}/.config/nvim/")
+list+=("${HOME}/.config/awesome/")
 
 DIR="$(echo "${list[@]}" | tr ' ' '\n' | rofi -dmenu)"
 
 # check if $DIR is not empty string
-if [ -n "$DIR" ]; then
-    if [ -f "$DIR/.tmuxinator.yml" ]; then
-        $TERMINAL --working-directory "$DIR" -e tmuxinator start
+if [[ -n "$DIR" ]]; then
+    if [[ -f "$DIR/.tmuxinator.yml" ]]; then
+        $TERMINAL --working-directory "${DIR}" -e tmuxinator start
     else
-        $TERMINAL --working-directory "$DIR" -e tmux
+        $TERMINAL --working-directory "${DIR}" -e tmux new-session -s "$(basename "${DIR}")"
     fi
 fi
