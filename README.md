@@ -1,5 +1,9 @@
 # dotfiles
 
+# TODO
+- [] move bootstrap-debian.sh into a new repo (from the script clone .dotfiles and restore the files)
+- [] rewrite it in python(idk)?
+
 # install
 
 To install my packages and all programs run
