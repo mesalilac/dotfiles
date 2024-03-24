@@ -158,5 +158,6 @@ export APT_PACKAGES=(
 	  "xdotool"                      # Simulate (Generate) X11 Keyboard/Mouse Input Events
 	  "picom"                        # Lightweight Compositor For X11
 	  "imwheel"                      # Add Support To Non-Standard Buttons On Mouse In Linux
+      "awesome"                      # Highly Configurable X Window Manager
 
 )
