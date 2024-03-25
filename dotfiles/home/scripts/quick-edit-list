@@ -1,19 +1,22 @@
 #!/usr/bin/env bash
 
-list=()
+CONFIG_DIR="${HOME}/.config"
 
-mapfile -t list < <(fd -t d -d 2 . ~/dev)
+list=(
+    "${CONFIG_DIR}/nvim/"
+    "${CONFIG_DIR}/awesome/"
+)
 
-list+=("${HOME}/.config/nvim/")
-list+=("${HOME}/.config/awesome/")
+PROJECTS="$(fd -t d -d 2 . ~/dev)"
+list+=("${PROJECTS}")
 
-DIR="$(echo "${list[@]}" | tr ' ' '\n' | rofi -dmenu)"
+DIR="$(printf "%s\n" "${list[@]}" | rofi -dmenu)"
 
 # check if $DIR is not empty string
-if [[ -n "$DIR" ]]; then
-    if [[ -f "$DIR/.tmuxinator.yml" ]]; then
-        $TERMINAL --working-directory "${DIR}" -e tmuxinator start
+if [[ -n "${DIR}" ]]; then
+    if [[ -f "${DIR}/.tmuxinator.yml" ]]; then
+        alacritty --working-directory "${DIR}" -e tmuxinator start
     else
-        $TERMINAL --working-directory "${DIR}" -e tmux new-session -s "$(basename "${DIR}")"
+        alacritty --working-directory "${DIR}" -e tmux new-session -s "$(basename "${DIR}")"
     fi
 fi

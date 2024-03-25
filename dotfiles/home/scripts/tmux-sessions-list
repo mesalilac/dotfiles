@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 
-SESSION="$(tmux list-sessions | rofi -dmenu | awk -F: '{printf $1}')"
+SESSIONS_LIST="$(tmux list-sessions)"
+SELECTED="$(echo "${SESSIONS_LIST}" | rofi -dmenu)"
+SESSION="$(echo "${SELECTED}" | awk -F: '{printf $1}')"
 
-if [[ -n "$SESSION" ]]; then
+if [[ -n "${SESSION}" ]]; then
     if [[ -t 0 ]]; then
-        tmux attach -t "$SESSION"
+        tmux attach -t "${SESSION}"
     else
-        $TERMINAL -e tmux attach -t "$SESSION"
+        alacritty -e tmux attach -t "${SESSION}"
     fi
 fi
