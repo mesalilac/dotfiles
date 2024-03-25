@@ -206,13 +206,11 @@ cp colorpicker ~/.local/bin/
 
 cd ..
 
-# sudo apt build-dep awesome
-# if [ ! -d "awesome" ] ; then
-#     git clone "https://github.com/awesomewm/awesome"
-# fi
-# cd awesome
-# make package
-# sudo apt install ./build/*.deb
+sudo apt build-dep awesome
+[[ ! -d "awesome" ]] && git clone "https://github.com/awesomewm/awesome"
+cd awesome
+make package
+sudo apt install ./build/*.deb
 
 cd ..
 
