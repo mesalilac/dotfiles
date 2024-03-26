@@ -24,6 +24,10 @@ precmd() {
 }
 setopt PROMPT_SUBST
 
+typeset -gA ZSH_HIGHLIGHT_STYLES
+setopt interactivecomments
+ZSH_HIGHLIGHT_STYLES[comment]="fg=#aeaeae"
+
 bindkey -v
 export KEYTIMEOUT=1
 
