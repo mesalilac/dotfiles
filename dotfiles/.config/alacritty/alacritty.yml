@@ -20,6 +20,7 @@ font:
     family: monaspace krypton
     style: Bold Italic
   size: 13
+
 colors:
   primary:
     background: '#282828'
