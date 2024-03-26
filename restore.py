@@ -21,8 +21,8 @@ def restore(verbose: bool):
         sudo=True,
     )
 
-    sync_repo("https://github.com/senpai-10/nvim-config", f"{HOME}/.config/nvim")
-    sync_repo("https://github.com/senpai-10/awesome-config", f"{HOME}/.config/awesome")
+    sync_repo("https://github.com/MesaBytes/nvim-config", f"{HOME}/.config/nvim")
+    sync_repo("https://github.com/MesaBytes/awesome-config", f"{HOME}/.config/awesome")
 
 
 if __name__ == "__main__":

@@ -109,7 +109,7 @@ log_info "Installing tree-sitter-cli"
 cargo install tree-sitter-cli
 
 log_info "Installing cmus-rpc"
-cargo install --git https://github.com/Senpai-10/cmus-rpc.git
+cargo install --git https://github.com/MesaBytes/cmus-rpc.git
 
 cd ~/suckless
 
@@ -117,19 +117,19 @@ cd ~/suckless
 
 # install dwm, dmenu, dwmblocks
 
-#git clone https://github.com/Senpai-10/dwm.git && cd dwm && sudo make install ; cd ..
+#git clone https://github.com/MesaBytes/dwm.git && cd dwm && sudo make install ; cd ..
 
-git clone https://github.com/Senpai-10/dmenu.git
+git clone https://github.com/MesaBytes/dmenu.git
 cd dmenu
 make install
 cd ..
 
-# git clone https://github.com/Senpai-10/dwmblocks.git
+# git clone https://github.com/MesaBytes/dwmblocks.git
 # cd dwmblocks
 # make install
 # cd ..
 
-# git clone https://github.com/Senpai-10/tabbed.git
+# git clone https://github.com/MesaBytes/tabbed.git
 # cd tabbed
 # make install
 

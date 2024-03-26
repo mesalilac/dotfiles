@@ -83,7 +83,7 @@ log_info "Installing tree-sitter-cli"
 cargo install tree-sitter-cli
 
 log_info "Installing cmus-rpc"
-cargo install --git https://github.com/Senpai-10/cmus-rpc.git
+cargo install --git https://github.com/MesaBytes/cmus-rpc.git
 
 log_info "Installing dust"
 cargo install du-dust
@@ -182,7 +182,7 @@ fi
 cd ~/sources
 
 if [ ! -d "dmenu" ] ; then
-    git clone https://github.com/Senpai-10/dmenu.git
+    git clone https://github.com/MesaBytes/dmenu.git
 fi
 cd dmenu
 make install
@@ -190,7 +190,7 @@ make install
 cd ..
 
 if [ ! -d "neovim" ] ; then
-    git clone --depth=1 "https://github.com/senpai-10/neovim" --branch stable
+    git clone --depth=1 "https://github.com/MesaBytes/neovim" --branch stable
 fi
 cd neovim && make CMAKE_BUILD_TYPE=Release
 cd build && cpack -G DEB && sudo dpkg -i nvim-linux64.deb
