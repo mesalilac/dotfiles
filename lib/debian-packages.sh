@@ -159,5 +159,6 @@ export APT_PACKAGES=(
 	  "picom"                        # Lightweight Compositor For X11
 	  "imwheel"                      # Add Support To Non-Standard Buttons On Mouse In Linux
       "arandr"                       # Simple Visual Front End For Xrandr
+      "thunderbird"
 
 )
