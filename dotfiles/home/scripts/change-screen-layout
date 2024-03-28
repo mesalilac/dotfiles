@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# Switch bettween screen layout
+# Load scripts made by arandr
+
+DIR="${HOME}/.screenlayout"
+
+LAYOUTS="$(fd . "${DIR}" -X printf '%s\n' "{/}")"
+
+LAYOUT="$(echo "${LAYOUTS[@]}" | rofi -dmenu)"
+
+"${DIR}/${LAYOUT}"
