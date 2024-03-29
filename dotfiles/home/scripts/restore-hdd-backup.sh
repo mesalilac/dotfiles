@@ -3,6 +3,7 @@
 set -euo pipefail
 
 BACKUP_PATH="/media/${USER}/backup"
+DEV_BACKUP_PATH="${BACKUP_PATH}/dev-backups"
 
 cd "${BACKUP_PATH}"
 
@@ -16,7 +17,7 @@ cp --verbose .zsh_history "${HOME}"
 
 sudo cp --verbose --recursive ./ssmtp /etc/
 
-TAR_FILE="$(ls -rt dev_backup-*.tar.gz | tail -1)"
+TAR_FILE="$(ls -rt ${DEV_BACKUP_PATH}/dev_backup-*.tar.gz | tail -1)"
 
 if [[ -f "${TAR_FILE}" ]]
 then
