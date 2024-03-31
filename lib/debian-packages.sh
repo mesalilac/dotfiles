@@ -160,5 +160,6 @@ export APT_PACKAGES=(
 	  "imwheel"                      # Add Support To Non-Standard Buttons On Mouse In Linux
       "arandr"                       # Simple Visual Front End For Xrandr
       "thunderbird"
+      "artha"
 
 )
