@@ -20,6 +20,7 @@ backup_paths: List[Entry] = [
     Dir("~/.config/mpd.conf", ".config/"),
     Dir("~/.config/rofi", ".config/"),
     Dir("~/.config/discover_overlay", ".config/"),
+    Dir("~/.config/gpick", ".config/"),
     File("~/.config/picom.conf", ".config/"),
     File("~/.config/gromit-mpx.ini", ".config/"),
     File("~/.config/scout.toml", ".config/"),
