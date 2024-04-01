@@ -1,5 +1,27 @@
 #!/usr/bin/env bash
 
-echo "Cleaning up build directories."
+DIRS="$(fd \
+    --prune \
+    -t d \
+    -I '^target$|^node_modules$' \
+    ~/dev/ \
+    | fzf \
+    --multi \
+    --reverse \
+    --bind "ctrl-a:select-all" \
+    )"
 
-fd -t d -I '^target$|^node_modules$' ~/dev/ -x rm -vrf {}
+if [[ -z "${DIRS}" ]]
+then
+    echo "Nothing was selected."
+    exit 0
+fi
+
+echo "${DIRS}"
+read -r -p "Are you sure? [y/N] " confirm
+
+if [[ "${confirm}"  =~ ^(yes|y)$ ]]
+then
+    rm -rf ${DIRS}
+fi
+

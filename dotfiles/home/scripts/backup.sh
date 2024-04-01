@@ -13,9 +13,13 @@ DEV_BACKUP_PATH="${BACKUP_PATH}/dev-backups"
 OUTPUT_FILE="${DEV_BACKUP_PATH}/dev_backup-$(date +%Y-%m-%d-%I-%M-%p).tar.gz"
 MAX_TAR_BACKUPS=5
 
-# If `TARGET_DIR` does not exists default to $HOME
 if [[ ! -d "${BACKUP_PATH}" ]]; then
-    echo "ERROR: '${BACKUP_PATH}' does not exists!"
+    title="ERROR: Backup target does not exists"
+    message="'${BACKUP_PATH}'"
+
+    echo -e "${title}\n\t${message}"
+    notify-send "${title}" "${message}"
+
     exit 1
 fi
 
