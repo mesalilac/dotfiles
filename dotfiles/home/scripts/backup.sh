@@ -4,9 +4,10 @@
 
 set -e
 
-notify-send "Backup cron job" "Running backup script"
-
 cd ~/
+
+USER="mesa"
+HOME="/home/${USER}"
 
 BACKUP_PATH="/media/${USER}/backup"
 DEV_BACKUP_PATH="${BACKUP_PATH}/dev-backups"
@@ -18,7 +19,6 @@ if [[ ! -d "${BACKUP_PATH}" ]]; then
     message="'${BACKUP_PATH}'"
 
     echo -e "${title}\n\t${message}"
-    notify-send "${title}" "${message}"
 
     exit 1
 fi

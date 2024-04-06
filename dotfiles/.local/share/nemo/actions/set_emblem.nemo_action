@@ -1,0 +1,9 @@
+[Nemo Action]
+Name=Set Emblem
+Comment=Set the first image as the emblem for #F
+Exec=<scripts/set_emblem.sh %F>
+Icon-Name=image-x-generic-symbolic
+Selection=any
+Extensions=dir;
+EscapeSpaces=true
+Dependencies=

@@ -8,19 +8,18 @@ window:
     y: 2
 font:
   normal:
-    family: monaspace krypton
+    family: Iosevka
     style: Regular
   bold:
-    family: monaspace krypton
+    family: Iosevka
     style: Bold
   italic:
-    family: monaspace krypton
+    family: Iosevka
     style: Italic
   bold_italic:
-    family: monaspace krypton
+    family: Iosevka
     style: Bold Italic
-  size: 13
-
+  size: 16
 colors:
   primary:
     background: '#282828'
