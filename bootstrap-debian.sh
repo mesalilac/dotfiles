@@ -170,6 +170,7 @@ sudo npm -g install yarn
 yarn global add sass
 
 pipx install discover-overlay
+pipx install identify
 
 curl -sS https://starship.rs/install.sh | sh
 

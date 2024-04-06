@@ -161,5 +161,6 @@ export APT_PACKAGES=(
       "arandr"                       # Simple Visual Front End For Xrandr
       "thunderbird"
       "artha"
-
+	  "wmctrl"
+	  
 )
