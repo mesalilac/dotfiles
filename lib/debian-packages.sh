@@ -162,5 +162,6 @@ export APT_PACKAGES=(
       "thunderbird"
       "artha"
 	  "wmctrl"
-	  
+      "qt5ct"
+
 )
