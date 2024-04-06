@@ -1,5 +1,4 @@
 export APT_PACKAGES=(
-
 # Admin:
 	  "software-properties-common"   # Manage The Repositories That You Install Software From (Common)
 	  "tmux"                         # Terminal Multiplexer
@@ -163,5 +162,4 @@ export APT_PACKAGES=(
       "artha"
 	  "wmctrl"
       "qt5ct"
-
 )
