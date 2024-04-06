@@ -21,6 +21,8 @@ backup_paths: List[Entry] = [
     Dir("~/.config/rofi", ".config/"),
     Dir("~/.config/discover_overlay", ".config/"),
     Dir("~/.config/gpick", ".config/"),
+    Dir("~/.config/gtk-3.0", ".config/"),
+    Dir("~/.config/qt5ct", ".config/"),
     File("~/.config/picom.conf", ".config/"),
     File("~/.config/gromit-mpx.ini", ".config/"),
     File("~/.config/scout.toml", ".config/"),
