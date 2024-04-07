@@ -162,4 +162,5 @@ export APT_PACKAGES=(
       "artha"
 	  "wmctrl"
       "qt5ct"
+      "screenkey"
 )
