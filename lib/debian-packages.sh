@@ -163,4 +163,5 @@ export APT_PACKAGES=(
 	  "wmctrl"
       "qt5ct"
       "screenkey"
+      "golang"
 )
