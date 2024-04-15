@@ -43,6 +43,7 @@ path=(
     "$HOME/.spicetify"
     "$PNPM_HOME"
     "$HOME/.juliaup/bin"
+    "$HOME/sources/lua-language-server/bin"
     "/usr/sbin"
 
     $path

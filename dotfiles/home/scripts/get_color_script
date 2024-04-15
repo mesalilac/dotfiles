@@ -1,7 +1,0 @@
-# !/usr/bin/sh
-
-cd ~/scripts/color-scripts/color-scripts
-
-color_script=$(ls | shuf -n 1)
-
-source "./$color_script"

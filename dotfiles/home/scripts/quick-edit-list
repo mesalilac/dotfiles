@@ -5,10 +5,14 @@ CONFIG_DIR="${HOME}/.config"
 list=(
     "${CONFIG_DIR}/nvim/"
     "${CONFIG_DIR}/awesome/"
+    "${HOME}/scripts/"
 )
 
 PROJECTS="$(fd -t d -d 2 . ~/dev)"
 list+=("${PROJECTS}")
+
+SOURCES="$(fd -t d -d 1 . ~/sources)"
+list+=("${SOURCES}")
 
 DIR="$(printf "%s\n" "${list[@]}" | rofi -dmenu)"
 

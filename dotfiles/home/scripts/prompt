@@ -1,5 +1,0 @@
-# source: https://github.com/BrodieRobertson/scripts/blob/master/prompt
-
-if [ "$(printf "yes\nno" | rofi -dmenu -p "$1" -theme $rofi_theme )" = "yes" ]; then
-   $2
-fi

@@ -21,14 +21,15 @@ main() {
   printf "${cg}Image For $bg Created\n"
 }
 
-case $1 in 
+case $1 in
   "") printf "${cr}Error: No Color Provided\n" && exit 1;;
   \#*) bg=$1;;
   *) help;;
 esac
 
-case $2 in 
-  *.*) file="$2";;
+case $2 in
+    *.*) file="$2";;
+    *) window_size="$2";;
 esac
 
 main
