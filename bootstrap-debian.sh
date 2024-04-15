@@ -215,6 +215,7 @@ sudo apt install ./build/*.deb
 
 cd ..
 
+# add ~/sources/lua-language-server/bin to PATH
 if [[ ! -d "lua-language-server" ]] ; then
     git clone https://github.com/LuaLS/lua-language-server
 fi
