@@ -164,4 +164,5 @@ export APT_PACKAGES=(
       "qt5ct"
       "screenkey"
       "golang"
+      "zoxide"
 )
