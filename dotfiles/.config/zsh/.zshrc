@@ -17,6 +17,7 @@ zmodload zsh/complist
 compinit
 _comp_options+=(globdots)
 setopt autocd
+eval "$(zoxide init zsh)"
 
 autoload -Uz vcs_info
 precmd() {
