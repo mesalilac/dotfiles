@@ -21,12 +21,13 @@ alias gcm="git commit -m"
 alias gf="git fetch --prune"
 alias gp="git push"
 
-# alias ls='ls --color=auto --group-directories-first'
-# alias la="ls -A"
-# alias ll="ls -lh"
-# alias lla="ls -Alh"
+alias e='exa --header --modified --git --classify --icons --group-directories-first'
+alias el='e -l'
+alias ea='e -a'
+alias ela='e -la'
 
-alias ls='exa --header --modified --git --classify --icons --group-directories-first'
-alias ll='ls -l'
-alias la='ls -a'
-alias lla='ls -la'
+alias ls='ls --color=auto --group-directories-first'
+alias la="ls -A"
+alias ll="ls -lh"
+alias lla="ls -Alh"
+
