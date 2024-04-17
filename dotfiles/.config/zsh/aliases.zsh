@@ -1,0 +1,32 @@
+# go to external drive
+alias ed='cd "/run/media/$USER/Toshiba external hard drive/"'
+alias cd='z' # TODO: make `eval "$(zoxide init --cmd cd zsh)"`
+
+alias grep="grep --color=auto"
+alias ccat="highlight --out-format=ansi"
+alias edo="nvim ~/.todo"
+alias calc="python -q"
+alias cat="bat -pp --theme 'gruvbox-dark'"
+alias catp="bat -p --theme 'gruvbox-dark'"
+#alias yt="youtube-dl -o \"%(title)s.%(ext)s\" --add-metadata -ic"
+#alias yta="youtube-dl --audio-format mp3 -o \"%(title)s.%(ext)s\" --add-metadata -xic"
+alias cnf='clear && neofetch'
+alias icat="kitty +kitten icat"
+alias ..="cd .."
+
+alias gs="git status"
+alias gd="git add"
+alias gc="git commit"
+alias gcm="git commit -m"
+alias gf="git fetch --prune"
+alias gp="git push"
+
+# alias ls='ls --color=auto --group-directories-first'
+# alias la="ls -A"
+# alias ll="ls -lh"
+# alias lla="ls -Alh"
+
+alias ls='exa --header --modified --git --classify --icons --group-directories-first'
+alias ll='ls -l'
+alias la='ls -a'
+alias lla='ls -la'

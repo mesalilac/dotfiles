@@ -47,7 +47,6 @@ bindkey "^?" backward-delete-char
 bindkey -s "^g" ". lfcd\n"
 bindkey -s "^p" ". fuzzy_projects\n"
 bindkey -s "^n" "nvim .\n"
-bindkey -s "^e" "ea\n"
 bindkey -s "^t" run_tmux"\n"
 bindkey "^X^E" edit-command-line
 
@@ -77,11 +76,10 @@ eval "$(dircolors -p | \
     sed 's/ 4[0-9];/ 01;/; s/;4[0-9];/;01;/g; s/;4[0-9] /;01 /' | \
     dircolors /dev/stdin)"
 
-ZSH_PATH=".config/zsh"
-
-source ~/.config/zsh/init.zsh
-
-# prompt_5
+source "${ZDOTDIR}/functions.zsh"
+source "${ZDOTDIR}/aliases.zsh"
+source "${ZDOTDIR}/prompt.zsh"
+source "${ZDOTDIR}/prompt_purification.zsh"
 
 # source "$HOME/clone/zap.git/improve-plug-function/zap.zsh"
 [ -f "$HOME/.local/share/zap/zap.zsh" ] && source "$HOME/.local/share/zap/zap.zsh"
