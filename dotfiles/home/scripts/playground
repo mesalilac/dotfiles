@@ -2,30 +2,19 @@
 
 PLAYGROUNDS_PATH="${HOME}/.playgrounds"
 
-function open_playground() {
-    DIR="$1"
-    if [[ -n "${DIR}" ]]; then
-        if [[ -f "${DIR}/.tmuxinator.yml" ]]; then
-            alacritty --working-directory "${DIR}" -e tmuxinator start &
-        else
-            alacritty --working-directory "${DIR}" -e tmux new-session -s "playground-$(basename "${DIR}")" &
-        fi
-    fi
-}
-
 TEMPLATE_MAIN_PY='#!/usr/bin/env python
 
 def main():
-    print(\"Hello, World\")
+    print("Hello, world")
 
-if __name__ == \"__main__\":
+if __name__ == "__main__":
     main()'
 
 TEMPLATE_MAIN_C='#include <stdio.h>
 
 int main()
 {
-    printf("Hello, World\n");
+    printf("Hello, world\n");
     return 0;
 }'
 
@@ -43,6 +32,75 @@ build:
 run: build
 	./$(OUT)'
 
+function open_playground() {
+    local DIR="$1"
+    if [[ -n "${DIR}" ]]; then
+        if [[ -f "${DIR}/.tmuxinator.yml" ]]; then
+            alacritty --working-directory "${DIR}" -e tmuxinator start &
+        else
+            alacritty --working-directory "${DIR}" -e tmux new-session -s "playground-$(basename "${DIR}")" &
+        fi
+    fi
+}
+
+function create_playground() {
+    local LANG="$1"
+    local PLAYGROUND_NAME="$2"
+    local TARGET_PLAYGROUND="${PLAYGROUNDS_PATH}/${LANG}/${PLAYGROUND_NAME}"
+
+    if [[ -f "${TARGET_PLAYGROUND}" ]]; then
+        echo "Playground already exists"
+        exit 1
+    fi
+
+    mkdir -p "${TARGET_PLAYGROUND}"
+
+    cd "${TARGET_PLAYGROUND}" || exit 1
+
+    case ${LANG} in
+        python)
+            echo "${TEMPLATE_MAIN_PY}" > main.py
+            chmod +x main.py
+
+            open_playground "${TARGET_PLAYGROUND}"
+        ;;
+        rust)
+            cargo init . --name "${PLAYGROUND_NAME}"
+
+            open_playground "${TARGET_PLAYGROUND}"
+        ;;
+        c)
+            echo "${TEMPLATE_MAIN_C}" > main.c
+            echo "${TEMPLATE_MAKEFILE}" > Makefile
+
+            "${HOME}"/scripts/./init-clang-format
+
+            open_playground "${TARGET_PLAYGROUND}"
+        ;;
+        typescript)
+            pnpm init
+            pnpm add @types/node typescript
+            pnpm add -D ts-node
+            pnpm tsc --init --rootDir src --outDir ./bin --esmoduleInterop --lib ES2019 --module commonjs --noImplicitAny true
+            mkdir src/
+            echo "console.log('Hello, world')" > src/index.ts
+
+            open_playground "${TARGET_PLAYGROUND}"
+        ;;
+        javascript)
+            pnpm init
+            mkdir src/
+            echo "console.log('Hello, world')" > src/index.js
+
+            open_playground "${TARGET_PLAYGROUND}"
+        ;;
+        *)
+            echo "Invaild language"
+        ;;
+    esac
+}
+
+# Main menu
 ACTION="$(echo -e "open\ncreate\nremove\nremove all" | rofi -dmenu -p 'Select action')"
 
 case ${ACTION} in
@@ -55,68 +113,7 @@ case ${ACTION} in
         PLAYGROUND_NAME="$(yad --entry --center --text 'Enter playground name')"
         TARGET_PLAYGROUND="${PLAYGROUNDS_PATH}/${LANG}/${PLAYGROUND_NAME}"
 
-        if [[ -f "${TARGET_PLAYGROUND}" ]]; then
-            echo "Playground already exists"
-            exit 1
-        fi
-
-        mkdir -p "${TARGET_PLAYGROUND}"
-
-        cd "${TARGET_PLAYGROUND}" || exit 1
-
-        case ${LANG} in
-            python)
-                echo "${TEMPLATE_MAIN_PY}" > main.py
-                chmod +x main.py
-
-                open_playground "${TARGET_PLAYGROUND}"
-            ;;
-            rust)
-                cargo init . --name "${PLAYGROUND_NAME}"
-
-                open_playground "${TARGET_PLAYGROUND}"
-            ;;
-            c)
-                echo "${TEMPLATE_MAIN_C}" > main.c
-                echo "${TEMPLATE_MAKEFILE}" > Makefile
-
-                clang-format -style="{
-                    BasedOnStyle: Microsoft,
-                    AlignArrayOfStructures: Left,
-                    AlignConsecutiveAssignments: Consecutive,
-                    AlignConsecutiveMacros: Consecutive,
-                    AlignTrailingComments: true,
-                    AlignAfterOpenBracket: BlockIndent,
-                    BinPackArguments: false,
-                    BinPackParameters: false,
-                    ColumnLimit: 80,
-                    IndentCaseBlocks: true,
-                    IndentCaseLabels: true,
-                }" -dump-config > .clang-format
-
-                open_playground "${TARGET_PLAYGROUND}"
-            ;;
-            typescript)
-                pnpm init
-                pnpm add @types/node typescript
-                pnpm add -D ts-node
-                pnpm tsc --init --rootDir src --outDir ./bin --esmoduleInterop --lib ES2019 --module commonjs --noImplicitAny true
-                mkdir src/
-                echo "console.log('Hello, World')" > src/index.ts
-
-                open_playground "${TARGET_PLAYGROUND}"
-            ;;
-            javascript)
-                pnpm init
-                mkdir src/
-                echo "console.log('Hello, World')" > src/index.js
-
-                open_playground "${TARGET_PLAYGROUND}"
-            ;;
-            *)
-                echo "Invaild language"
-            ;;
-        esac
+        create_playground "${LANG}" "${PLAYGROUND_NAME}"
     ;;
     remove)
         TARGET_PLAYGROUND_TO_REMOVE="$(fd --maxdepth 2 --min-depth 1 . "${PLAYGROUNDS_PATH}" | rofi -dmenu -multi-select -p 'Select playground to remove' -mesg 'shift+enter to multi select')"

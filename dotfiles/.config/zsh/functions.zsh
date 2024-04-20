@@ -8,24 +8,6 @@ overview() {
     ' | sort -hr
 }
 
-init-clang-format() {
-    clang-format \
-        -style="{
-            BasedOnStyle: Microsoft,
-            AlignArrayOfStructures: Left,
-            AlignConsecutiveAssignments: Consecutive,
-            AlignConsecutiveMacros: Consecutive,
-            AlignTrailingComments: true,
-            AlignAfterOpenBracket: BlockIndent,
-            BinPackArguments: false,
-            BinPackParameters: false,
-            ColumnLimit: 80,
-            IndentCaseBlocks: true,
-            IndentCaseLabels: true,
-        }" \
-        -dump-config > .clang-format
-}
-
 alacritty-fzf() {
      alacritty-theme-switcher "$(ls ~/.config/alacritty/themes | fzf --layout=reverse)"
 }
