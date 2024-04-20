@@ -45,6 +45,7 @@ function run_tmux {
 
 bindkey "^?" backward-delete-char
 bindkey -s "^g" ". lfcd\n"
+bindkey -s "^e" "ea\n"
 bindkey -s "^p" ". fuzzy_projects\n"
 bindkey -s "^n" "nvim .\n"
 bindkey -s "^t" run_tmux"\n"

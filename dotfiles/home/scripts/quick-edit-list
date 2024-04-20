@@ -8,7 +8,7 @@ list=(
     "${HOME}/scripts/"
 )
 
-PROJECTS="$(fd -t d -d 2 . ~/dev)"
+PROJECTS="$(fd -t d -d 2 --min-depth 2 . ~/dev)"
 list+=("${PROJECTS}")
 
 SOURCES="$(fd -t d -d 1 . ~/sources)"
