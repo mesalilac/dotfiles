@@ -21,6 +21,7 @@ if [[ -n "${DIR}" ]]; then
     if [[ -f "${DIR}/.tmuxinator.yml" ]]; then
         alacritty --working-directory "${DIR}" -e tmuxinator start
     else
+        # TODO: create a new window
         alacritty --working-directory "${DIR}" -e tmux new-session -s "$(basename "${DIR}")"
     fi
 fi
