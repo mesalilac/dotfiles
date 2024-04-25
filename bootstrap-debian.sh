@@ -166,6 +166,7 @@ sudo apt install pgadmin4-web
 sudo /usr/pgadmin4/bin/setup-web.sh
 
 sudo npm -g install yarn
+sudo npm -g install pnpm
 
 yarn global add sass
 
