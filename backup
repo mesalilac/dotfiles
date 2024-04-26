@@ -16,7 +16,7 @@ function copy() {
     DEST="$(pwd)/dotfiles/${DEST}"
 
     if [[ -f "${SRC}" ]]; then
-        echo
+       true
     elif [[ -d "${SRC}" ]]; then
         flags=(-ar --delete)
     else
