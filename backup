@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# TODO: Write cleanup function Remove files/dirs that are not in config.backup_paths from ~/.dotfiles/dotfiles/
+
 . "./lib/colors.sh"
 
 function copy() {
