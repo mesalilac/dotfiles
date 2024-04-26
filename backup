@@ -1,0 +1,93 @@
+#!/usr/bin/env bash
+
+# TODO: Write cleanup function Remove files/dirs that are not in config.backup_paths from ~/.dotfiles/dotfiles/
+
+. "./lib/colors.sh"
+
+function copy() {
+    local SRC="$1"
+    local DEST="$2"
+    local flags=()
+
+    if [[ -z "${SRC}" ]] || [[ -z "${DEST}" ]]; then
+        echo -e "${BRed}ERROR${NO_COLOR}: Missing ${BYellow}SRC${NO_COLOR}(${SRC}) or ${BYellow}DEST${NO_COLOR}(${DEST})"
+        caller
+        exit 1
+    fi
+
+    DEST="$(pwd)/dotfiles/${DEST}"
+
+    if [[ -f "${SRC}" ]]; then
+       true
+    elif [[ -d "${SRC}" ]]; then
+        flags=(-ar --delete)
+    else
+        echo -e "${BRed}ERROR${NO_COLOR}: SRC('${SRC}') Does not exists"
+        caller
+        exit 1
+    fi
+
+    echo -e "${BBlack}${On_Green} Copying ${NO_COLOR} ${BYellow}${SRC}${NO_COLOR} -> ${BYellow}${DEST}${NO_COLOR}"
+    rsync "${flags[@]}" --mkpath "${SRC}" "${DEST}"
+}
+
+function push_changes() {
+    local message
+    local output
+
+    message="backup: $(date '+%Y-%m-%d %I:%M:%S %p')"
+    output="$(git status)"
+
+
+    if echo "${output}"| grep 'dotfiles/'; then
+        read -r -p "Do you want to push changes to github? [y/N] " response
+        if [[ "${response}" =~ ^([yY][eE][sS]|[yY])$ ]]
+        then
+            git add dotfiles/
+            git commit -m "${message}"
+            git push
+        fi
+    fi
+}
+
+copy "${HOME}/.config/systemd"                                  ".config/"
+copy "${HOME}/.config/zsh"                                      ".config/"
+copy "${HOME}/.config/alacritty"                                ".config/"
+copy "${HOME}/.config/bashtop"                                  ".config/"
+copy "${HOME}/.config/jgmenu"                                   ".config/"
+copy "${HOME}/.config/kitty"                                    ".config/"
+copy "${HOME}/.config/mpv"                                      ".config/"
+copy "${HOME}/.config/cmus"                                     ".config/"
+copy "${HOME}/.config/BetterDiscord"                            ".config/"
+copy "${HOME}/.config/rofi"                                     ".config/"
+copy "${HOME}/.config/discover_overlay"                         ".config/"
+copy "${HOME}/.config/gpick"                                    ".config/"
+copy "${HOME}/.config/gtk-3.0"                                  ".config/"
+copy "${HOME}/.config/qt5ct"                                    ".config/"
+copy "${HOME}/.config/mpd.conf"                                 ".config/"
+copy "${HOME}/.config/picom.conf"                               ".config/"
+copy "${HOME}/.config/gromit-mpx.ini"                           ".config/"
+copy "${HOME}/.config/scout.toml"                               ".config/"
+
+copy "${HOME}/scripts"                                          "home/"
+copy "${HOME}/.themes"                                          "home/"
+copy "${HOME}/.icons"                                           "home/"
+copy "${HOME}/.screenlayout"                                    "home/"
+copy "${HOME}/.tmux.conf"                                       "home/"
+copy "${HOME}/.dialogrc"                                        "home/"
+copy "${HOME}/.imwheelrc"                                       "home/"
+copy "${HOME}/.xbindkeysrc"                                     "home/"
+copy "${HOME}/.xinitrc"                                         "home/"
+copy "${HOME}/.xprofile"                                        "home/"
+copy "${HOME}/.Xresources"                                      "home/"
+copy "${HOME}/.zshenv"                                          "home/"
+copy "${HOME}/.gitconfig"                                       "home/"
+
+copy "${HOME}/.local/share/fonts"                               ".local/share/"
+copy "${HOME}/.local/share/nemo"                                ".local/share/"
+copy "${HOME}/.local/share/zap"                                 ".local/share/"
+copy "${HOME}/.local/share/eog"                                 ".local/share/"
+
+copy "/usr/share/thumbnailers/ffmpegthumbnailer.thumbnailer"    "thumbnailers/"
+
+push_changes
