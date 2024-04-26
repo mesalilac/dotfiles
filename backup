@@ -2,6 +2,36 @@
 
 . "./lib/colors.sh"
 
+# TODO Move copy_file and copy_dir -> copy
+# check if src is file or dir and add the correct flags
+
+function copy() {
+    local SRC="$1"
+    local DEST="$2"
+    local flags=()
+
+    if [[ -z "${SRC}" ]] || [[ -z "${DEST}" ]]; then
+        echo -e "${BRed}ERROR${NO_COLOR}: Missing ${BYellow}SRC${NO_COLOR}(${SRC}) or ${BYellow}DEST${NO_COLOR}(${DEST})"
+        caller
+        exit 1
+    fi
+
+    DEST="$(pwd)/dotfiles/${DEST}"
+
+    if [[ -f "${SRC}" ]]; then
+        echo
+    elif [[ -d "${SRC}" ]]; then
+        flags=(-ar --delete)
+    else
+        echo -e "${BRed}ERROR${NO_COLOR}: SRC('${SRC}') Does not exists"
+        caller
+        exit 1
+    fi
+
+    echo -e "${BBlack}${On_Green} Copying ${NO_COLOR} ${BYellow}${SRC}${NO_COLOR} -> ${BYellow}${DEST}${NO_COLOR}"
+    rsync "${flags[@]}" --mkpath "${SRC}" "${DEST}"
+}
+
 function copy_file() {
     local SRC="$1"
     local DEST="$2"
@@ -46,6 +76,25 @@ function copy_dir() {
     rsync -ar --delete --mkpath "${SRC}" "${DEST}"
 }
 
+function push_changes() {
+    local message
+    local output
+
+    message="backup: $(date '+%Y-%m-%d %I:%M:%S %p')"
+    output="$(git status)"
+
+
+    if echo "${output}"| grep 'dotfiles/'; then
+        read -r -p "Do you want to push changes to github? [y/N] " response
+        if [[ "${response}" =~ ^([yY][eE][sS]|[yY])$ ]]
+        then
+            git add dotfiles/
+            git commit -m "${message}"
+            git push
+        fi
+    fi
+}
+
 copy_dir  "${HOME}/.config/systemd"                                  ".config/"
 copy_dir  "${HOME}/.config/zsh"                                      ".config/"
 copy_dir  "${HOME}/.config/alacritty"                                ".config/"
@@ -86,3 +135,4 @@ copy_dir  "${HOME}/.local/share/eog"                                 ".local/sha
 
 copy_file "/usr/share/thumbnailers/ffmpegthumbnailer.thumbnailer"    "thumbnailers/"
 
+push_changes
