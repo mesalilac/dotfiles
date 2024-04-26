@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+. "./lib/colors.sh"
+
+function copy_file() {
+    echo ""
+}
+
+function copy_dir() {
+    local SRC="$1"
+    local DEST="$2"
+
+    if [[ -z "${SRC}" ]] || [[ -z "${DEST}" ]]; then
+        echo -e "${BRed}ERROR${NO_COLOR}: Missing ${BYellow}SRC${NO_COLOR}(${SRC}) or ${BYellow}DEST${NO_COLOR}(${DEST})"
+        caller
+        exit 1
+    fi
+
+    DEST="$(pwd)/dotfiles/${DEST}"
+
+    if [[ ! -d "${SRC}" ]]; then
+        echo -e "${BRed}ERROR${NO_COLOR}: SRC('${SRC}') Does not exists"
+        caller
+        exit 1
+    fi
+
+    # [[ ! -d "${DEST}" ]] && mkdir -p "${DEST}"
+
+    # rsync -ra --delete --human-readable --progress --mkpath "${SRC}" "${DEST}"
+    rsync -ra --human-readable --mkpath "${SRC}" "${DEST}"
+}
+
+copy_dir "${HOME}/.config/alacritty/" ".config/"
+
