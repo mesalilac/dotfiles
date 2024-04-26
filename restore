@@ -1,5 +1,24 @@
 #!/usr/bin/env bash
 
+. "./lib/colors.sh"
+
+function sync_repo() {
+    local url="$1"
+    local clone_path="$2"
+
+    if [[ -z "${url}" ]] || [[ -z "${clone_path}" ]]; then
+        echo "${BRed}ERROR${NO_COLOR}: url(${url}) or clone_path(${clone_path})"
+        caller
+        exit 1
+    fi
+
+    if [[ -d "${clone_path}" ]]; then
+        git -C "${clone_path}" pull
+    else
+        git clone "${url}" "${clone_path}"
+    fi
+}
+
 DIR_FLAGS=(-ar --human-readable --progress --mkpath)
 
 DOTFILES_DIR="${HOME}/.dotfiles/dotfiles"
@@ -11,3 +30,6 @@ rsync "${DIR_FLAGS[@]}" "${DOTFILES_DIR}/.local"   "${HOME}"
 sudo rsync "${DIR_FLAGS[@]}" \
     "${DOTFILES_DIR}/thumbnailers/" \
     "/usr/share/thumbnailers"
+
+sync_repo "https://github.com/mesabytes/nvim-config" "${HOME}/.config/nvim"
+sync_repo "https://github.com/mesabytes/awesome-config" "${HOME}/.config/awesome"
