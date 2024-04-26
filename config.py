@@ -45,6 +45,7 @@ backup_paths: List[Entry] = [
     Dir("~/.local/share/nemo", ".local/share/"),
     Dir("~/.local/share/zap", ".local/share/"),
     Dir("~/.local/share/eog", ".local/share/"),
+    # /usr
     File(
         "/usr/share/thumbnailers/ffmpegthumbnailer.thumbnailer",
         "thumbnailers/",

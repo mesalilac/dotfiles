@@ -3,7 +3,25 @@
 . "./lib/colors.sh"
 
 function copy_file() {
-    echo ""
+    local SRC="$1"
+    local DEST="$2"
+
+    if [[ -z "${SRC}" ]] || [[ -z "${DEST}" ]]; then
+        echo -e "${BRed}ERROR${NO_COLOR}: Missing ${BYellow}SRC${NO_COLOR}(${SRC}) or ${BYellow}DEST${NO_COLOR}(${DEST})"
+        caller
+        exit 1
+    fi
+
+    DEST="$(pwd)/dotfiles/${DEST}"
+
+    if [[ ! -f "${SRC}" ]]; then
+        echo -e "${BRed}ERROR${NO_COLOR}: SRC('${SRC}') Does not exists"
+        caller
+        exit 1
+    fi
+
+    echo -e "${BBlack}${On_Green} Copying ${NO_COLOR} ${BYellow}${SRC}${NO_COLOR} -> ${BYellow}${DEST}${NO_COLOR}"
+    rsync --mkpath "${SRC}" "${DEST}"
 }
 
 function copy_dir() {
@@ -24,11 +42,47 @@ function copy_dir() {
         exit 1
     fi
 
-    # [[ ! -d "${DEST}" ]] && mkdir -p "${DEST}"
-
-    # rsync -ra --delete --human-readable --progress --mkpath "${SRC}" "${DEST}"
-    rsync -ra --human-readable --mkpath "${SRC}" "${DEST}"
+    echo -e "${BBlack}${On_Green} Copying ${NO_COLOR} ${BYellow}${SRC}${NO_COLOR} -> ${BYellow}${DEST}${NO_COLOR}"
+    rsync -ar --delete --mkpath "${SRC}" "${DEST}"
 }
 
-copy_dir "${HOME}/.config/alacritty/" ".config/"
+copy_dir  "${HOME}/.config/systemd"                                  ".config/"
+copy_dir  "${HOME}/.config/zsh"                                      ".config/"
+copy_dir  "${HOME}/.config/alacritty"                                ".config/"
+copy_dir  "${HOME}/.config/bashtop"                                  ".config/"
+copy_dir  "${HOME}/.config/jgmenu"                                   ".config/"
+copy_dir  "${HOME}/.config/kitty"                                    ".config/"
+copy_dir  "${HOME}/.config/mpv"                                      ".config/"
+copy_dir  "${HOME}/.config/cmus"                                     ".config/"
+copy_dir  "${HOME}/.config/BetterDiscord"                            ".config/"
+copy_dir  "${HOME}/.config/rofi"                                     ".config/"
+copy_dir  "${HOME}/.config/discover_overlay"                         ".config/"
+copy_dir  "${HOME}/.config/gpick"                                    ".config/"
+copy_dir  "${HOME}/.config/gtk-3.0"                                  ".config/"
+copy_dir  "${HOME}/.config/qt5ct"                                    ".config/"
+copy_file "${HOME}/.config/mpd.conf"                                 ".config/"
+copy_file "${HOME}/.config/picom.conf"                               ".config/"
+copy_file "${HOME}/.config/gromit-mpx.ini"                           ".config/"
+copy_file "${HOME}/.config/scout.toml"                               ".config/"
+
+copy_dir  "${HOME}/scripts"                                          "home/"
+copy_dir  "${HOME}/.themes"                                          "home/"
+copy_dir  "${HOME}/.icons"                                           "home/"
+copy_dir  "${HOME}/.screenlayout"                                    "home/"
+copy_file "${HOME}/.tmux.conf"                                       "home/"
+copy_file "${HOME}/.dialogrc"                                        "home/"
+copy_file "${HOME}/.imwheelrc"                                       "home/"
+copy_file "${HOME}/.xbindkeysrc"                                     "home/"
+copy_file "${HOME}/.xinitrc"                                         "home/"
+copy_file "${HOME}/.xprofile"                                        "home/"
+copy_file "${HOME}/.Xresources"                                      "home/"
+copy_file "${HOME}/.zshenv"                                          "home/"
+copy_file "${HOME}/.gitconfig"                                       "home/"
+
+copy_dir  "${HOME}/.local/share/fonts"                               ".local/share/"
+copy_dir  "${HOME}/.local/share/nemo"                                ".local/share/"
+copy_dir  "${HOME}/.local/share/zap"                                 ".local/share/"
+copy_dir  "${HOME}/.local/share/eog"                                 ".local/share/"
+
+copy_file "/usr/share/thumbnailers/ffmpegthumbnailer.thumbnailer"    "thumbnailers/"
 
