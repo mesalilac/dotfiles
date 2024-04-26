@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+DIR_FLAGS=(-ar --human-readable --progress --mkpath)
+
+DOTFILES_DIR="${HOME}/.dotfiles/dotfiles"
+
+rsync "${DIR_FLAGS[@]}" "${DOTFILES_DIR}/.config"  "${HOME}"
+rsync "${DIR_FLAGS[@]}" "${DOTFILES_DIR}/home/"    "${HOME}"
+rsync "${DIR_FLAGS[@]}" "${DOTFILES_DIR}/.local"   "${HOME}"
+
+sudo rsync "${DIR_FLAGS[@]}" \
+    "${DOTFILES_DIR}/thumbnailers/" \
+    "/usr/share/thumbnailers"
