@@ -1,0 +1,6 @@
+family: Fantasque Sans Mono
+family: Iosevka
+family: Fira Code
+family: NovaMono for Powerline
+family: JetBrains Mono
+family: Cascadia Code
