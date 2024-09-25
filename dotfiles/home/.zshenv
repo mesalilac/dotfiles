@@ -7,6 +7,7 @@ export XDG_CACHE_HOME=${XDG_CACHE_HOME:="$HOME/.cache"}
 export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:="$HOME/.config"}
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export LESSHISTFILE=-
+export TMUX_PLUGIN_MANAGER_PATH="${HOME}/.tmux/plugins/tpm"
 
 export EDITOR="nvim"
 export TERMINAL="alacritty"

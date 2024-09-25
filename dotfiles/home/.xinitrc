@@ -37,7 +37,7 @@ then
 fi
 
 .screenlayout/main.sh
-xrandr --output DP-4 --scale 0.75 --primary -r 165
+xrandr --output DP-4 --primary --scale 0.75x0.75 --filter bilinear -r 165
 
 # start awesomewm
 exec dbus-run-session awesome
