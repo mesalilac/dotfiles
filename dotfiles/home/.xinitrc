@@ -5,8 +5,9 @@ usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
-eval "$(/usr/bin/gnome-keyring-daemon --replace -d --components=secrets,ssh,pcks11)"
-export SSH_AUTH_SOCK
+# NOTE: Not starting gnome-keyring-daemon makes gcr-prompter starts faster
+# eval "$(/usr/bin/gnome-keyring-daemon --replace -d --components=secrets,ssh,pcks11)"
+# export SSH_AUTH_SOCK
 
 # merge in defaults and keymaps
 [ -f $sysresources ] && xrdb -merge $sysresources
@@ -28,13 +29,7 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
     unset f
 fi
 
-if [ -x "$(command -v "/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1")" ]
-then
-    /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
-elif [ -x "$(command -v "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")" ]
-then
-    /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-fi
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 .screenlayout/main.sh
 xrandr --output DP-4 --primary --scale 0.75x0.75 --filter bilinear -r 165
