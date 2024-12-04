@@ -31,8 +31,10 @@ fi
 
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
-.screenlayout/main.sh
-xrandr --output DP-4 --primary --scale 0.75x0.75 --filter bilinear -r 165
+# .screenlayout/main.sh
+# xrandr --output DP-4 --primary --scale 0.75x0.75 --filter bilinear -r 165
+xrandr --output DP-4 --primary --scale 0.75x0.75 --filter bilinear -r 165 \
+       --output HDMI-0 --auto --pos 1920x0
 
 # start awesomewm
 exec dbus-run-session awesome
