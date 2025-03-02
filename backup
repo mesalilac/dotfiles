@@ -67,6 +67,7 @@ copy "${HOME}/.config/mpd.conf"                                 ".config/"
 copy "${HOME}/.config/picom.conf"                               ".config/"
 copy "${HOME}/.config/gromit-mpx.ini"                           ".config/"
 copy "${HOME}/.config/scout.toml"                               ".config/"
+copy "${HOME}/.config/sway"                                     ".config/"
 
 copy "${HOME}/scripts"                                          "home/"
 copy "${HOME}/.themes"                                          "home/"
