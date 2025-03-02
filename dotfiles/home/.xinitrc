@@ -33,7 +33,7 @@ fi
 
 # .screenlayout/main.sh
 # xrandr --output DP-4 --primary --scale 0.75x0.75 --filter bilinear -r 165
-xrandr --output DP-4 --primary --scale 0.75x0.75 --filter bilinear -r 165 \
+xrandr --output eDP-1 --primary --scale 0.75x0.75 --filter bilinear -r 165 \
        --output HDMI-0 --auto --pos 1920x0
 
 # start awesomewm
