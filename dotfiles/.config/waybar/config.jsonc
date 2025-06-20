@@ -26,7 +26,7 @@
         "on-click": "wofi --show drun",
         "tooltip": false
     },
-    "sway/mode": {
+    "hyprland/submap": {
         "format": "󰔡 {}",
         "tooltip": false
     },
