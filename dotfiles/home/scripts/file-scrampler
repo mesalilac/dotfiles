@@ -1,5 +1,9 @@
 #!/bin/env python3
 
+# TODO:
+#   - add a sequence flag to change files into sequence from 1 to total files (if files is already {n}.x do nothing)
+#   - add a dry-run flag
+
 import argparse
 import os
 import random
