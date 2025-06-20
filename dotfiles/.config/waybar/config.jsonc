@@ -23,7 +23,7 @@
     ],
     "custom/launcher": {
         "format": " ",
-        "on-click": "wofi --show drun",
+        "on-click": "wofi --show=drun --lines=10 --prompt='Search' --allow-images --allow-markup -i",
         "tooltip": false
     },
     "hyprland/submap": {
