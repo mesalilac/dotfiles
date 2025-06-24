@@ -10,6 +10,7 @@ TODO:
 
 import os
 import subprocess
+import shutil
 
 
 def file_list() -> list[str]:
@@ -22,15 +23,25 @@ def file_list() -> list[str]:
     return result
 
 
+class ImageFile:
+    old_path: str
+    new_path: str
+
+    def __init__(self, old_path: str, new_path: str) -> None:
+        self.old_path = old_path
+        self.new_path = new_path
+
+
 def main():
     image_list = file_list()
+    results: list[ImageFile] = []
 
     for img_file_name in image_list:
         img_file_path = os.path.join(os.path.curdir, img_file_name)
 
         cmd = subprocess.run(
-            args=f"identify '{img_file_path}'",
-            shell=True,
+            args=["identify", img_file_path],
+            shell=False,
             check=True,
             capture_output=True,
             text=True,
@@ -48,7 +59,16 @@ def main():
                 new_img_path = os.path.join(os.curdir, new_file_name)
 
                 print(f"{img_file_path} -> {new_img_path}")
-                os.rename(img_file_path, new_img_path)
+                results.append(ImageFile(img_file_path, new_img_path))
+
+    if len(results) > 0:
+        print("Do you want to rename files?")
+        confirm = input("y/n: ")
+
+        if confirm.lower() == "y":
+            for image in results:
+                print(f"{image.old_path} -> {image.new_path}")
+                shutil.move(image.old_path, image.new_path)
 
 
 if __name__ == "__main__":
