@@ -52,8 +52,8 @@ cursor-style = block
 font-family = "FantasqueSansM Nerd Font"
 font-size = 16
 
-keybind = alt+t=new_tab
-keybind = alt+w=close_tab
+keybind = alt+c=new_tab
+keybind = alt+x=close_tab
 keybind = alt+[=previous_tab
 keybind = alt+]=next_tab
 
