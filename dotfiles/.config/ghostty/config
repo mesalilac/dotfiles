@@ -46,6 +46,7 @@ window-padding-x = 8
 window-padding-y = 4
 window-padding-balance = true
 background-opacity = 0.8
+background = #1a1c29
 
 cursor-style = block
 
