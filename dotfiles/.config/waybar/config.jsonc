@@ -1,13 +1,7 @@
 {
     "height": 30,
-    "modules-left": [
-        "custom/launcher",
-        "hyprland/workspaces",
-        "custom/playerctl"
-    ],
-    "modules-center": [
-        "clock"
-    ],
+    "modules-left": ["custom/launcher", "hyprland/workspaces", "custom/playerctl"],
+    "modules-center": ["clock"],
     "modules-right": [
         "idle_inhibitor",
         "temperature",
@@ -19,29 +13,29 @@
         // "network",
         "battery",
         "tray",
-        "custom/off"
+        "custom/off",
     ],
     "custom/launcher": {
         "format": " ",
         "on-click": "wofi --show=drun --lines=10 --prompt='Search' --allow-images --allow-markup -i",
-        "tooltip": false
+        "tooltip": false,
     },
     "hyprland/submap": {
         "format": "󰔡 {}",
-        "tooltip": false
+        "tooltip": false,
     },
     "wlr/workspaces": {
         "disable-scroll": true,
         "sort-by-number": true,
-        "on-click": "activate"
+        "on-click": "activate",
     },
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
             "activated": "󰈈 ",
-            "deactivated": "󰈉 "
+            "deactivated": "󰈉 ",
         },
-        "tooltip": false
+        "tooltip": false,
     },
     "power-profiles-daemon": {
         "format": "{icon}  Power",
@@ -51,34 +45,20 @@
             "default": "",
             "performance": "",
             "balanced": "",
-            "power-saver": ""
-        }
+            "power-saver": "",
+        },
     },
     "temperature": {
         // "thermal-zone": 2,
         // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
         "critical-threshold": 80,
         "format": "{icon} {temperatureC}°C",
-        "format-icons": [
-            "",
-            "",
-            ""
-        ]
+        "format-icons": ["", "", ""],
     },
     "backlight": {
         // "device": "acpi_video1",
         "format": "{icon} {percent}%",
-        "format-icons": [
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-        ]
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
     },
     "pulseaudio": {
         "format": "{icon} {volume}%",
@@ -95,14 +75,10 @@
             "phone": "",
             "portable": "",
             "car": "",
-            "default": [
-                " ",
-                " ",
-                " "
-            ]
+            "default": [" ", " ", " "],
         },
         "tooltip": false,
-        "on-click-right": "pavucontrol"
+        "on-click-right": "pavucontrol",
     },
     "pulseaudio#microphone": {
         "format": "{format_source}",
@@ -111,50 +87,38 @@
         "on-click": "pamixer --default-source -t",
         "on-scroll-up": "pamixer --default-source -i 5",
         "on-scroll-down": "pamixer --default-source -d 5",
-        "scroll-step": 5
+        "scroll-step": 5,
     },
     "battery": {
         "interval": 10,
         "states": {
             "good": 95,
             "warning": 40,
-            "critical": 30
+            "critical": 30,
         },
         "format": "{icon} {capacity}%",
         "format-charging": " {capacity}%",
         "format-plugged": " {capacity}%",
         "format-alt": "{time} {icon}",
-        "format-icons": [
-            "󰂎",
-            "󰁺",
-            "󰁻",
-            "󰁼",
-            "󰁽",
-            "󰁾",
-            "󰁿",
-            "󰂀",
-            "󰂁",
-            "󰂂",
-            "󰁹"
-        ],
-        "tooltip": true
+        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "tooltip": true,
     },
     "clock": {
         "interval": 1,
         "format": "{:%I:%M %p  %A %b %d}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "tooltip": true
+        "tooltip": true,
     },
     "memory": {
         "interval": 1,
         "format": "󰘚 {percentage}%",
         "states": {
-            "warning": 85
-        }
+            "warning": 85,
+        },
     },
     "cpu": {
         "interval": 1,
-        "format": "󰍛 {usage}%"
+        "format": "󰍛 {usage}%",
     },
     "network": {
         "interval": 1,
@@ -164,7 +128,7 @@
         "format-disconnected": "󰒢 Disconnected",
         "format-alt": "{ifname} ({ipaddr})",
         "tooltip": false,
-        "on-click-right": "exec nm-connection-editor"
+        "on-click-right": "exec nm-connection-editor",
     },
     "custom/off": {
         "format": "",
@@ -172,15 +136,16 @@
         "menu": "on-click",
         "menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
         "menu-actions": {
+            "lock": "hyprlock",
             "shutdown": "systemctl poweroff",
             "reboot": "systemctl reboot",
             "suspend": "systemctl suspend",
-            "hibernate": "systemctl hibernate"
-        }
+            "hibernate": "systemctl hibernate",
+        },
     },
     "tray": {
         "icon-size": 21,
-        "spacing": 10
+        "spacing": 10,
     },
     // NOTE: When argon is usage change this to work with it
     "custom/playerctl": {
@@ -188,7 +153,7 @@
         "format": "<span font='10' rise='-1000'>󰎈</span>  {} ",
         "format-icons": {
             "Playing": "󰐊",
-            "Paused": "󰏤"
+            "Paused": "󰏤",
         },
         "escape": true,
         "return-type": "json",
@@ -199,6 +164,6 @@
         "smooth-scrolling-threshold": 10,
         "on-scroll-up": "playerctl --player spotify next",
         "on-scroll-down": "playerctl --player spotify previous",
-        "exec": "playerctl --player spotify -a metadata --format '{\"text\": \"{{markup_escape(title)}} - {{artist}}\", \"tooltip\": \"{{status}} : {{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F"
+        "exec": "playerctl --player spotify -a metadata --format '{\"text\": \"{{markup_escape(title)}} - {{artist}}\", \"tooltip\": \"{{status}} : {{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
     },
 }
