@@ -46,7 +46,7 @@ window-padding-x = 8
 window-padding-y = 4
 window-padding-balance = true
 background-opacity = 0.8
-background = #1a1c29
+background = #0a0b10
 
 cursor-style = block
 
@@ -57,6 +57,12 @@ keybind = alt+c=new_tab
 keybind = alt+x=close_tab
 keybind = alt+[=previous_tab
 keybind = alt+]=next_tab
+keybind = alt+o=new_split:right
+keybind = alt+e=new_split:down
+keybind = alt+h=goto_split:left
+keybind = alt+l=goto_split:right
+keybind = alt+k=goto_split:up
+keybind = alt+j=goto_split:down
 
 shell-integration = detect
 shell-integration-features = cursor,sudo

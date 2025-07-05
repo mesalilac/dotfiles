@@ -2,6 +2,7 @@
 alias ed='cd "/run/media/$USER/Toshiba external hard drive/"'
 alias cd='z' # TODO: make `eval "$(zoxide init --cmd cd zsh)"`
 
+alias diff="colordiff"
 alias grep="grep --color=auto"
 alias ccat="highlight --out-format=ansi"
 alias edo="nvim ~/.todo"

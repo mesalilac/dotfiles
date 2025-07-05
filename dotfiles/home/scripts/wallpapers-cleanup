@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+# Cleanup wallpapers directory
+#   get rid of the wallpapers you no longer like
+
+wallpapers_directory="${HOME}/Pictures/wallpapers"
+discarded_directory="${HOME}/Pictures/wallpapers-discarded"
+total_discarded=0
+
+mkdir -pv "${discarded_directory}"
+
+if [[ -d "${wallpapers_directory}" ]]; then
+    wallpapers_list=$(find "${wallpapers_directory}" -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" -o -name "*.webp" -o -name "*.gif" -o -name "*.bmp" -o -name "*.tiff" \) | sort -R)
+
+    for wallpaper in ${wallpapers_list}; do
+        clear
+        kitten icat "${wallpaper}"
+        identify "${wallpaper}"
+        echo ""
+
+        read -rp "Do you want to discard this wallpaper? (d, discard/K, keep/q, quit) " confirm
+
+        if [[ "${confirm}" == "D" || "${confirm}" == "d" ]]; then
+            echo "Discarding: ${wallpaper}"
+            mv -v "${wallpaper}" "${discarded_directory}"
+            total_discarded=$((total_discarded + 1))
+        elif [[ "${confirm}" == "q" || "${confirm}" == "Q" ]]; then
+            echo "Exiting..."
+            break
+        fi
+    done
+fi
+
+echo "Total discarded: ${total_discarded}"
+
