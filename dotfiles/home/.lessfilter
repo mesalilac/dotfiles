@@ -9,6 +9,7 @@ has_cmd() {
 	done
 }
 
+printf "\x1b_Ga=d,d=A\x1b\\"
 mime=$(file -Lbs --mime-type "$1")
 category=${mime%%/*}
 kind=${mime##*/}
@@ -97,7 +98,7 @@ elif [ "$kind" = javascript ]; then
 # https://github.com/wofr06/lesspipe/pull/106
 elif [ "$category" = image ]; then
 	if has_cmd chafa; then
-		chafa --clear --stretch --view-size "${FZF_PREVIEW_COLUMNS}x${FZF_PREVIEW_LINES}" "$1"
+		chafa --relative on --clear --stretch --view-size "${FZF_PREVIEW_COLUMNS}x${FZF_PREVIEW_LINES}" "$1"
 	fi
 	if has_cmd exiftool; then
 		exiftool "$1" | bat --color=always -plyaml
