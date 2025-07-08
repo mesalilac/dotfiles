@@ -1,10 +1,15 @@
 {
     "height": 30,
-    "modules-left": ["custom/launcher", "hyprland/workspaces", "custom/playerctl"],
+    "modules-left": [
+        "custom/launcher",
+        "hyprland/workspaces",
+        "custom/playerctl",
+    ],
     "modules-center": ["clock"],
     "modules-right": [
         "idle_inhibitor",
-        "temperature",
+        // "temperature",
+        "memory",
         "backlight",
         "power-profiles-daemon",
         "pulseaudio",
@@ -38,7 +43,7 @@
         "tooltip": false,
     },
     "power-profiles-daemon": {
-        "format": "{icon}  Power",
+        "format": "{icon} ",
         "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
         "tooltip": true,
         "format-icons": {
@@ -49,8 +54,9 @@
         },
     },
     "temperature": {
-        // "thermal-zone": 2,
-        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "thermal-zone": 2,
+        "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        // "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon7/temp1_input",
         "critical-threshold": 80,
         "format": "{icon} {temperatureC}°C",
         "format-icons": ["", "", ""],
@@ -115,6 +121,7 @@
         "states": {
             "warning": 85,
         },
+        "on-click": "resources",
     },
     "cpu": {
         "interval": 1,

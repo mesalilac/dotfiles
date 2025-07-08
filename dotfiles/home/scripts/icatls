@@ -1,0 +1,6 @@
+#!/bin/sh
+
+for file in $(fd -tf -e jpg -e jpeg -e png .); do
+    echo "${file}"
+    kitten icat --align=right --use-window-size 10,10,800,800 "${file}"
+done

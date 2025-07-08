@@ -12,12 +12,39 @@ HISTFILE=~/.zsh_history
 fpath+="$ZDOTDIR/.zfunc"
 
 autoload -U compinit
-zstyle ':completion:*' menu select
+# zstyle ':completion:*' menu select
+# disable sort when completing `git checkout`
+zstyle ':completion:*:git-checkout:*' sort false
+# set descriptions format to enable group support
+# NOTE: don't use escape sequences (like '%F{red}%d%f') here, fzf-tab will ignore them
+zstyle ':completion:*:descriptions' format '[%d]'
+# set list-colors to enable filename colorizing
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# force zsh not to show completion menu, which allows fzf-tab to capture the unambiguous prefix
+# zstyle ':completion:*' menu no
+# preview directory's content with eza when completing cd
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+# custom fzf flags
+# NOTE: fzf-tab does not follow FZF_DEFAULT_OPTS by default
+zstyle ':fzf-tab:*' fzf-flags --color=fg:1,fg+:2 --bind=tab:accept
+# To make fzf-tab follow FZF_DEFAULT_OPTS.
+# NOTE: This may lead to unexpected behavior since some flags break this plugin. See Aloxaf/fzf-tab#455.
+# zstyle ':fzf-tab:*' use-fzf-default-opts yes
+# switch group using `<` and `>`
+zstyle ':fzf-tab:*' switch-group '<' '>'
 zmodload zsh/complist
 compinit
 _comp_options+=(globdots)
 setopt autocd
 eval "$(zoxide init zsh)"
+
+autoload -Uz add-zsh-hook
+
+clear_icat_images() {
+    printf "\x1b_Ga=d,d=A\x1b\\"
+}
+
+add-zsh-hook precmd clear_icat_images
 
 autoload -Uz vcs_info
 precmd() {
@@ -88,6 +115,8 @@ source "${ZDOTDIR}/prompt_purification.zsh"
 plug "zsh-users/zsh-autosuggestions"
 plug "zsh-users/zsh-syntax-highlighting"
 plug "djui/alias-tips"
+plug "Aloxaf/fzf-tab"
+plug "Freed-Wu/fzf-tab-source"
 
 # bun completions
 # [ -f "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
