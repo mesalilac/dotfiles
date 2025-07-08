@@ -89,6 +89,7 @@ copy "${HOME}/.zshenv"                                          "home/"
 copy "${HOME}/.gitconfig"                                       "home/"
 copy "${HOME}/electron-flags.conf"                              "home/"
 copy "${HOME}/electron13-flags.conf"                            "home/"
+copy "${HOME}/.lessfilter"                                      "home/"
 
 copy "${HOME}/.local/share/fonts"                               ".local/share/"
 copy "${HOME}/.local/share/nemo"                                ".local/share/"
