@@ -12,24 +12,38 @@ mkdir -pv "${discarded_directory}"
 if [[ -d "${wallpapers_directory}" ]]; then
     wallpapers_list=$(find "${wallpapers_directory}" -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" -o -name "*.webp" -o -name "*.gif" -o -name "*.bmp" -o -name "*.tiff" \) | sort -R)
 
-    for wallpaper in ${wallpapers_list}; do
-        clear
-        kitten icat "${wallpaper}"
-        identify "${wallpaper}"
-        echo ""
+#     for wallpaper in ${wallpapers_list}; do
+#         clear
+#         kitten icat "${wallpaper}"
+#         identify "${wallpaper}"
+#         echo ""
 
-        read -rp "Do you want to discard this wallpaper? (d, discard/K, keep/q, quit) " confirm
+#         read -rp "Do you want to discard this wallpaper? (d, discard/K, keep/q, quit) " confirm
 
-        if [[ "${confirm}" == "D" || "${confirm}" == "d" ]]; then
-            echo "Discarding: ${wallpaper}"
-            mv -v "${wallpaper}" "${discarded_directory}"
-            total_discarded=$((total_discarded + 1))
-        elif [[ "${confirm}" == "q" || "${confirm}" == "Q" ]]; then
-            echo "Exiting..."
-            break
-        fi
+#         if [[ "${confirm}" == "D" || "${confirm}" == "d" ]]; then
+#             echo "Discarding: ${wallpaper}"
+#             mv -v "${wallpaper}" "${discarded_directory}"
+#             total_discarded=$((total_discarded + 1))
+#         elif [[ "${confirm}" == "q" || "${confirm}" == "Q" ]]; then
+#             echo "Exiting..."
+#             break
+#         fi
+#     done
+#
+
+    discarded=$(echo "${wallpapers_list}" | \
+        fzf \
+        --multi \
+        --preview 'kitten icat --clear --transfer-mode=memory --stdin=no --place=${FZF_PREVIEW_COLUMNS}x${FZF_PREVIEW_LINES}@0x0  {}' \
+        --preview-window right:50% \
+        --layout reverse
+    )
+
+    for w in ${discarded}; do
+        mv -v "${w}" "${discarded_directory}"
+        total_discarded=$((total_discarded + 1))
     done
+
+    echo "discarded: '${discarded}'"
+    echo "Total discarded: ${total_discarded}"
 fi
-
-echo "Total discarded: ${total_discarded}"
-
