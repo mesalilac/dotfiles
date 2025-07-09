@@ -27,8 +27,13 @@ alias el='e -l'
 alias ea='e -a'
 alias ela='e -la'
 
-alias ls='ls --color=auto --group-directories-first'
-alias la="ls -A"
-alias ll="ls -lh"
-alias lla="ls -Alh"
+# alias ls='ls --color=auto --group-directories-first'
+# alias la="ls -A"
+# alias ll="ls -lh"
+# alias lla="ls -Alh"
+
+alias ls='e'
+alias la="ea"
+alias ll="el"
+alias lla="ela"
 
