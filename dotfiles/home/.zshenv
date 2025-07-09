@@ -29,7 +29,8 @@ fi
 export RUST_SRC_PATH="$HOME/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library"
 
 # https://github.com/mozilla/sccache
-export RUSTC_WRAPPER=~/.cargo/bin/sccache
+# export RUSTC_WRAPPER=~/.cargo/bin/sccache
+export RUSTC_WRAPPER=/usr/sbin/sccache
 
 path=(
     "$HOME/.deno/bin"
