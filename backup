@@ -73,6 +73,7 @@ copy "${HOME}/.config/picom.conf"                               ".config/"
 copy "${HOME}/.config/gromit-mpx.ini"                           ".config/"
 copy "${HOME}/.config/scout.toml"                               ".config/"
 copy "${HOME}/.config/spotify-launcher.conf"                    ".config/"
+copy "${HOME}/.config/mimeapps.list"                            ".config/"
 
 copy "${HOME}/scripts"                                          "home/"
 copy "${HOME}/.themes"                                          "home/"
