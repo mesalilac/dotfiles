@@ -97,9 +97,27 @@ tooltip label {
 #pulseaudio#microphone,
 #network,
 #tray,
-#battery {
+#battery,
+#custom-warp-cli-status,
+#custom-notification {
     padding-left: 15px;
     padding-right: 15px;
+}
+
+#custom-warp-cli-status {
+    color: rgb(150, 205, 251);
+}
+
+#custom-warp-cli-status.connecting {
+    color: rgb(221, 182, 242);
+}
+
+#custom-warp-cli-status.connected {
+    color: rgb(181, 232, 224);
+}
+
+#custom-warp-cli-status.disconnected {
+    color: rgb(242, 143, 173);
 }
 
 #mode {
