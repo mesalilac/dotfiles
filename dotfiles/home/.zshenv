@@ -8,6 +8,7 @@ export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:="$HOME/.config"}
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export LESSHISTFILE=-
 export TMUX_PLUGIN_MANAGER_PATH="${HOME}/.tmux/plugins/tpm"
+export GRIM_DEFAULT_DIR="${HOME}/Pictures/screenshots"
 
 export EDITOR="nvim"
 export TERMINAL="alacritty"
