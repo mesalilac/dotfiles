@@ -1,3 +1,3 @@
 #!/bin/bash
 
-cd $(fd -t d -d 2 . ~/dev | fzf --reverse --ansi --preview "bat --color=always --style header {}README.md 2> /dev/null || tree -CL 1 {}") && clear
+cd $(fd -t d -d 2 . ~/dev | fzf --reverse --ansi --preview "bat --color=always --style header {}README.md 2> /dev/null || ~/.lessfilter {}") && clear
