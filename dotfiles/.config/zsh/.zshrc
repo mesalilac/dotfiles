@@ -117,6 +117,7 @@ plug "zsh-users/zsh-syntax-highlighting"
 plug "djui/alias-tips"
 plug "Aloxaf/fzf-tab"
 plug "Freed-Wu/fzf-tab-source"
+plug "MichaelAquilina/zsh-autoswitch-virtualenv"
 
 # bun completions
 # [ -f "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"

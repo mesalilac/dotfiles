@@ -1,3 +1,8 @@
+prcm() {
+    gh pr create -f
+    gh pr merge -md
+}
+
 pwd-copy() {
     pwd | xclip -selection clipboard
 }
