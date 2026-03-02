@@ -49,8 +49,8 @@ background-opacity = 0.8
 background = #0a0b10
 
 cursor-style = block
-
 font-family = "FantasqueSansM Nerd Font"
+# font-family = "Iosk Nerd Font Mono"
 font-size = 16
 
 keybind = alt+c=new_tab
