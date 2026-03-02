@@ -3,6 +3,7 @@ if [[ -z $DISPLAY && $(tty) = "/dev/tty1" ]]; then
 
     # exec startx
     #exec sway
-    exec Hyprland
+    # exec Hyprland
+    exec start-hyprland
 fi
 

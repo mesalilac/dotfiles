@@ -1,5 +1,5 @@
 [user]
-	email = bmjfdrh@gmail.com
+	email = 53495583+mesalilac@users.noreply.github.com
     name = Abdalrzag Eisa
     signingkey = 4CD5A78B36195BC8
 
@@ -14,6 +14,10 @@
 
 [core]
 	filemode = false
+    editor = nvim
 
 [push]
 	autoSetupRemote = true
+
+[init]
+    defaultBranch = main
