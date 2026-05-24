@@ -14,10 +14,22 @@
 
 [core]
 	filemode = false
-    editor = nvim
+    autocrlf = false
+	editor = zed --wait
+	pager = delta
+	longpaths = true
 
 [push]
 	autoSetupRemote = true
 
 [init]
     defaultBranch = main
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	navigate = true
+	dark = true
+
+[merge]
+	conflictStyle = zdiff3
